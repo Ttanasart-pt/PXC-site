@@ -1,0 +1,162 @@
+:root {
+    --main_dkblack:	#191925;
+    --main_mdblack:	#1e1e2c;
+    --main_black:	#272736;
+    --main_dkgrey:	#3b3b4e;
+    --main_grey:	#6d6d81;
+    --main_ltgrey:	#7e7e8f;
+    --main_white:	#d6d6e8;
+
+    --accent: #ff9166;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;600;700&display=swap');
+
+body {
+    background-color: var(--main_mdblack);
+    background-image: url("./src/bg.png");
+
+    margin: 16px;
+}
+
+h1 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--accent);
+    margin: 0;
+}
+
+p {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--main_white);
+    margin: 0;
+}
+
+iframe {
+    border: none;
+}
+
+.main {
+    width:   min(75vw, 800px);
+    padding: 16px;
+    margin:  auto;
+
+    display: flex;
+    flex-direction:  column;
+    align-items:     center;
+    justify-content: center;
+}
+
+p.subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--main_ltgrey);
+
+    margin: 16px 0 32px 0;
+}
+
+div.main-card {
+    width:  100%;
+    height: 204px;
+    margin: 32px;
+    padding: 4px;
+
+    display:         flex;
+    flex-direction:  row;
+    align-items:     center;
+    justify-content: space-between;
+
+    background-color: var(--main_black);
+    outline:          1px solid var(--main_dkgrey);
+    border-radius:    4px;
+    box-shadow:       0 4px 8px #00000040;
+}
+
+div.main-card > div {
+    width: calc(50% - 4px); 
+}
+
+div.main-card-text {
+    padding: 24px 16px;
+
+    display:         flex;
+    flex-direction:  column;
+    align-items:     flex-start;
+}
+
+div.main-card-text h2 {
+    margin-bottom: 8px;
+}
+
+div.text-right {
+    align-items: flex-end;
+}
+
+div.text-right p {
+    text-align: right;
+}
+
+div.main-card-image {
+    height: 100%;
+}
+
+div.main-card-image img {
+    width:  100%;
+    height: 100%;
+
+    border-radius: 2px;
+}
+
+a.image-link {
+    opacity: 0.8;
+}
+
+a.image-link:hover {
+    opacity: 1;
+}
+
+iframe.yt {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 2px;
+}
+
+.header {
+    width:  100%;
+    height: 32px;
+    margin: auto;
+
+    display:         flex;
+    flex-direction:  row-reverse;
+    align-items:     center;
+}
+
+.header-menu a {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+
+    color: var(--main_ltgrey);
+    margin: 0 16px;
+    text-decoration: none;
+}
+
+.header-menu .select {
+    color: var(--main_white);
+}
+
+.footer p {
+    color: var(--main_ltgrey);
+    font-weight: 500;
+}
