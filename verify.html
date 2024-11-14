@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv="refresh" content="1; url=./index.html"/> -->
-    <meta http-equiv="refresh" content="2; url=pxc://patreon_verification_complete"/>
+    <!-- <meta http-equiv="refresh" content="2; url=pxc://patreon_verification_complete"/> -->
     <title>Pixel Composer</title>
 
     <link rel="stylesheet" href="./styles.css">
@@ -15,7 +15,7 @@
 
         <img src="./src/banner.png" alt="Pixel Composer">
 
-        <p class = "subtitle">Verification successful, redirecting...</p>
+        <p class = "subtitle" id="result">Verification successful, redirecting...</p>
         
         <div style="height: 64px;"></div>
         <div class = "footer">
@@ -23,4 +23,22 @@
         </div>
     </div>
 </body>
+
+<script>
+    var _code = new URLSearchParams(window.location.search).get('code');
+    var _state = new URLSearchParams(window.location.search).get('state');
+    var result = document.getElementById("result");
+
+    if (_code == null || _state == null) {
+        result.innerHTML = "Verification failed, redirecting...";
+        window.location.href = "./index.html";
+    } else {
+        result.innerHTML = "Verification successful, redirecting...";
+        var _url = "localhost:" + _state + "?code=" + _code;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", _url, true);
+        xhr.send();
+    }
+</script>
 </html>
