@@ -35,7 +35,7 @@
         result.innerHTML = "Verification successful, redirecting...";
         var _url = "localhost:" + _state + "?code=" + _code;
         var  xhr = new XMLHttpRequest();
-        xhr.open("GET", _url, true);
+        xhr.open("POST", _url, true);
         xhr.send();
     }
 
