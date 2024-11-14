@@ -15,7 +15,7 @@
 
         <img src="./src/banner.png" alt="Pixel Composer">
 
-        <p class = "subtitle" id="result">Verification successful, redirecting...</p>
+        <p class = "subtitle" id="result">Verifying...</p>
         
         <div style="height: 64px;"></div>
         <div class = "footer">
@@ -31,14 +31,14 @@
 
     if (_code == null || _state == null) {
         result.innerHTML = "Verification failed, redirecting...";
-        window.location.href = "./index.html";
     } else {
         result.innerHTML = "Verification successful, redirecting...";
         var _url = "localhost:" + _state + "?code=" + _code;
-
-        var xhr = new XMLHttpRequest();
+        var  xhr = new XMLHttpRequest();
         xhr.open("GET", _url, true);
         xhr.send();
     }
+
+    window.location.href = "./index.html";
 </script>
 </html>
