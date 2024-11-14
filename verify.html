@@ -30,9 +30,9 @@
     var result = document.getElementById("result");
 
     if (_code == null || _state == null) {
-        result.innerHTML = "Verification failed, closing...";
+        result.innerHTML = "Verification failed, redirecting...";
     } else {
-        result.innerHTML = "Verification successful, closing...";
+        result.innerHTML = "Verification successful, redirecting...";
         var _url = "localhost:" + _state;
         
         ws = new WebSocket("ws://" + _url);
@@ -44,7 +44,7 @@
     }
 
     setTimeout(function() {
-        close();
+        window.location.href = "./index.html";
     }, 2000);
 </script>
 </html>
