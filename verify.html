@@ -33,10 +33,14 @@
         result.innerHTML = "Verification failed, redirecting...";
     } else {
         result.innerHTML = "Verification successful, redirecting...";
-        var _url = "localhost:" + _state + "?code=" + _code;
-        var  xhr = new XMLHttpRequest();
-        xhr.open("POST", _url, true);
-        xhr.send();
+        var _url = "localhost:" + _state;
+        
+        ws = new WebSocket("ws://" + _url);
+        ws.onopen = function() {
+            ws.send(JSON.stringify({
+                code: _code
+            }));
+        };
     }
 
     // setTimeout(function() {
