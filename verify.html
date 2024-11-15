@@ -30,9 +30,9 @@
     var result = document.getElementById("result");
 
     if (_code == null || _state == null) {
-        result.innerHTML = "Verification failed, redirecting...";
+        result.innerHTML = "Log-in failed, redirecting...";
     } else {
-        result.innerHTML = "Verification successful, returns to Pixel Composer to continue...";
+        result.innerHTML = "Log-in complete, returns to Pixel Composer to continue...";
         var _url = "localhost:" + _state;
         
         ws = new WebSocket("ws://" + _url);
