@@ -33,7 +33,7 @@
         result.innerHTML = "Log-in failed, please try again...";
     } else {
         result.innerHTML = "Log-in complete, returns to Pixel Composer to continue...";
-        ws = new WebSocket("wss://127.0.0.1:" + _state);
+        ws = new WebSocket("ws://127.0.0.1:" + _state);
         ws.onopen = function() { ws.send(JSON.stringify({ code: _code })); };
     }
 
