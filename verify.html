@@ -33,9 +33,7 @@
         result.innerHTML = "Log-in failed, redirecting...";
     } else {
         result.innerHTML = "Log-in complete, returns to Pixel Composer to continue...";
-        var _url = "localhost:" + _state;
-        
-        ws = new WebSocket("ws://" + _url);
+        ws = new WebSocket("ws://127.0.0.1:" + _state);
         ws.onopen = function() { ws.send(JSON.stringify({ code: _code })); };
     }
 
