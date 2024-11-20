@@ -15,8 +15,17 @@
 
         <img src="./src/banner.png" alt="Pixel Composer">
 
-        <p class = "subtitle" id="result">Verifying...</p>
-        <p class = "subtitle" id="result2"></p>
+        <p class = "subtitle" id="result" style="margin-bottom: 16px;">Verifying...</p>
+        <div id="code" style="display: none;flex-direction: column;align-items: center;">
+            <p class = "subtitle" style="margin-bottom: 12px;">If nothing happens, type</p>
+            <p class="code" id="code_block" style="
+                padding: 8px 16px;
+                background-color: #191925;
+                border-radius: 6px;
+                outline: solid #272736 1px;
+            ">1234567890</p>
+            <p class = "subtitle" style="margin-top: 12px;">in the Pixel Composer app.</p>
+        </div>
         
         <div style="height: 64px;"></div>
         <div class = "footer">
@@ -35,8 +44,11 @@
     } else {
         result.innerHTML = "Log-in complete, returns to Pixel Composer to continue...";
         
-        var result2 = document.getElementById("result2");
-        result2.innerHTML = "If nothing happens, type " + _code + " in the Pixel Composer app.";
+        var code = document.getElementById("code");
+        code.style.display = "flex";
+
+        var code_block = document.getElementById("code_block");
+        code_block.innerHTML = _code;
 
         ws = new WebSocket("ws://127.0.0.1:" + _state);
         ws.onopen = function() { ws.send(JSON.stringify({ code: _code })); };
