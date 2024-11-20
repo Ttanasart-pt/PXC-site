@@ -16,6 +16,7 @@
         <img src="./src/banner.png" alt="Pixel Composer">
 
         <p class = "subtitle" id="result">Verifying...</p>
+        <p class = "subtitle" id="result2"></p>
         
         <div style="height: 64px;"></div>
         <div class = "footer">
@@ -32,10 +33,11 @@
     if (_code == null || _state == null) {
         result.innerHTML = "Log-in failed, please try again...";
     } else {
-        var txt = "Log-in complete, returns to Pixel Composer to continue...\n";
-        txt += "If nothing happens, type " + _code + " in the Pixel Composer app.";
+        result.innerHTML = "Log-in complete, returns to Pixel Composer to continue...";
+        
+        var result2 = document.getElementById("result2");
+        result2.innerHTML = "If nothing happens, type " + _code + " in the Pixel Composer app.";
 
-        result.innerHTML = txt;
         ws = new WebSocket("ws://127.0.0.1:" + _state);
         ws.onopen = function() { ws.send(JSON.stringify({ code: _code })); };
     }
