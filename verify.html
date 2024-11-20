@@ -25,7 +25,7 @@
 </body>
 
 <script>
-    var _code = new URLSearchParams(window.location.search).get('code');
+    var _code  = new URLSearchParams(window.location.search).get('code');
     var _state = new URLSearchParams(window.location.search).get('state');
     var result = document.getElementById("result");
 
@@ -36,15 +36,9 @@
         var _url = "localhost:" + _state;
         
         ws = new WebSocket("ws://" + _url);
-        ws.onopen = function() {
-            ws.send(JSON.stringify({
-                code: _code
-            }));
-        };
+        ws.onopen = function() { ws.send(JSON.stringify({ code: _code })); };
     }
 
-    setTimeout(function() {
-        window.location.href = "./index.html";
-    }, 2000);
+    //setTimeout(function() { window.location.href = "./index.html"; }, 2000);
 </script>
 </html>
