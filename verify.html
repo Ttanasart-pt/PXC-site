@@ -30,7 +30,7 @@
     var result = document.getElementById("result");
 
     if (_code == null || _state == null) {
-        result.innerHTML = "Log-in failed, redirecting...";
+        result.innerHTML = "Log-in failed, please try again...";
     } else {
         result.innerHTML = "Log-in complete, returns to Pixel Composer to continue...";
         ws = new WebSocket("ws://127.0.0.1:" + _state);
