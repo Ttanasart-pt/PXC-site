@@ -39,7 +39,7 @@ for project in projects:
         unit    = "kb"
         divider = 1024
 
-    fileSizeStr = f"{(fileSize/divider):.2} {unit}"
+    fileSizeStr = f"{(fileSize/divider):2f} {unit}"
 
     projectStr = listContent.replace("{{PROJECT_NAME}}", project)
     projectStr = projectStr.replace("{{FILE_URL}}",     fileUrl)
