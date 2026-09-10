@@ -53,6 +53,11 @@ p.subtitle {
     margin: 16px 0 32px 0;
 }
 
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
 iframe {
     border: none;
 }
@@ -118,6 +123,37 @@ div.main-card-image img {
     height: 100%;
 
     border-radius: 2px;
+}
+
+div.showcase-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    width: 80%;
+    margin-bottom: 1rem;
+    
+    img.thumbnail {
+        width : 25%;
+        image-rendering: pixelated;
+    }
+
+    div.description {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            font-family: 'Atkinson Hyperlegible Next', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin: 0;
+        }
+        
+        a.project-download {
+            padding-top: 8px;
+            color: var(--main_ltgrey);
+        }
+    }
 }
 
 a.image-link {

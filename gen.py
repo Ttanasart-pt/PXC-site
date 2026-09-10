@@ -24,9 +24,29 @@ projects.sort(key=lambda x: os.path.getmtime(os.path.join(projectDir, x)), rever
 projectsList = ""
 for project in projects:
     projectPath = os.path.join(projectDir, project)
-    if os.path.isdir(projectPath):
-        projectLink = f'<li><a href="projects/{project}/">{project}</a></li>'
-        projectsList += projectLink + "\n"
+    if not os.path.isdir(projectPath):
+        continue
+
+    fileUrl  = f"projects/{project}/{project}.pxc"
+    fileSize = os.path.getsize(fileUrl)
+
+    unit    = "b"
+    divider = 1
+    if fileSize > 1024 * 1024:
+        unit    = "mb"
+        divider = 1024 * 1024
+    elif fileSize > 1024:
+        unit    = "kb"
+        divider = 1024
+
+    fileSizeStr = f"{(fileSize/divider):.2} {unit}"
+
+    projectStr = listContent.replace("{{PROJECT_NAME}}", project)
+    projectStr = projectStr.replace("{{FILE_URL}}",     fileUrl)
+    projectStr = projectStr.replace("{{FILE_SIZE}}",    fileSizeStr)
+
+    projectsList += projectStr + "\n"
+
 
 content = content.replace("{{CONTENT}}", projectsList)
 
