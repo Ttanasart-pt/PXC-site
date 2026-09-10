@@ -54,6 +54,7 @@ p.subtitle {
 }
 
 a {
+    font-family: 'Atkinson Hyperlegible Next', sans-serif;
     color: var(--accent);
     text-decoration: none;
 }
@@ -133,7 +134,7 @@ div.showcase-block {
     margin-bottom: 1rem;
     
     img.thumbnail {
-        width : 25%;
+        width : 15vw;
         image-rendering: pixelated;
     }
 
@@ -152,6 +153,10 @@ div.showcase-block {
         a.project-download {
             padding-top: 8px;
             color: var(--main_ltgrey);
+
+            &:hover {
+                color: var(--accent);
+            }
         }
     }
 }
