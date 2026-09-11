@@ -1,0 +1,55 @@
+{
+  "thumbnail":null,
+  "alias":"",
+  "author":"MakhamDev",
+  "contact":"",
+  "description":"Slash animation",
+  "deprecated":false,
+  "preview_frames":1.0,
+  "author_steam_id":1046603354.0,
+  "file_id":3698282407.0,
+  "tagMap":null,
+  "name":"",
+  "isDefault":false,
+  "version":117100.0,
+  "tags":[
+    "Project",
+    "Animation",
+    "Effect",
+    "1.20.9.007"
+  ],
+  "hidden":false,
+  "type":1,
+  "displays":[
+    [
+      "Description",
+      {
+      },
+      5.0
+    ],
+    [
+      "Author",
+      {
+      },
+      1.0
+    ],
+    [
+      "Contact info",
+      {
+      },
+      1.0
+    ],
+    [
+      "Alias",
+      {
+      },
+      1.0
+    ],
+    [
+      "Tags",
+      {
+      },
+      1.0
+    ]
+  ]
+}
