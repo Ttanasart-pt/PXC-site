@@ -126,36 +126,45 @@ div.main-card-image img {
     border-radius: 2px;
 }
 
-div.showcase-block {
+div.showcase-grid {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: flex-start;
     gap: 16px;
-    width: 80%;
-    margin-bottom: 1rem;
+    width: 100%;
     
-    img.thumbnail {
-        width : 15vw;
-        image-rendering: pixelated;
-    }
-
-    div.description {
+    div.showcase-item {
         display: flex;
+        width: 20%;
         flex-direction: column;
 
-        h3 {
-            font-family: 'Atkinson Hyperlegible Next', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--accent);
-            margin: 0;
+        img.thumbnail {
+            width : 100%;
+            image-rendering: pixelated;
         }
-        
-        a.project-download {
-            padding-top: 8px;
-            color: var(--main_ltgrey);
 
-            &:hover {
+        div.description {
+
+            display: flex;
+            flex-direction: column;
+    
+            h3 {
+                font-family: 'Atkinson Hyperlegible Next', sans-serif;
+                font-weight: 700;
+                font-size: 1.25rem;
                 color: var(--accent);
+                margin: 0;
+            }
+            
+            a.project-download {
+                padding-top: 8px;
+                color: var(--main_ltgrey);
+    
+                &:hover {
+                    color: var(--accent);
+                }
             }
         }
     }

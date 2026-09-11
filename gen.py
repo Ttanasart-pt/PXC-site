@@ -27,7 +27,15 @@ for project in projects:
     if not os.path.isdir(projectPath):
         continue
 
-    fileUrl  = f"projects/{project}/{project}.pxc"
+    fileDir  = os.path.join(projectDir, project)
+    fileList = os.listdir(fileDir)
+    fileUrl  = ""
+    for _f in fileList:
+        if _f.endswith(".pxc"):
+            fileUrl = os.path.join(fileDir, _f)
+
+    if fileUrl == "":
+        continue
     fileSize = os.path.getsize(fileUrl)
 
     unit    = "b"
@@ -42,8 +50,8 @@ for project in projects:
     fileSizeStr = f"{(fileSize/divider):.2f} {unit}"
 
     projectStr = listContent.replace("{{PROJECT_NAME}}", project)
-    projectStr = projectStr.replace("{{FILE_URL}}",     fileUrl)
-    projectStr = projectStr.replace("{{FILE_SIZE}}",    fileSizeStr)
+    projectStr = projectStr.replace("{{FILE_URL}}",      fileUrl)
+    projectStr = projectStr.replace("{{FILE_SIZE}}",     fileSizeStr)
 
     projectsList += projectStr + "\n"
 
