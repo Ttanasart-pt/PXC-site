@@ -18,6 +18,10 @@
     --transition-duration: 0.1s;
 }
 
+@media (max-width: 800px) { :root { --grid-columns: 3; } }
+@media (max-width: 500px) { :root { --grid-columns: 2; } }
+@media (max-width: 300px) { :root { --grid-columns: 1; } }
+
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@500;600;700&display=swap');
 
 body {
