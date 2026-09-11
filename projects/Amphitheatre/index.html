@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Amphitheatre_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (15.41 kb)</p>
+                            <p>Download .pxc (15.43 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,10 +143,26 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 96, 80, 96, 48);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 96, 80, 96, 48, "./src/gMMDsL3460969E9CSxREc5HI699zxJL5.png");
 drawNode("Revolve Path", "https://docs.pixel-composer.com/nodes/_index/path_revolve.html", 352, 80, 128, 128, "./src/gMMDsd3478830ygSrcZyil6aAsCfAomp.png");
 connect(320, 104, 352, 104);
 drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 32, 336, 128, 16);
@@ -222,7 +238,7 @@ drawNode("Curve", "https://docs.pixel-composer.com/nodes/_index/curve.html", 352
 connect(320, 744, 352, 744);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 32, 272, 128, 16);
 connect(160, 296, 32, 280);
-drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 224, 80, 96, 48);
+drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 224, 80, 96, 48, "./src/gMMEoL1940848SGXRvnodHHkcJesoJsd.png");
 connect(192, 104, 224, 104);
 drawNode("De-Stray", "https://docs.pixel-composer.com/nodes/_index/de_stray.html", 992, 400, 128, 128, "./src/gMMEqo2088961WfhIJ96eHn0vSmzxlRg.png");
 connect(960, 584, 992, 424);

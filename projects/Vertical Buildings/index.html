@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Vertical Buildings_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (17.98 kb)</p>
+                            <p>Download .pxc (18.12 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -51,10 +51,10 @@
             
             <div class="content">
                 <div class="content-wrapper">
-                    <div class="pxc-viewer" id="pxc_viewer" style="width: 1760px; height: 672px;">
-                        <canvas id="pxc_canvas_under" width="3520" height="1344"></canvas>
+                    <div class="pxc-viewer" id="pxc_viewer" style="width: 1792px; height: 736px;">
+                        <canvas id="pxc_canvas_under" width="3584" height="1472"></canvas>
                         <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
-                        <canvas id="pxc_canvas_over" width="3520" height="1344"></canvas>
+                        <canvas id="pxc_canvas_over" width="3584" height="1472"></canvas>
                     </div>
                 </div>
                 
@@ -143,100 +143,117 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
-drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 32, 48, 128, 16);
-drawNode("Scatter", "https://docs.pixel-composer.com/nodes/_index/scatter.html", 656, 128, 128, 128, "./src/gMNCDn7292404dStNIWiLsAtpQVEeAmU.png");
-connect(624, 56, 656, 168);
-connect(480, 168, 656, 184);
-connect(464, 296, 656, 152);
-drawNode("MK Cables", "https://docs.pixel-composer.com/nodes/_index/mk_cable.html", 496, 272, 128, 128, "./src/gMNCG07422128V4yoSPjatt43hJ49i7M.png");
-connect(464, 296, 496, 296);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 656, 272, 128, 128, "./src/gMNCG27425032OPYWZkEkWsKehGX6BlM.png");
-connect(784, 152, 656, 296);
-connect(624, 296, 656, 312);
-drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 816, 288, 128, 16);
-connect(1040, 200, 816, 296);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 976, 272, 128, 128, "./src/gMNCHZ7518218tJPJvrBvBGmxSIYInwp.png");
-connect(944, 280, 976, 296);
-connect(944, 488, 976, 312);
-drawNode("Palette", "https://docs.pixel-composer.com/nodes/_index/palette.html", 816, 112, 96, 48);
-drawNode("Array Get", "https://docs.pixel-composer.com/nodes/_index/array_get.html", 944, 176, 96, 56);
-connect(912, 136, 944, 200);
-connect(912, 216, 944, 216);
-drawNode("Index", "https://docs.pixel-composer.com/nodes/_index/iterator_index.html", 816, 192, 96, 48);
-drawNode("Index", "https://docs.pixel-composer.com/nodes/_index/iterator_index.html", 240, 272, 96, 48);
-drawNode("Number", "https://docs.pixel-composer.com/nodes/_index/number.html", 176, 352, 160, 64);
-drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 368, 272, 96, 56);
-connect(224, 248, 368, 296);
-connect(336, 376, 368, 312);
-drawNode("Area", "https://docs.pixel-composer.com/nodes/_index/area.html", 384, 144, 96, 48);
-connect(352, 168, 384, 168);
-drawNode("Vector2", "https://docs.pixel-composer.com/nodes/_index/vector2.html", 256, 144, 96, 80);
-connect(224, 168, 256, 168);
-drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 128, 224, 96, 48);
-connect(336, 296, 128, 248);
-drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 128, 144, 96, 48);
-connect(224, 248, 128, 168);
-drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 1280, 112, 128, 128, "./src/gMNCMh782607701ADpsVVuJxZXedEbdz.png");
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1440, 272, 128, 128, "./src/gMNCMk7829390g7rE2e7yiCagHCLOEFi.png");
-connect(1568, 136, 1440, 296);
-connect(1408, 296, 1440, 312);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1600, 432, 128, 128, "./src/gMNCMo7833249JP2EY8eOAOIeb2WECx4.png");
-connect(1728, 296, 1600, 456);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 816, 320, 128, 128, "./src/gMNCQ380263761RTLXHqQ4iWRcZ8dflB.png");
-connect(944, 296, 816, 344);
-connect(784, 456, 816, 360);
-drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 192, 80, 128, 16);
-drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 192, 64, 128, 16);
-connect(160, 56, 192, 72);
-drawNode("Array", "https://docs.pixel-composer.com/nodes/_index/array.html", 528, 32, 96, 88, "./src/gMNCSv8199796y7JAVfPGwxnPKPCZBRV.png");
-connect(160, 56, 528, 56);
-connect(480, 72, 528, 72);
-connect(480, 104, 528, 88);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 352, 64, 128, 32);
-connect(320, 72, 352, 72);
-connect(320, 88, 352, 88);
-drawNode("Stripe", "https://docs.pixel-composer.com/nodes/_index/stripe.html", 192, 112, 128, 16);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 352, 96, 128, 32);
-connect(480, 72, 352, 104);
-connect(320, 120, 352, 120);
-drawNode("Edge Detect", "https://docs.pixel-composer.com/nodes/_index/edge_detect.html", 1440, 432, 128, 128, "./src/gMNCZA857372922rDS1oNPLCoSxN8QhF.png");
-connect(1120, 456, 1440, 456);
-drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 1600, 112, 128, 128, "./src/gMNCZG8579242vzslIdh2bCDJ92Qg7Lm.png");
-connect(1568, 296, 1600, 136);
-connect(1568, 456, 1600, 152);
-drawNode("Local Analyze", "https://docs.pixel-composer.com/nodes/_index/local_analyze.html", 992, 432, 128, 128, "./src/gMNCbg87256318PU0meWO1Ph7tiRa9NW.png");
-connect(1136, 296, 992, 456);
-connect(1104, 296, 1136, 296);
-drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 1280, 432, 128, 128, "./src/gMNCdd8842462rFOkPbqg0fN0sjrV0ED.png");
-connect(1120, 456, 1280, 456);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1280, 272, 128, 128, "./src/gMNCdv8859897ItWlPjjefOSJmLsYQXV.png");
-connect(1408, 424, 1280, 296);
-connect(1248, 296, 1280, 312);
-drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 1280, 416, 128, 16);
-connect(1408, 456, 1280, 424);
-drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 1600, 272, 128, 128, "./src/gMNCfB89339761wZQyh7iCW0ZMJTmmNF.png");
-connect(1728, 136, 1600, 296);
-drawNode("Dither", "https://docs.pixel-composer.com/nodes/_index/dither.html", 1440, 112, 128, 128, "./src/gMNCkq9275595jp8c6mfylkLR45PCbZD.png");
-connect(1408, 136, 1440, 136);
-drawNode("MK Cables", "https://docs.pixel-composer.com/nodes/_index/mk_cable.html", 496, 432, 128, 128, "./src/gMNCpQ9549660NnsFhFM2kYDp02dYZfP.png");
-connect(464, 456, 496, 456);
-drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 368, 432, 96, 48);
-connect(464, 296, 368, 456);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 656, 432, 128, 128, "./src/gMNCpj9567972B1jrEGsSPAXYi60W9KS.png");
-connect(784, 296, 656, 456);
-connect(624, 456, 656, 472);
-drawNode("Edge Detect", "https://docs.pixel-composer.com/nodes/_index/edge_detect.html", 816, 512, 128, 128, "./src/gMNCrE9657093n87OqUstTyQduBQ38NN.png");
-connect(784, 152, 816, 536);
-drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 816, 480, 128, 32);
-connect(944, 344, 816, 488);
-connect(944, 536, 816, 504);
-drawNode("Loop Input", "https://docs.pixel-composer.com/nodes/_index/iterate_inline_input.html", 848, 256, 96, 48, "./src/gAUCpS1961032DRbkV435LkY2mrlHsKT.png");
-connect(944, 488, 848, 280);
-drawNode("Loop Output", "https://docs.pixel-composer.com/nodes/_index/iterate_inline_output.html", 1152, 272, 96, 48, "./src/gAUCpS1961033xmUaP7m8APqt2wi7ESd.png");
-connect(1104, 296, 1152, 296);
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 64, 80, 128, 16);
+drawNode("Scatter", "https://docs.pixel-composer.com/nodes/_index/scatter.html", 688, 160, 128, 128, "./src/gMNCDn7292404dStNIWiLsAtpQVEeAmU.png");
+connect(656, 88, 688, 200);
+connect(512, 200, 688, 216);
+connect(496, 328, 688, 184);
+drawNode("MK Cables", "https://docs.pixel-composer.com/nodes/_index/mk_cable.html", 528, 304, 128, 128, "./src/gMNCG07422128V4yoSPjatt43hJ49i7M.png");
+connect(496, 328, 528, 328);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 688, 304, 128, 128, "./src/gMNCG27425032OPYWZkEkWsKehGX6BlM.png");
+connect(816, 184, 688, 328);
+connect(656, 328, 688, 344);
+drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 848, 320, 128, 16);
+connect(1072, 232, 848, 328);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1008, 304, 128, 128, "./src/gMNCHZ7518218tJPJvrBvBGmxSIYInwp.png");
+connect(976, 312, 1008, 328);
+connect(976, 520, 1008, 344);
+drawPolygon([[816,704],[1008,704],[1232,384],[1232,272],[1104,176],[976,112],[688,32],[32,48],[32,128],[176,480],[496,624]], "#88FFE9");
+drawNode("Palette", "https://docs.pixel-composer.com/nodes/_index/palette.html", 848, 144, 96, 48, "./src/gMNCI47547721ffb92medfn1O3xqJQrW.png");
+drawNode("Array Get", "https://docs.pixel-composer.com/nodes/_index/array_get.html", 976, 208, 96, 56, "./src/gMNCII7561219epIgFdEI6QNFpbm5cC5.png");
+connect(944, 168, 976, 232);
+connect(944, 248, 976, 248);
+drawNode("Index", "https://docs.pixel-composer.com/nodes/_index/iterator_index.html", 848, 224, 96, 48, "./src/gMNCIO7567587wgBzVFe89uuR6CrdXDD.png");
+drawNode("Index", "https://docs.pixel-composer.com/nodes/_index/iterator_index.html", 272, 304, 96, 48, "./src/gMNCIn7592275M6AHERX5o8849QdBGvF.png");
+drawNode("Number", "https://docs.pixel-composer.com/nodes/_index/number.html", 208, 384, 160, 64, "./src/gMNCIu7599254BEk7c0qKVj3nIcJgNoS.png");
+drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 400, 304, 96, 56, "./src/gMNCJ07601965giZFWWEYzxg7tV8b0ay.png");
+connect(256, 280, 400, 328);
+connect(368, 408, 400, 344);
+drawNode("Area", "https://docs.pixel-composer.com/nodes/_index/area.html", 416, 176, 96, 48, "./src/gMNCKX7695929W3R6qUYp2UzDWgLXhoz.png");
+connect(384, 200, 416, 200);
+drawNode("Vector2", "https://docs.pixel-composer.com/nodes/_index/vector2.html", 288, 176, 96, 80, "./src/gMNCKw7721331GqXkDqsYt9iBvlqVeYn.png");
+connect(256, 200, 288, 200);
+drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 160, 256, 96, 48, "./src/gMNCL97731990oE2VRdkYz4Xc4rV3Q5O.png");
+connect(368, 328, 160, 280);
+drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 160, 176, 96, 48, "./src/gMNCLX7755816UCLMdlhvBkydL7Kf2ZK.png");
+connect(256, 280, 160, 200);
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 1312, 144, 128, 128, "./src/gMNCMh782607701ADpsVVuJxZXedEbdz.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1472, 304, 128, 128, "./src/gMNCMk7829390g7rE2e7yiCagHCLOEFi.png");
+connect(1600, 168, 1472, 328);
+connect(1440, 328, 1472, 344);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1632, 464, 128, 128, "./src/gMNCMo7833249JP2EY8eOAOIeb2WECx4.png");
+connect(1760, 328, 1632, 488);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 848, 352, 128, 128, "./src/gMNCQ380263761RTLXHqQ4iWRcZ8dflB.png");
+connect(976, 328, 848, 376);
+connect(816, 488, 848, 392);
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 224, 112, 128, 16);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 224, 96, 128, 16);
+connect(192, 88, 224, 104);
+drawNode("Array", "https://docs.pixel-composer.com/nodes/_index/array.html", 560, 64, 96, 88, "./src/gMNCSv8199796y7JAVfPGwxnPKPCZBRV.png");
+connect(192, 88, 560, 88);
+connect(512, 104, 560, 104);
+connect(512, 136, 560, 120);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 384, 96, 128, 32);
+connect(352, 104, 384, 104);
+connect(352, 120, 384, 120);
+drawNode("Stripe", "https://docs.pixel-composer.com/nodes/_index/stripe.html", 224, 144, 128, 16);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 384, 128, 128, 32);
+connect(512, 104, 384, 136);
+connect(352, 152, 384, 152);
+drawNode("Edge Detect", "https://docs.pixel-composer.com/nodes/_index/edge_detect.html", 1472, 464, 128, 128, "./src/gMNCZA857372922rDS1oNPLCoSxN8QhF.png");
+connect(1152, 488, 1472, 488);
+drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 1632, 144, 128, 128, "./src/gMNCZG8579242vzslIdh2bCDJ92Qg7Lm.png");
+connect(1600, 328, 1632, 168);
+connect(1600, 488, 1632, 184);
+drawNode("Local Analyze", "https://docs.pixel-composer.com/nodes/_index/local_analyze.html", 1024, 464, 128, 128, "./src/gMNCbg87256318PU0meWO1Ph7tiRa9NW.png");
+connect(1168, 328, 1024, 488);
+connect(1136, 328, 1168, 328);
+drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 1312, 464, 128, 128, "./src/gMNCdd8842462rFOkPbqg0fN0sjrV0ED.png");
+connect(1152, 488, 1312, 488);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1312, 304, 128, 128, "./src/gMNCdv8859897ItWlPjjefOSJmLsYQXV.png");
+connect(1440, 456, 1312, 328);
+connect(1280, 328, 1312, 344);
+drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 1312, 448, 128, 16);
+connect(1440, 488, 1312, 456);
+drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 1632, 304, 128, 128, "./src/gMNCfB89339761wZQyh7iCW0ZMJTmmNF.png");
+connect(1760, 168, 1632, 328);
+drawNode("Dither", "https://docs.pixel-composer.com/nodes/_index/dither.html", 1472, 144, 128, 128, "./src/gMNCkq9275595jp8c6mfylkLR45PCbZD.png");
+connect(1440, 168, 1472, 168);
+drawNode("MK Cables", "https://docs.pixel-composer.com/nodes/_index/mk_cable.html", 528, 464, 128, 128, "./src/gMNCpQ9549660NnsFhFM2kYDp02dYZfP.png");
+connect(496, 488, 528, 488);
+drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 400, 464, 96, 48, "./src/gMNCpY95576896atxOtG2Ia1YDDQVpTp.png");
+connect(496, 328, 400, 488);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 688, 464, 128, 128, "./src/gMNCpj9567972B1jrEGsSPAXYi60W9KS.png");
+connect(816, 328, 688, 488);
+connect(656, 488, 688, 504);
+drawNode("Edge Detect", "https://docs.pixel-composer.com/nodes/_index/edge_detect.html", 848, 544, 128, 128, "./src/gMNCrE9657093n87OqUstTyQduBQ38NN.png");
+connect(816, 184, 848, 568);
+drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 848, 512, 128, 32);
+connect(976, 376, 848, 520);
+connect(976, 568, 848, 536);
+drawNode("Loop Input", "https://docs.pixel-composer.com/nodes/_index/iterate_inline_input.html", 880, 288, 96, 48, "./src/gAUCpS1961032DRbkV435LkY2mrlHsKT.png");
+connect(976, 520, 880, 312);
+drawNode("Loop Output", "https://docs.pixel-composer.com/nodes/_index/iterate_inline_output.html", 1184, 304, 96, 48, "./src/gAUCpS1961033xmUaP7m8APqt2wi7ESd.png");
+connect(1136, 328, 1184, 328);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Curtain_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (10.01 kb)</p>
+                            <p>Download .pxc (10.12 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -171,17 +187,17 @@ connect(640, 56, 672, 216);
 connect(800, 376, 672, 232);
 drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 672, 352, 128, 128, "./src/gS77iJ167174UGZDZQ2183uEX3tB9VGK.png");
 connect(800, 536, 672, 376);
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 128, 32, 96, 48);
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 128, 112, 96, 48);
-drawNode("Bridge Path", "https://docs.pixel-composer.com/nodes/_index/path_bridge.html", 256, 80, 96, 72);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 128, 32, 96, 48, "./src/gS77j0208498kG57r2x0eh1tkWWfsF34.png");
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 128, 112, 96, 48, "./src/gS77jF223044tGiAtAAA0RlCjLram0JD.png");
+drawNode("Bridge Path", "https://docs.pixel-composer.com/nodes/_index/path_bridge.html", 256, 80, 96, 72, "./src/gS77jc245597CLvw03h5PhzHv7DB4RQy.png");
 connect(224, 56, 256, 104);
 connect(224, 136, 256, 120);
-drawNode("Wave Path", "https://docs.pixel-composer.com/nodes/_index/path_wave.html", 384, 112, 96, 48);
+drawNode("Wave Path", "https://docs.pixel-composer.com/nodes/_index/path_wave.html", 384, 112, 96, 48, "./src/gS77jv265429zNRWhcuwg38Gitpzl4nr.png");
 connect(352, 104, 384, 136);
 drawNode("Map Path", "https://docs.pixel-composer.com/nodes/_index/path_map.html", 512, 192, 128, 128, "./src/gS77kA278291x9gEbDZFJsfbzjtpGYiB.png");
 connect(480, 136, 512, 232);
 connect(480, 216, 512, 216);
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 224, 672, 96, 48);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 224, 672, 96, 48, "./src/gS78Zm1419184m7Jw3Tpn7G4gzOe3CB7.png");
 drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 352, 672, 128, 128, "./src/gS78a11432263ZNZ0fWzOBccNzhjMyDb.png");
 connect(320, 696, 352, 712);
 drawNode("Colorize", "https://docs.pixel-composer.com/nodes/_index/colorize.html", 512, 672, 128, 128, "./src/gS78aW1462744veBJvZl0rnkz9jTemuj.png");

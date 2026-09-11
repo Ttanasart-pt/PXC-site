@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Plasma Ball_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (33.52 kb)</p>
+                            <p>Download .pxc (34.62 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -249,11 +265,12 @@ connect(608, 392, 512, 376);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 976, 288, 128, 128, "./src/gS25pw318119USCrdUn0jdM6vsx9z0jj.png");
 connect(944, 312, 976, 312);
 connect(944, 328, 976, 328);
+drawPolygon([[608,576],[800,576],[976,544],[1136,448],[1184,352],[1184,272],[1136,256],[944,256],[352,288],[352,464]], "#88FFE9");
 drawNode("Loop Input", "https://docs.pixel-composer.com/nodes/_index/iterate_inline_input.html", 848, 304, 96, 16);
 connect(944, 328, 848, 312);
 drawNode("Loop Output", "https://docs.pixel-composer.com/nodes/_index/iterate_inline_output.html", 1136, 304, 96, 16);
 connect(1104, 312, 1136, 312);
-drawNode("Index", "https://docs.pixel-composer.com/nodes/_index/iterator_index.html", 384, 320, 96, 48);
+drawNode("Index", "https://docs.pixel-composer.com/nodes/_index/iterator_index.html", 384, 320, 96, 48, "./src/gS25qZ3555275CECYvjb5jSWtg2f3FTq.png");
 drawNode("Random", "https://docs.pixel-composer.com/nodes/_index/random.html", 512, 336, 96, 16);
 connect(480, 424, 512, 344);
 drawNode("Round", "https://docs.pixel-composer.com/nodes/_index/math.html", 512, 320, 96, 16);
@@ -285,7 +302,7 @@ drawNode("Loop Input", "https://docs.pixel-composer.com/nodes/_index/iterate_inl
 connect(944, 664, 848, 632);
 drawNode("Loop Output", "https://docs.pixel-composer.com/nodes/_index/iterate_inline_output.html", 1136, 624, 96, 16);
 connect(1104, 632, 1136, 632);
-drawNode("Index", "https://docs.pixel-composer.com/nodes/_index/iterator_index.html", 384, 672, 96, 48);
+drawNode("Index", "https://docs.pixel-composer.com/nodes/_index/iterator_index.html", 384, 672, 96, 48, "./src/gS26MW252990xEfRQEK4YHeQipAggMeG.png");
 drawNode("Random", "https://docs.pixel-composer.com/nodes/_index/random.html", 512, 704, 96, 16);
 connect(480, 776, 512, 712);
 drawNode("Round", "https://docs.pixel-composer.com/nodes/_index/math.html", 512, 688, 96, 16);
@@ -298,6 +315,7 @@ drawNode("Random", "https://docs.pixel-composer.com/nodes/_index/random.html", 5
 connect(480, 776, 512, 776);
 drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 384, 768, 96, 16);
 connect(480, 696, 384, 776);
+drawPolygon([[608,928],[800,928],[976,880],[1136,768],[1184,672],[1184,592],[1136,576],[944,576],[352,640],[352,816]], "#88FFE9");
 drawNode("Sample Path", "https://docs.pixel-composer.com/nodes/_index/path_sample.html", 640, 464, 96, 32);
 connect(768, 360, 640, 472);
 drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 32, 656, 128, 32);
@@ -327,9 +345,9 @@ connect(736, 824, 640, 872);
 connect(736, 840, 640, 888);
 drawNode("Sample Path", "https://docs.pixel-composer.com/nodes/_index/path_sample.html", 640, 816, 96, 32);
 connect(768, 728, 640, 824);
-drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 1952, 32, 128, 128, "./src/gS270J1809473Yozn7aPKyOwYi59Xrl7.png");
 drawNode("Bloom", "https://docs.pixel-composer.com/nodes/_index/bloom.html", 2416, 320, 128, 128, "./src/gS26qG1326862OrAXLyefyFFMP4rrM8j.png");
 connect(2544, 504, 2416, 344);
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 1952, 32, 128, 128, "./src/gS270J1809473Yozn7aPKyOwYi59Xrl7.png");
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

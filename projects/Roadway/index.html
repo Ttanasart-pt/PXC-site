@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Roadway_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (13.48 kb)</p>
+                            <p>Download .pxc (13.52 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,10 +143,26 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 80, 544, 96, 48);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 80, 544, 96, 48, "./src/gF31km540731SrGoMFlXw1xQ98cQPfrH.png");
 drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 208, 528, 128, 128, "./src/gF31lD5656881scyZoJIiIVfSvSnELgT.png");
 connect(176, 568, 208, 568);
 drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 368, 368, 128, 128, "./src/gF31lo602549rWIsskXqYwtfjKA3eTMU.png");

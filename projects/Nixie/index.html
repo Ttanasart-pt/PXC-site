@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Nixie_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (17.97 kb)</p>
+                            <p>Download .pxc (18.05 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,13 +143,29 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
 drawNode("Revolve Path", "https://docs.pixel-composer.com/nodes/_index/path_revolve.html", 192, 560, 128, 128, "./src/gMQE7d8286849sSvQlro2aiVBfrXtxlL.png");
 connect(160, 584, 192, 584);
-drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 64, 640, 96, 48);
-drawNode("Path Extends", "https://docs.pixel-composer.com/nodes/_index/path_extends.html", 64, 560, 96, 48);
+drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 64, 640, 96, 48, "./src/gMQE7j8292240tkn2NqYBLVLNcsxwk5w.png");
+drawNode("Path Extends", "https://docs.pixel-composer.com/nodes/_index/path_extends.html", 64, 560, 96, 48, "./src/gMQE828309680W8qesL6Igh5eQL6Htbv.png");
 connect(160, 664, 64, 584);
 drawNode("Texture Remap", "https://docs.pixel-composer.com/nodes/_index/texture_remap.html", 352, 384, 128, 128, "./src/gMQE8V8338928TvcxUNPTua3Q517tAtc.png");
 connect(320, 408, 352, 408);
@@ -185,7 +201,7 @@ connect(640, 424, 832, 600);
 drawNode("Revolve Path", "https://docs.pixel-composer.com/nodes/_index/path_revolve.html", 512, 880, 128, 128, "./src/gMQEJh9011127mpj5CQwO89vt9fuNcDX.png");
 connect(464, 904, 512, 904);
 connect(336, 920, 512, 920);
-drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 368, 880, 96, 48);
+drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 368, 880, 96, 48, "./src/gMQEJk9013628JNE1lbrPRkyT3I31M1i.png");
 drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 208, 896, 128, 128, "./src/gMQEK99036346AoQPZ3U3N2FAw9tm7Yh.png");
 drawNode("Repeat", "https://docs.pixel-composer.com/nodes/_index/repeat.html", 672, 880, 128, 128, "./src/gMQEKk9073877WOuTzpBmJjWNt0hDpIY.png");
 connect(640, 904, 672, 904);
@@ -222,7 +238,10 @@ connect(960, 1064, 992, 1064);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1312, 864, 128, 128, "./src/gMQEeQ10253925pXT0Pgc9kQN4lR4ypg.png");
 connect(1440, 1048, 1312, 888);
 connect(960, 1064, 1312, 904);
-drawNode("Palette", "https://docs.pixel-composer.com/nodes/_index/palette.html", 1024, 256, 96, 48);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1312, 224, 128, 128, "./src/gMQEeo10277640eXqGczFpjjozQQfJhu.png");
+connect(1440, 408, 1312, 248);
+connect(1120, 280, 1312, 280);
+drawNode("Palette", "https://docs.pixel-composer.com/nodes/_index/palette.html", 1024, 256, 96, 48, "./src/gMQEjX10560731p5oK2rEFNb6QaXtGHL.png");
 drawNode("FXAA", "https://docs.pixel-composer.com/nodes/_index/fxaa.html", 1312, 544, 128, 128, "./src/gMQEkJ106070533BfO9XBWO7SUfBshQE.png");
 connect(1440, 728, 1312, 568);
 drawNode("Random", "https://docs.pixel-composer.com/nodes/_index/random.html", 544, 1088, 96, 16);
@@ -247,9 +266,6 @@ connect(640, 232, 672, 232);
 connect(640, 360, 672, 248);
 drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 1312, 384, 128, 128, "./src/gAUDdc7211976nFPrNXCKNhAsz6118pp.png");
 connect(1440, 568, 1312, 408);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1312, 224, 128, 128, "./src/gMQEeo10277640eXqGczFpjjozQQfJhu.png");
-connect(1440, 408, 1312, 248);
-connect(1120, 280, 1312, 280);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

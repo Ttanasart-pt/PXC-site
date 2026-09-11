@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Eifel_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (16.70 kb)</p>
+                            <p>Download .pxc (16.64 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -192,12 +208,13 @@ drawNode("Fluffify", "https://docs.pixel-composer.com/nodes/_index/fluffify.html
 connect(832, 56, 864, 56);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 864, 352, 128, 128, "./src/gJACbT76576755SEuBV593pTlCz0hNpU.png");
 connect(832, 376, 864, 376);
-drawNode("Trunk", "https://docs.pixel-composer.com/nodes/_index/mk_tree_root.html", 416, 688, 96, 48);
+drawPolygon([[464,768],[544,768],[608,688],[608,496],[384,496],[384,696]], "#50EB17");
+drawNode("Trunk", "https://docs.pixel-composer.com/nodes/_index/mk_tree_root.html", 416, 688, 96, 48, "./src/gJACef7849613ZmH9qOBdYMAjDVnG4GX.png");
 drawNode("Render Tree", "https://docs.pixel-composer.com/nodes/_index/mk_tree_render.html", 544, 528, 128, 128, "./src/gJACef7849619gQzXeTtwVme4c3VTHg1.png");
 connect(512, 552, 544, 552);
-drawNode("Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_branch.html", 416, 608, 96, 56);
+drawNode("Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_branch.html", 416, 608, 96, 56, "./src/gJACfM78902643qjLUZt7H7PwLGWqxe1.png");
 connect(512, 712, 416, 632);
-drawNode("Leaves", "https://docs.pixel-composer.com/nodes/_index/mk_tree_leaf.html", 416, 528, 96, 56);
+drawNode("Leaves", "https://docs.pixel-composer.com/nodes/_index/mk_tree_leaf.html", 416, 528, 96, 56, "./src/gJACgZ7963704ZS5PoVBWFrf1R3QPRwx.png");
 connect(512, 648, 416, 552);
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 864, 528, 128, 128, "./src/gJACkM8190774CXwJuLuEmLRPdJWEy8L.png");
 connect(832, 552, 864, 552);

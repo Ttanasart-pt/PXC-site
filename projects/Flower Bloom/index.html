@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Flower Bloom_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (14.67 kb)</p>
+                            <p>Download .pxc (14.72 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -182,12 +198,12 @@ drawNode("Level", "https://docs.pixel-composer.com/nodes/_index/level.html", 736
 connect(864, 216, 736, 232);
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 896, 368, 128, 128, "./src/gML8tS238708flM40kIZsrrUYTTaMTyP.png");
 connect(1024, 232, 896, 392);
-drawNode("Armature Create", "https://docs.pixel-composer.com/nodes/_index/armature.html", 160, 32, 96, 96);
-drawNode("Armature Stagger", "https://docs.pixel-composer.com/nodes/_index/armature_pose_stagger.html", 288, 32, 96, 96);
+drawNode("Armature Create", "https://docs.pixel-composer.com/nodes/_index/armature.html", 160, 32, 96, 96, "./src/gML8v033021736fIYQ7ADbwVdCtvSQ2b.png");
+drawNode("Armature Stagger", "https://docs.pixel-composer.com/nodes/_index/armature_pose_stagger.html", 288, 32, 96, 96, "./src/gML8wC402077vIcxOK5Tx9rdeILuVmuW.png");
 connect(256, 56, 288, 56);
-drawNode("Armature Stagger", "https://docs.pixel-composer.com/nodes/_index/armature_pose_stagger.html", 416, 32, 96, 96);
+drawNode("Armature Stagger", "https://docs.pixel-composer.com/nodes/_index/armature_pose_stagger.html", 416, 32, 96, 96, "./src/gML90X543745BIRV94KtkApeBXUC5G5R.png");
 connect(384, 56, 416, 56);
-drawNode("Armature Path", "https://docs.pixel-composer.com/nodes/_index/armature_path.html", 544, 32, 96, 96);
+drawNode("Armature Path", "https://docs.pixel-composer.com/nodes/_index/armature_path.html", 544, 32, 96, 96, "./src/gML90s564080VfFeFbntr72nZ2pI04HI.png");
 connect(512, 56, 544, 56);
 drawNode("Curve", "https://docs.pixel-composer.com/nodes/_index/curve.html", 192, 480, 128, 128, "./src/gML92l677111Y62nt3pkhiBr7I0YnBBo.png");
 connect(160, 504, 192, 504);
@@ -206,6 +222,8 @@ drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 7
 connect(864, 456, 736, 472);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 1056, 368, 128, 128, "./src/gML98t1045841Xn1dNd7n5Vi0RpsV1VV.png");
 connect(1024, 520, 1056, 392);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1216, 528, 128, 128, "./src/gML99A1060504vZQRUlLvNrJZ1Ayt5Ou.png");
+connect(1344, 392, 1216, 552);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 896, 48, 128, 128, "./src/gML9HY15646226oGhq1L7Rr62XIaxAdU.png");
 connect(864, 232, 896, 72);
 connect(864, 472, 896, 88);
@@ -224,8 +242,6 @@ drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 1
 connect(1184, 392, 1056, 520);
 drawNode("Threshold", "https://docs.pixel-composer.com/nodes/_index/threshold.html", 896, 512, 128, 32);
 connect(1024, 392, 896, 520);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1216, 528, 128, 128, "./src/gML99A1060504vZQRUlLvNrJZ1Ayt5Ou.png");
-connect(1344, 392, 1216, 552);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

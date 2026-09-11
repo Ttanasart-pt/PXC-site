@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Slicing Toast_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (15.35 kb)</p>
+                            <p>Download .pxc (15.57 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -160,7 +176,7 @@ connect(816, 408, 848, 424);
 connect(816, 584, 848, 440);
 drawNode("Warp", "https://docs.pixel-composer.com/nodes/_index/warp.html", 528, 560, 128, 128, "./src/gY2CQW1805038LkhfKJuDeMHMP1Pk2si.png");
 connect(496, 424, 528, 584);
-drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 384, 896, 96, 48);
+drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 384, 896, 96, 48, "./src/gY2CYw2310409TSbZgdQ60apeJOI3uIQ.png");
 connect(480, 840, 384, 920);
 drawNode("Map Path", "https://docs.pixel-composer.com/nodes/_index/path_map.html", 528, 800, 128, 128, "./src/gY2CZ42316882GWulyJ0PBnVo8xlM85j.png");
 connect(480, 840, 528, 840);
@@ -168,7 +184,7 @@ connect(656, 744, 528, 824);
 connect(480, 920, 528, 856);
 drawNode("Transform", "https://docs.pixel-composer.com/nodes/_index/transform.html", 528, 736, 128, 32);
 connect(656, 584, 528, 744);
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 384, 816, 96, 48);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 384, 816, 96, 48, "./src/gY2CfP2698150TXnHsZRaT8ReiVspoBL.png");
 drawNode("De-Corner", "https://docs.pixel-composer.com/nodes/_index/de_corner.html", 688, 800, 128, 128, "./src/gY2CnU3182407y7azk5esCTjHSfjOlN2.png");
 connect(656, 824, 688, 824);
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 848, 736, 128, 128, "./src/gY2Co03211973cx76PDIRzhYdOTRVkIk.png");
@@ -189,7 +205,7 @@ drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html
 connect(1136, 424, 1168, 424);
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1168, 720, 128, 128, "./src/gY2D9q4404872xTyNtAblEyJuRBaGxin.png");
 connect(1456, 584, 1168, 744);
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 368, 128, 96, 48);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 368, 128, 96, 48, "./src/gY2DD746001098y78dvDSgnDHCq6vm2v.png");
 drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 528, 69.33, 128, 128, "./src/gY2DD946013525JHTTgy7k3oQqaXUwpw.png");
 connect(464, 152, 528, 109.33);
 connect(336, 104, 528, 157.33);
@@ -219,10 +235,10 @@ connect(656, 40, 704, 40);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 704, 64, 128, 128, "./src/gY2DLC5084894BZykXf52mwRIzwdOduh.png");
 connect(832, 40, 704, 88);
 connect(656, 93.33, 704, 104);
-drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 1328, 560, 128, 128, "./src/gY2E0j288071hbFuOQMZyUVgKSlFzYnx.png");
-connect(1296, 584, 1328, 584);
 drawNode("Export", "https://docs.pixel-composer.com/nodes/_index/export.html", 1328, 720, 128, 128, "./src/gY2E0H260676RU6jfDqAytI4H0Bs3GXQ.png");
 connect(1296, 744, 1328, 744);
+drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 1328, 560, 128, 128, "./src/gY2E0j288071hbFuOQMZyUVgKSlFzYnx.png");
+connect(1296, 584, 1328, 584);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

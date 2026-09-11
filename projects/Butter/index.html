@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Butter_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (54.77 kb)</p>
+                            <p>Download .pxc (55.09 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -243,8 +259,8 @@ drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html",
 connect(624, 504, 816, 504);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 656, 832, 128, 128, "./src/gA8FlZ740488yrZ27NytkV3WBAdqyG4O.png");
 connect(624, 856, 656, 856);
-drawNode("Canvas", "https://docs.pixel-composer.com/nodes/_index/canvas_s.html", 1136, 976, 128, 128);
-drawNode("Transform", "https://docs.pixel-composer.com/nodes/_index/transform.html", 1296, 976, 128, 128);
+drawNode("Canvas", "https://docs.pixel-composer.com/nodes/_index/canvas_s.html", 1136, 976, 128, 128, "./src/gA8FmS793418lruQA0UlTtuCVHGPfIQh.png");
+drawNode("Transform", "https://docs.pixel-composer.com/nodes/_index/transform.html", 1296, 976, 128, 128, "./src/gA8Fmb802774qxi8ppWYDAdsx1DcxNUH.png");
 connect(1264, 1000, 1296, 1000);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1296, 608, 128, 128, "./src/gA8Fms819616tZkpO4cAsHLYUp3SQxUu.png");
 connect(1264, 840, 1296, 632);

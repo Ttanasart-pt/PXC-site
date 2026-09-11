@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Red Castle_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (24.58 kb)</p>
+                            <p>Download .pxc (24.78 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,10 +143,26 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 800, 96, 96, 48);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 800, 96, 96, 48, "./src/gS7DfY1914121Bi8JgW7Wio4Jv7FaISx.png");
 drawNode("Draw Ribbon", "https://docs.pixel-composer.com/nodes/_index/ribbon.html", 1040, 256, 128, 128, "./src/gS7DgG19567542texFgdNGQpSjkLfVt7.png");
 connect(896, 120, 1040, 280);
 connect(688, 600, 1040, 296);
@@ -169,7 +185,7 @@ connect(1136, 1032, 1168, 1032);
 drawNode("Draw Ribbon", "https://docs.pixel-composer.com/nodes/_index/ribbon.html", 1008, 1008, 128, 128, "./src/gS7Dq22900160PnOL9fJwAW1raslDtYa.png");
 connect(800, 872, 1008, 1032);
 connect(688, 600, 1008, 1048);
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 704, 848, 96, 48);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 704, 848, 96, 48, "./src/gS7Dq2290018JD4aEKmr5Fn5rMhurtzE.png");
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1808, 1008, 128, 128, "./src/gS7DqP312654pJE2BfjN5kVKso83T88s.png");
 connect(1856, 456, 1808, 1032);
 connect(1776, 1032, 1808, 1048);
@@ -203,7 +219,7 @@ drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 1
 connect(1616, 872, 1488, 1032);
 drawNode("Emboss", "https://docs.pixel-composer.com/nodes/_index/emboss.html", 560, 576, 128, 128, "./src/gS7E8T440155RWTbbYmtjuJ4job87vYZ.png");
 connect(528, 600, 560, 600);
-drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 880, 1200, 96, 48);
+drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 880, 1200, 96, 48, "./src/gS7EAW563695OFYngEvtW4fCVx6c4sUd.png");
 connect(848, 1224, 880, 1224);
 drawNode("Map Path", "https://docs.pixel-composer.com/nodes/_index/path_map.html", 1008, 1360, 128, 128, "./src/gS7EAs585546jd8xgx0LXTmllfrWrnZT.png");
 connect(848, 1224, 1008, 1400);
@@ -301,7 +317,7 @@ connect(1520, 616, 1552, 616);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1392, 432, 128, 128, "./src/gS7FA541365562x1SPafNc4xC93akn4e.png");
 connect(1360, 456, 1392, 456);
 connect(1360, 616, 1392, 472);
-drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 928, 448, 96, 48);
+drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 928, 448, 96, 48, "./src/gS7FA54136558V6oEAbVB1D1XuGQBpWC.png");
 connect(896, 456, 928, 472);
 drawNode("Draw Path Profile", "https://docs.pixel-composer.com/nodes/_index/path_profile.html", 1072, 432, 128, 128, "./src/gS7FA54136559LvkxLdr2A3q18jpjy6A.png");
 connect(896, 456, 1072, 456);
@@ -336,7 +352,7 @@ connect(1680, 616, 1552, 456);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1728, 432, 128, 128, "./src/gS7FAM41536439C0sAQCqief8OVLeEWf.png");
 connect(1488, 280, 1728, 456);
 connect(1680, 456, 1728, 472);
-drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 928, 368, 96, 48);
+drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 928, 368, 96, 48, "./src/gS7FDg4353580uUwjAgkSpqM9KTSmWSO.png");
 connect(896, 120, 928, 392);
 drawNode("Delay", "https://docs.pixel-composer.com/nodes/_index/delay.html", 672, 1216, 128, 128, "./src/gS7FGp4542135s6ufCcVXsFyMb44NxrO.png");
 connect(640, 1080, 672, 1240);

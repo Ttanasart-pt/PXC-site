@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Coffee Stain_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (14.70 kb)</p>
+                            <p>Download .pxc (14.73 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -198,12 +214,12 @@ connect(608, 632, 640, 488);
 drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 480, 608, 128, 128, "./src/gYK9Pp2510326b0rzsKUF0LQNtyHuRBq.png");
 connect(608, 472, 480, 632);
 connect(608, 424, 480, 648);
-drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 32, 768, 96, 48);
-drawNode("Wave Path", "https://docs.pixel-composer.com/nodes/_index/path_wave.html", 32, 608, 96, 48);
+drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 32, 768, 96, 48, "./src/gYK9Qp25698828LWQtcLmbp7cYuNsEtE.png");
+drawNode("Wave Path", "https://docs.pixel-composer.com/nodes/_index/path_wave.html", 32, 608, 96, 48, "./src/gYK9R32581701roJxNBw3zdoMEo07izL.png");
 connect(128, 712, 32, 632);
 drawNode("Fill Path", "https://docs.pixel-composer.com/nodes/_index/path_fill.html", 160, 608, 128, 128, "./src/gYK9RD2592484W8hLWNqzWq6KL1dD2UH.png");
 connect(128, 632, 160, 632);
-drawNode("Offset Path", "https://docs.pixel-composer.com/nodes/_index/path_offset.html", 32, 688, 96, 48);
+drawNode("Offset Path", "https://docs.pixel-composer.com/nodes/_index/path_offset.html", 32, 688, 96, 48, "./src/gYK9TK2719048o0eNoOB75vm8Y7Z0NEF.png");
 connect(128, 792, 32, 712);
 drawNode("Transform", "https://docs.pixel-composer.com/nodes/_index/transform.html", 960, 512, 128, 128, "./src/gYK9V62824686iue9Kz8lzPabzWedARk.png");
 connect(928, 472, 960, 536);

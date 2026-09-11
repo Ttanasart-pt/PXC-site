@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Fire Wand_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (19.96 kb)</p>
+                            <p>Download .pxc (21.04 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,11 +143,27 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
-drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 64, 512, 96, 48);
-drawNode("Spiral Path", "https://docs.pixel-composer.com/nodes/_index/path_spiral.html", 64, 368, 96, 48);
+drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 64, 512, 96, 48, "./src/gJS7I91942001ConEdDvymljuutzEW1x.png");
+drawNode("Spiral Path", "https://docs.pixel-composer.com/nodes/_index/path_spiral.html", 64, 368, 96, 48, "./src/gJS7IJ19523853yTuA8NHu6rGw5m4eYO.png");
 connect(160, 536, 64, 392);
 drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 192, 352, 128, 128, "./src/gJS7IM1955418XVoKOWh6I462VcLtRI0.png");
 connect(160, 392, 192, 392);
@@ -160,8 +176,6 @@ connect(160, 536, 368, 536);
 connect(336, 552, 368, 552);
 drawNode("Grey to Alpha", "https://docs.pixel-composer.com/nodes/_index/grey_alpha.html", 528, 352, 128, 128, "./src/gJS7Tj433656XbNz1DSKRW1OBtndtZEo.png");
 connect(496, 376, 528, 376);
-drawNode("Grey to Alpha", "https://docs.pixel-composer.com/nodes/_index/grey_alpha.html", 528, 688, 128, 128, "./src/gJS7Tl435634xh3pUs4l2mwI1uuvzFpI.png");
-connect(496, 712, 528, 712);
 drawNode("Composite", "https://docs.pixel-composer.com/nodes/_index/composite.html", 848, 672, 128, 128, "./src/gJS7Tp4397345AUGqq3IId1Onqvtbqp7.png");
 connect(816, 376, 848, 696);
 connect(816, 536, 848, 712);
@@ -193,6 +207,8 @@ drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/offset.html", 3
 connect(160, 168, 32, 216);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 688, 512, 128, 128, "./src/gJS7di1032651h3MiWCGE3z3voIKGwf9.png");
 connect(656, 536, 688, 536);
+drawNode("Bloom", "https://docs.pixel-composer.com/nodes/_index/bloom.html", 1008, 512, 128, 128, "./src/gJS7eB1059722ztc1z9WPon3tfKj5VRc.png");
+connect(976, 536, 1008, 536);
 drawNode("Particle", "https://docs.pixel-composer.com/nodes/_index/particle.html", 688, 192, 128, 128, "./src/gJS7hp1278834eqtOMrRkjcNQOIop89y.png");
 connect(656, 216, 688, 248);
 drawNode("Draw Ellipse", "https://docs.pixel-composer.com/nodes/_index/shape_ellipse.html", 48, 752, 128, 16);
@@ -208,6 +224,9 @@ connect(176, 760, 48, 776);
 drawNode("Draw Ellipse", "https://docs.pixel-composer.com/nodes/_index/shape_ellipse.html", 48, 784, 128, 16);
 connect(176, 776, 48, 792);
 drawNode("Checker", "https://docs.pixel-composer.com/nodes/_index/checker.html", 848, 192, 128, 128, "./src/gJS7tw20060139rOhOiWgi5UrIVGrXZM.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1008, 352, 128, 128, "./src/gJS7u72015750JoSwno4eMuDHqhE7isS.png");
+connect(976, 376, 1008, 376);
+connect(976, 696, 1008, 392);
 drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 848, 352, 128, 128, "./src/gJS7uG2023969HcvEG6wguM8Fp1GPv40.png");
 connect(976, 216, 848, 376);
 drawNode("Transform", "https://docs.pixel-composer.com/nodes/_index/transform.html", 48, 800, 128, 16);
@@ -215,11 +234,8 @@ connect(176, 792, 48, 808);
 drawNode("Override Channel", "https://docs.pixel-composer.com/nodes/_index/override_channel.html", 48, 704, 128, 32);
 connect(176, 808, 48, 712);
 connect(176, 760, 48, 728);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1008, 352, 128, 128, "./src/gJS7u72015750JoSwno4eMuDHqhE7isS.png");
-connect(976, 376, 1008, 376);
-connect(976, 696, 1008, 392);
-drawNode("Bloom", "https://docs.pixel-composer.com/nodes/_index/bloom.html", 1008, 512, 128, 128, "./src/gJS7eB1059722ztc1z9WPon3tfKj5VRc.png");
-connect(976, 536, 1008, 536);
+drawNode("Grey to Alpha", "https://docs.pixel-composer.com/nodes/_index/grey_alpha.html", 528, 688, 128, 128, "./src/gJS7Tl435634xh3pUs4l2mwI1uuvzFpI.png");
+connect(496, 712, 528, 712);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

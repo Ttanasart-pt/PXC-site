@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Bicycle_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (15.07 kb)</p>
+                            <p>Download .pxc (15.04 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -51,10 +51,10 @@
             
             <div class="content">
                 <div class="content-wrapper">
-                    <div class="pxc-viewer" id="pxc_viewer" style="width: 1104px; height: 624px;">
-                        <canvas id="pxc_canvas_under" width="2208" height="1248"></canvas>
+                    <div class="pxc-viewer" id="pxc_viewer" style="width: 1104px; height: 608px;">
+                        <canvas id="pxc_canvas_under" width="2208" height="1216"></canvas>
                         <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
-                        <canvas id="pxc_canvas_over" width="2208" height="1248"></canvas>
+                        <canvas id="pxc_canvas_over" width="2208" height="1216"></canvas>
                     </div>
                 </div>
                 
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -156,21 +172,21 @@ drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 
 connect(416, 56, 448, 56);
 drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 448, 208, 128, 16);
 connect(416, 216, 448, 216);
-drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 336, 128, 64);
-connect(128, 312, 432, 360);
-connect(128, 472, 432, 376);
-drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 368, 128, 64);
-connect(128, 328, 432, 392);
-connect(272, 392, 432, 408);
-drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 400, 128, 64);
-connect(128, 328, 432, 424);
-connect(128, 424, 432, 440);
-drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 432, 128, 64);
-connect(272, 392, 432, 456);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 336, 128, 32);
+connect(128, 312, 432, 344);
+connect(128, 472, 432, 360);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 368, 128, 32);
+connect(128, 328, 432, 376);
+connect(272, 392, 432, 392);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 400, 128, 32);
+connect(128, 328, 432, 408);
+connect(128, 424, 432, 424);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 432, 128, 32);
+connect(272, 392, 432, 440);
+connect(128, 424, 432, 456);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 464, 128, 32);
 connect(128, 424, 432, 472);
-drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 464, 128, 64);
-connect(128, 424, 432, 488);
-connect(400, 488, 432, 504);
+connect(400, 488, 432, 488);
 drawNode("Vector2", "https://docs.pixel-composer.com/nodes/_index/vector2.html", 32, 320, 96, 16);
 drawNode("Vector2", "https://docs.pixel-composer.com/nodes/_index/vector2.html", 32, 416, 96, 16);
 drawNode("Vector2", "https://docs.pixel-composer.com/nodes/_index/vector2.html", 32, 304, 96, 16);
@@ -188,14 +204,14 @@ drawNode("Multiply", "https://docs.pixel-composer.com/nodes/_index/math.html", 1
 connect(272, 472, 176, 504);
 drawNode("Sample Path", "https://docs.pixel-composer.com/nodes/_index/path_sample.html", 320, 80, 96, 16);
 connect(416, 56, 320, 88);
-drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 448, 64, 128, 64);
-connect(416, 88, 448, 88);
-connect(128, 312, 448, 104);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 448, 64, 128, 32);
+connect(416, 88, 448, 72);
+connect(128, 312, 448, 88);
 drawNode("Sample Path", "https://docs.pixel-composer.com/nodes/_index/path_sample.html", 320, 240, 96, 16);
 connect(416, 216, 320, 248);
-drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 448, 224, 128, 64);
-connect(416, 248, 448, 248);
-connect(128, 328, 448, 264);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 448, 224, 128, 32);
+connect(416, 248, 448, 232);
+connect(128, 328, 448, 248);
 drawNode("Composite", "https://docs.pixel-composer.com/nodes/_index/composite.html", 608, 32, 128, 128, "./src/gMRBZC205901RXnPHGzHAoYvtrkoFLM8.png");
 connect(576, 56, 608, 56);
 connect(576, 72, 608, 72);
@@ -212,7 +228,7 @@ drawNode("Composite", "https://docs.pixel-composer.com/nodes/_index/composite.ht
 connect(736, 56, 784, 216);
 connect(736, 216, 784, 232);
 connect(736, 536, 784, 248);
-drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 608, 528, 128, 32);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 608, 528, 128, 16);
 connect(736, 376, 608, 536);
 drawNode("Grey to Alpha", "https://docs.pixel-composer.com/nodes/_index/grey_alpha.html", 784, 352, 128, 128, "./src/gMRBeL515295xjDx46FVvbCPjA7nw7H9.png");
 connect(912, 216, 784, 376);
@@ -220,6 +236,8 @@ drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 944, 32, 128, 128, "./src/gMRBet5486518Nijs2jCH8OKJTrg3k0k.png");
 connect(912, 56, 944, 56);
 connect(912, 376, 944, 72);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 944, 352, 128, 128, "./src/gMRBgC625822wG8bvgKtz8c6rZY8ss6o.png");
+connect(1072, 216, 944, 376);
 drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 944, 192, 128, 128, "./src/gMRBhv731027HNa8uzNnuhWLddQke12H.png");
 connect(1072, 56, 944, 216);
 drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 320, 96, 96, 32);
@@ -243,9 +261,9 @@ connect(400, 488, 432, 520);
 drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 176, 544, 96, 32);
 connect(128, 472, 176, 552);
 connect(128, 568, 176, 568);
-drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 528, 128, 64);
-connect(128, 472, 432, 552);
-connect(272, 552, 432, 568);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 432, 528, 128, 32);
+connect(128, 472, 432, 536);
+connect(272, 552, 432, 552);
 drawNode("Vector2", "https://docs.pixel-composer.com/nodes/_index/vector2.html", 32, 560, 96, 16);
 drawNode("Number", "https://docs.pixel-composer.com/nodes/_index/number.html", 32, 64, 96, 16);
 drawNode("Multiply", "https://docs.pixel-composer.com/nodes/_index/math.html", 176, 112, 96, 16);
@@ -253,10 +271,8 @@ connect(128, 72, 176, 120);
 drawNode("Number", "https://docs.pixel-composer.com/nodes/_index/number.html", 32, 224, 96, 16);
 drawNode("Multiply", "https://docs.pixel-composer.com/nodes/_index/math.html", 176, 272, 96, 16);
 connect(128, 232, 176, 280);
-drawNode("Export", "https://docs.pixel-composer.com/nodes/_index/export.html", 944, 512, 128, 32);
+drawNode("Export", "https://docs.pixel-composer.com/nodes/_index/export.html", 944, 512, 128, 16);
 connect(1072, 376, 944, 520);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 944, 352, 128, 128, "./src/gMRBgC625822wG8bvgKtz8c6rZY8ss6o.png");
-connect(1072, 216, 944, 376);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

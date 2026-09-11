@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Cliff Face_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (17.08 kb)</p>
+                            <p>Download .pxc (17.18 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -174,6 +190,8 @@ connect(816, 568, 1008, 568);
 connect(816, 728, 1008, 584);
 drawNode("Threshold", "https://docs.pixel-composer.com/nodes/_index/threshold.html", 688, 704, 128, 128, "./src/gS28Wk1281437c2JgQxTllN0JnZD9DoI.png");
 connect(816, 216, 688, 728);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1328, 848, 128, 128, "./src/gS28XS132336238nJLIk9NRlLqFtH4u9.png");
+connect(1296, 872, 1328, 872);
 drawNode("Colorize", "https://docs.pixel-composer.com/nodes/_index/colorize.html", 688, 384, 128, 128, "./src/gS28Yl1402439OKilWGE5wnszrvIfKyA.png");
 connect(816, 216, 688, 408);
 drawNode("SDF", "https://docs.pixel-composer.com/nodes/_index/sdf.html", 688, 864, 128, 128, "./src/gS28a414792310b46wHj1ketKX0JLB51.png");
@@ -271,8 +289,6 @@ connect(1456, 552, 1488, 392);
 connect(1456, 216, 1488, 408);
 drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 1168, 848, 128, 128, "./src/gS2A0r480150mV9OZHTRLGJ5slDvdHl2.png");
 connect(1296, 712, 1168, 872);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1328, 848, 128, 128, "./src/gS28XS132336238nJLIk9NRlLqFtH4u9.png");
-connect(1296, 872, 1328, 872);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

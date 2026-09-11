@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Dominoes_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (22.30 kb)</p>
+                            <p>Download .pxc (21.35 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,6 +143,22 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
@@ -163,22 +179,22 @@ drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 9
 connect(1120, 616, 992, 296);
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1472, 272, 128, 128, "./src/gR28eH1600767XZQaIfVrwDWzmZt8iZN.png");
 connect(1440, 296, 1472, 296);
-drawNode("3D Cube", "https://docs.pixel-composer.com/nodes/_index/3d_mesh_cube.html", 192, 272, 128, 128);
+drawNode("3D Cube", "https://docs.pixel-composer.com/nodes/_index/3d_mesh_cube.html", 192, 272, 128, 128, "./src/gR28fu1699635zLJ0ShNzoQiS33rICWu.png");
 connect(160, 296, 192, 296);
 drawNode("3D Camera Set", "https://docs.pixel-composer.com/nodes/_index/3d_camera_set.html", 672, 272, 128, 128, "./src/gR28gE1718257botLlSLuMzCJudy6jDh.png");
 connect(640, 296, 672, 296);
-drawNode("3D Repeat", "https://docs.pixel-composer.com/nodes/_index/3d_repeat.html", 192, 432, 128, 128);
+drawNode("3D Repeat", "https://docs.pixel-composer.com/nodes/_index/3d_repeat.html", 192, 432, 128, 128, "./src/gR28ji1927930UuMM2POfNbNLWT02MJr.png");
 connect(320, 296, 192, 456);
-drawNode("3D Scene", "https://docs.pixel-composer.com/nodes/_index/3d_scene.html", 512, 272, 128, 128);
+drawNode("3D Scene", "https://docs.pixel-composer.com/nodes/_index/3d_scene.html", 512, 272, 128, 128, "./src/gR28mS2091631Z9Tw73vY4EOJeod0cXt.png");
 connect(640, 456, 512, 296);
 connect(480, 296, 512, 312);
 connect(480, 456, 512, 328);
-drawNode("Directional Light", "https://docs.pixel-composer.com/nodes/_index/3d_light_directional.html", 512, 432, 128, 128);
+drawNode("Directional Light", "https://docs.pixel-composer.com/nodes/_index/3d_light_directional.html", 512, 432, 128, 128, "./src/gR28md2102961o4n35HaMF61To6pfmnR.png");
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 832, 272, 128, 128, "./src/gR28oR2210472WmeC56EafqYIdTMY5Hb.png");
 connect(800, 296, 832, 296);
-drawNode("Scene Affector", "https://docs.pixel-composer.com/nodes/_index/3d_affector.html", 352, 272, 128, 128);
+drawNode("Scene Affector", "https://docs.pixel-composer.com/nodes/_index/3d_affector.html", 352, 272, 128, 128, "./src/gR28pb2281215PWtL3IgE2a8KS9TPzdp.png");
 connect(320, 456, 352, 296);
-drawNode("Transform 3D", "https://docs.pixel-composer.com/nodes/_index/3d_transform.html", 352, 432, 128, 128);
+drawNode("Transform 3D", "https://docs.pixel-composer.com/nodes/_index/3d_transform.html", 352, 432, 128, 128, "./src/gR292K2924163HdAVaYMJ7rpnfmtFmFM.png");
 connect(320, 296, 352, 456);
 drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 1312, 432, 128, 128, "./src/gR297q271181lSKWX1COGlRZPkVcRzF6.png");
 drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 1312, 592, 128, 128, "./src/gR29Du146850yPKYdVYPJceQBjJYRWAl.png");

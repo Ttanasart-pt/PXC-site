@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Barrel_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (15.47 kb)</p>
+                            <p>Download .pxc (15.53 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,10 +143,26 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
-drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 544, 32, 96, 48);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 544, 32, 96, 48, "./src/gS69GQ4642471Kh5SAKjKkz21N7xDLtW.png");
 drawNode("Revolve Path", "https://docs.pixel-composer.com/nodes/_index/path_revolve.html", 672, 80, 128, 128, "./src/gS69Gb474565ypPBmL2CPHEwrhcq20C0.png");
 connect(640, 56, 672, 104);
 connect(640, 136, 672, 120);
@@ -217,9 +233,6 @@ connect(160, 104, 192, 104);
 drawNode("Colorize", "https://docs.pixel-composer.com/nodes/_index/colorize.html", 832, 560, 128, 128, "./src/gS69bt1753255RWsQPn6CHGzNdw65Ivf.png");
 connect(960, 904, 832, 584);
 drawNode("Scratch Noise", "https://docs.pixel-composer.com/nodes/_index/noise_scratch.html", 336, 880, 128, 128, "./src/gS69cC1770370tkV1vrmH1Uw7aPxZnxR.png");
-drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 832, 880, 128, 128, "./src/gS69cH1774890z8edv7ffYPtKxrqDNsX.png");
-connect(960, 744, 832, 904);
-connect(624, 904, 832, 920);
 drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/offset.html", 496, 880, 128, 128, "./src/gS69ce1797711Odc7SoFE3bAeZTp08N4.png");
 connect(464, 904, 496, 904);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 672, 880, 128, 128, "./src/gS69db1854954swvJeALQrgFTijoUvCr.png");
@@ -232,6 +245,9 @@ drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 512
 connect(480, 104, 512, 136);
 connect(480, 248, 512, 152);
 drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 352, 240, 128, 32);
+drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 832, 880, 128, 128, "./src/gS69cH1774890z8edv7ffYPtKxrqDNsX.png");
+connect(960, 744, 832, 904);
+connect(624, 904, 832, 920);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

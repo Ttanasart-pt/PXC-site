@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Curved Bamboo_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (11.75 kb)</p>
+                            <p>Download .pxc (11.78 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,23 +143,42 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
-drawNode("Trunk", "https://docs.pixel-composer.com/nodes/_index/mk_tree_root.html", 192, 432, 96, 48);
-drawNode("Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_branch.html", 192, 352, 96, 56);
+drawPolygon([[288,592],[448,592],[512,512],[512,320],[160,320],[160,440]], "#50EB17");
+drawNode("Trunk", "https://docs.pixel-composer.com/nodes/_index/mk_tree_root.html", 192, 432, 96, 48, "./src/gYO9JK828233GjM2g4WbwfGwTBRg5u6d.png");
+drawNode("Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_branch.html", 192, 352, 96, 56, "./src/gYO9Jo857865I0gZvWRhrCksGyg3wIuY.png");
 connect(288, 456, 192, 376);
 connect(160, 376, 192, 392);
-drawNode("Re-Root", "https://docs.pixel-composer.com/nodes/_index/mk_tree_branch_reroot.html", 320, 352, 96, 48);
+drawNode("Re-Root", "https://docs.pixel-composer.com/nodes/_index/mk_tree_branch_reroot.html", 320, 352, 96, 48, "./src/gYO9X8232392JRs2bO2ONp74K1INAuaf.png");
 connect(288, 376, 320, 376);
 drawNode("Render Tree", "https://docs.pixel-composer.com/nodes/_index/mk_tree_render.html", 448, 352, 128, 128, "./src/gYO9v2114631pWHrndPj3JPIkkhVnR8q.png");
 connect(416, 536, 448, 376);
 drawNode("Ambient Occlusion", "https://docs.pixel-composer.com/nodes/_index/ambient_occlusion.html", 448, 512, 128, 128, "./src/gYOAeR4867192KOdmrWKII12ZnPCkJTR.png");
 connect(576, 376, 448, 536);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 768, 512, 128, 128, "./src/gYOAed499652vWJceadtIIZOEa9lO3yO.png");
+connect(896, 376, 768, 536);
 drawNode("Stripe", "https://docs.pixel-composer.com/nodes/_index/stripe.html", 32, 352, 128, 128, "./src/gYOCQk521057XgMn8uIzsBxsFQ3A3iac.png");
-drawNode("Spiral Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_spiral_branch.html", 320, 512, 96, 48);
+drawNode("Spiral Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_spiral_branch.html", 320, 512, 96, 48, "./src/gYODlE014490LlCW3W1GVQbsY8wJXESf.png");
 connect(416, 456, 320, 536);
-drawNode("Subdivide Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_subdivide_branch.html", 320, 432, 96, 48);
+drawNode("Subdivide Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_subdivide_branch.html", 320, 432, 96, 48, "./src/gYOE0j013270ywMEpFdPTuESMmJpZiOr.png");
 connect(416, 376, 320, 456);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 608, 512, 128, 128, "./src/gYOEPf154310OF2NCOw6XeQ4ZF0clKQm.png");
 connect(576, 536, 608, 536);
@@ -177,8 +196,6 @@ drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html
 connect(576, 56, 448, 216);
 drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 608, 352, 128, 128, "./src/gSA7GA245086IE1LpaNAJUGHCekB6BBL.png");
 connect(736, 536, 608, 376);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 768, 512, 128, 128, "./src/gYOAed499652vWJceadtIIZOEa9lO3yO.png");
-connect(896, 376, 768, 536);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

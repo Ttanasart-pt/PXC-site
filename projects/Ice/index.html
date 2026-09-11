@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Ice_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (16.03 kb)</p>
+                            <p>Download .pxc (16.09 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -143,10 +143,26 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function drawPolygon(points, color) {
+        if (points.length < 2) return;
+
+        pxc_canvas_under.strokeStyle = color + "88";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(points[0][0] * 2, points[0][1] * 2);
+        for (let i = 1; i < points.length; i++)
+            pxc_canvas_under.lineTo(points[i][0] * 2, points[i][1] * 2);
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.stroke();
+
+        pxc_canvas_under.fillStyle = color + "08";
+        pxc_canvas_under.fill();
 
     }
 
-drawNode("3D Cube", "https://docs.pixel-composer.com/nodes/_index/3d_mesh_cube.html", 32, 192, 128, 128);
+drawNode("3D Cube", "https://docs.pixel-composer.com/nodes/_index/3d_mesh_cube.html", 32, 192, 128, 128, "./src/gJE6pW2337358u3R9jDptutmNK02td5w.png");
 connect(160, 344, 32, 216);
 drawNode("3D Camera Set", "https://docs.pixel-composer.com/nodes/_index/3d_camera_set.html", 32, 32, 128, 128, "./src/gJE6pY233928454SCnb5IGC0Kf16pX2J.png");
 connect(160, 216, 32, 56);
@@ -199,11 +215,11 @@ connect(800, 376, 672, 536);
 connect(800, 696, 672, 552);
 drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 672, 672, 128, 128, "./src/gJE7dr11540068AAQgnvpJxShPDIT05g.png");
 connect(640, 696, 672, 696);
+drawNode("Export", "https://docs.pixel-composer.com/nodes/_index/export.html", 832, 512, 128, 128, "./src/gJE7r51946123q2uUlPzXilqwxcNvsxN.png");
+connect(800, 536, 832, 536);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 192, 688, 128, 128, "./src/gSA9Ts014365oD2OoxYj2WPUIF5rk1qa.png");
 connect(480, 216, 192, 712);
 connect(480, 232, 192, 728);
-drawNode("Export", "https://docs.pixel-composer.com/nodes/_index/export.html", 832, 512, 128, 128, "./src/gJE7r51946123q2uUlPzXilqwxcNvsxN.png");
-connect(800, 536, 832, 536);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);
