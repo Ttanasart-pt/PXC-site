@@ -8,6 +8,8 @@
     --main_white:	#d6d6e8;
 
     --accent: #ff9166;
+
+    --grid-size: 160px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@500;600;700&display=swap');
@@ -132,47 +134,80 @@ div.showcase-grid {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 16px;
+    gap: 2px;
     width: 100%;
     
     div.showcase-item {
-        display: flex;
-        width: 20%;
-        flex-direction: column;
+        position: relative;
+        width: var(--grid-size);
+        height: var(--grid-size);
+
+        outline: 1px solid transparent;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px transparent;
+
+        transition: transform 0.2s ease, outline 0.2s ease, border-radius 0.2s ease, box-shadow 0.2s ease;
 
         img.thumbnail {
-            width : 100%;
+            width: var(--grid-size);
+            height: var(--grid-size);
             image-rendering: pixelated;
         }
 
-        div.description {
-            display: none;
-            flex-direction: column;
-    
-            h3 {
+        .description {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 8px 8px;
+
+            background-image: linear-gradient(0deg, #121220cc, #121220cc, #12122000);
+            border-radius: 3px;
+            
+            opacity: 0;
+
+            transition: opacity 0.2s ease;
+            
+            .project-title {
                 font-family: 'Atkinson Hyperlegible Next', sans-serif;
-                font-weight: 700;
-                font-size: 1.25rem;
-                color: var(--accent);
+                font-weight: 600;
+                font-size: 1rem;
+                color: var(--main_white);
                 margin: 0;
             }
             
-            a.project-download {
-                padding-top: 8px;
+            .project-download {
+                width: 20px;
+                height: 20px;
+                content: url("src/s_download_white@4x.png");
+
                 color: var(--main_ltgrey);
-    
-                &:hover {
-                    color: var(--accent);
-                }
+                opacity: .5;
+            }
+        }
+
+        .description:hover {
+            .project-download {
+                content: url("src/s_download@4x.png");
+                opacity: 1;
             }
         }
     }
     
     div.showcase-item:hover {
         z-index: 1;
+        transform: scale(1.1);
+        outline: 1px solid var(--main_dkgrey);
+        border-radius: 4px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
 
         div.description {
-            display: flex;
+            opacity: 1;
         }
     }
 }
