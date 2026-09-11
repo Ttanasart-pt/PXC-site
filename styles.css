@@ -9,9 +9,11 @@
 
     --accent: #ff9166;
 
+    --content-width: min(75vw, 800px);
+
     --grid-gap: 4px;
     --grid-columns: 4;
-    --grid-size: calc((75vw - var(--grid-gap) * (var(--grid-columns) - 1)) / var(--grid-columns));
+    --grid-size: calc((var(--content-width) - var(--grid-gap) * (var(--grid-columns) - 1)) / var(--grid-columns));
 
     --transition-duration: 0.1s;
 }
@@ -70,7 +72,7 @@ iframe {
 }
 
 .main {
-    width:   min(75vw, 800px);
+    width:   var(--content-width);
     padding: 16px;
     margin:  auto;
 
