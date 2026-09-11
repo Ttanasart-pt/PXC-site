@@ -1,20 +1,20 @@
 {
+  "tagMap":null,
   "thumbnail":null,
-  "hidden":false,
   "author":"MakhamDev",
   "description":"",
+  "hidden":false,
   "name":"",
-  "alias":"",
   "isDefault":false,
+  "alias":"",
   "contact":"",
-  "deprecated":false,
   "version":117100.0,
-  "preview_frames":1.0,
-  "author_steam_id":0.0,
   "tags":[
   ],
+  "deprecated":false,
+  "preview_frames":1.0,
+  "author_steam_id":0.0,
   "file_id":0.0,
-  "tagMap":null,
   "type":1,
   "displays":[
     [

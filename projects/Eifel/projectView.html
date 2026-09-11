@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Composer</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../pxc_style.css">
+</head>
+<body>
+    <div class = "header">
+        <div class = "header-menu">
+            <a class="" href="../../index.html">Home</a>
+            <a class="" href="https://docs.pixel-composer.com">Doc</a>
+            <a class="" href="../../community.html">Community</a>
+            <a class="select" href="../../showcases.html">Showcases</a>
+        </div>
+    </div>
+
+    <div class = "main">
+        <div style="height: 24px;"></div>
+        <!-- <div class="titlebar"><a href="showcases.html">Showcases</a></div>
+        <div style="height: 12px;"></div> -->
+
+        <div class="content-area">
+            <div class="summary">
+                <img class="thumbnail" src="./thumbnail.png">
+                <div class="metadata">
+                    <div class="project-metadata">
+                        <a class="go-back" href="../../showcases.html">Showcases</a>
+                        <h2 class="project-title">Eifel</h2>
+                        <p class="project-author">MakhamDev</p>
+                    </div>
+
+                    <div class="action-bar">
+                        <a class="action-download" href="./Eifel_121092.pxc">
+                            <div class="icon"></div>
+                            <p>Download .pxc (16.58 kb)</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="pxc-viewer" id="pxc_viewer" style="width: 1392px; height: 1040px;">
+                    <canvas id="pxc_canvas_under" width="2784" height="2080"></canvas>
+                    <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
+                    <canvas id="pxc_canvas_over" width="2784" height="2080"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</body>
+
+<script>
+    const pxc_canvas_under = document.getElementById("pxc_canvas_under").getContext("2d");
+    const pxc_canvas_over  = document.getElementById("pxc_canvas_over").getContext("2d");
+
+    const pxc_nodecontent = document.getElementById("pxc-nodecontent");
+
+    function drawNode(title, url, x, y, w, h, thumb="") {
+        const node = document.createElement("div");
+        node.className = "node";
+        node.style.top = y + "px";
+        node.style.left = x + "px";
+        node.style.width = w + "px";
+        node.style.height = h + "px";
+
+        if(thumb !== "") {
+            const nodeThumb = document.createElement("div");
+            nodeThumb.className = "node-thumb";
+            nodeThumb.style.backgroundImage = "url('" + thumb + "')";
+            node.appendChild(nodeThumb);
+        }
+
+        const nodeTitle = document.createElement("div");
+        nodeTitle.className = "node-title";
+        nodeTitle.innerHTML = "<a href='" + url + "'>" + title + "</a>";
+        node.appendChild(nodeTitle);
+
+        pxc_nodecontent.appendChild(node);
+    }
+
+    function connect(x0, y0, x1, y1) {
+        x0 *= 2;
+        y0 *= 2;
+        x1 *= 2;
+        y1 *= 2;
+
+        pxc_canvas_under.strokeStyle = "#6d6d81";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(x0, y0);
+        pxc_canvas_under.lineTo(x1, y1);
+        pxc_canvas_under.stroke();
+        pxc_canvas_under.closePath();
+        
+        pxc_canvas_over.fillStyle   = "#6d6d81";
+
+        pxc_canvas_over.beginPath();
+        pxc_canvas_over.arc(x0, y0, 6, 0, 2 * Math.PI);
+        pxc_canvas_over.arc(x1, y1, 6, 0, 2 * Math.PI);
+        pxc_canvas_over.fill();
+        pxc_canvas_over.closePath();
+
+
+    }
+
+drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 64, 192, 128, 128, "./src/Draw_Line25840.png");
+connect(160, 184, 64, 216);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 64, 176, 96, 16);
+drawNode("Mirror", "https://docs.pixel-composer.com/nodes/_index/mirror.html", 384, 368, 128, 128, "./src/Mirror61106.png");
+connect(352, 392, 384, 392);
+drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 224, 192, 128, 128, "./src/Draw_Line30562.png");
+connect(192, 216, 224, 216);
+drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 384, 192, 128, 128, "./src/Draw_Line30562.png");
+connect(352, 216, 384, 216);
+drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 64, 368, 128, 128, "./src/Draw_Line66982.png");
+connect(160, 360, 64, 408);
+connect(512, 216, 64, 392);
+drawNode("Path", "https://docs.pixel-composer.com/nodes/_index/path.html", 64, 352, 96, 16);
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 224, 368, 128, 128, "./src/Draw_Shape11500.png");
+connect(192, 392, 224, 392);
+drawNode("Surface Project 3D", "https://docs.pixel-composer.com/nodes/_index/surface_project_3d.html", 544, 352, 128, 128, "./src/Surface_Project_3D48946.png");
+connect(512, 360, 544, 376);
+connect(512, 392, 544, 392);
+connect(512, 392, 544, 408);
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 384, 352, 128, 16);
+drawNode("De-Stray", "https://docs.pixel-composer.com/nodes/_index/de_stray.html", 704, 352, 128, 128, "./src/DeStray28241.png");
+connect(672, 376, 704, 376);
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 704, 32, 128, 128, "./src/Draw_Gradient22986.png");
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 544, 192, 128, 128, "./src/Draw_Shape73249.png");
+drawNode("Scatter", "https://docs.pixel-composer.com/nodes/_index/scatter.html", 864, 192, 128, 128, "./src/Scatter87301.png");
+connect(832, 216, 864, 216);
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 704, 192, 128, 128, "./src/Draw_Shape73249.png");
+connect(672, 216, 704, 248);
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 32, 880, 128, 128, "./src/Draw_Shape51473.png");
+drawNode("Invert", "https://docs.pixel-composer.com/nodes/_index/invert.html", 208, 880, 128, 128, "./src/Invert16689.png");
+connect(160, 904, 208, 904);
+drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 368, 880, 128, 128, "./src/Solid81901.png");
+connect(336, 904, 368, 920);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 704, 880, 128, 128, "./src/Outline25097.png");
+connect(672, 904, 704, 904);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 544, 880, 128, 128, "./src/Outline45184.png");
+connect(496, 904, 544, 904);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 864, 880, 128, 128, "./src/Outline25097.png");
+connect(832, 904, 864, 904);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1232, 464, 128, 128, "./src/Posterize78217.png");
+connect(1360, 344, 1232, 488);
+connect(1200, 344, 1232, 520);
+drawNode("Fluffify", "https://docs.pixel-composer.com/nodes/_index/fluffify.html", 864, 32, 128, 128, "./src/Fluffify30184.png");
+connect(832, 56, 864, 56);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 864, 352, 128, 128, "./src/Outline65107.png");
+connect(832, 376, 864, 376);
+drawNode("MK Tree", "https://docs.pixel-composer.com/nodes/_index/mk_tree_inline.html", 496, 632, 128, 128);
+drawNode("Trunk", "https://docs.pixel-composer.com/nodes/_index/mk_tree_root.html", 416, 688, 96, 48);
+drawNode("Render Tree", "https://docs.pixel-composer.com/nodes/_index/mk_tree_render.html", 544, 528, 128, 128, "./src/Render_Tree51887.png");
+connect(512, 552, 544, 552);
+drawNode("Branch", "https://docs.pixel-composer.com/nodes/_index/mk_tree_branch.html", 416, 608, 96, 56);
+connect(512, 712, 416, 632);
+drawNode("Leaves", "https://docs.pixel-composer.com/nodes/_index/mk_tree_leaf.html", 416, 528, 96, 56);
+connect(512, 648, 416, 552);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 864, 528, 128, 128, "./src/Posterize32688.png");
+connect(832, 552, 864, 552);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 704, 528, 128, 128, "./src/Outline86141.png");
+connect(672, 552, 704, 552);
+drawNode("MK Parallax", "https://docs.pixel-composer.com/nodes/_index/mk_parallax.html", 1072, 320, 128, 128, "./src/MK_Parallax75398.png");
+connect(992, 56, 1072, 344);
+connect(992, 216, 1072, 360);
+connect(992, 376, 1072, 376);
+connect(992, 552, 1072, 392);
+connect(992, 728, 1072, 408);
+drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 704, 704, 128, 128, "./src/Solid82942.png");
+drawNode("Shine", "https://docs.pixel-composer.com/nodes/_index/pb_fx_shine.html", 1024, 560, 128, 128, "./src/Shine51506.png");
+connect(1152, 744, 1024, 584);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 864, 704, 128, 128, "./src/Blend41591.png");
+connect(832, 728, 864, 728);
+connect(992, 904, 864, 744);
+drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 1024, 720, 128, 128, "./src/Solid72075.png");
+connect(1152, 904, 1024, 760);
+drawNode("Invert", "https://docs.pixel-composer.com/nodes/_index/invert.html", 1024, 880, 128, 128, "./src/Invert93618.png");
+connect(992, 904, 1024, 904);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1232, 320, 128, 128, "./src/Blend90688.png");
+connect(1200, 344, 1232, 344);
+connect(1152, 584, 1232, 360);
+
+
+    // drawNode("Node Title", 16, 16, 96, 32);
+    // drawNode("Node Title", 200, 16, 96, 32);
+
+    // connect(16+96, 16+16, 200, 16+16);
+</script>
+
+</html>

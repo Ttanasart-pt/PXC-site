@@ -51,7 +51,8 @@
         padding-right: 16px;
 
         .thumbnail {
-            width: 160px;
+            height: 160px;
+            width: auto;
             border-radius: 4px;
             outline: 1px solid #d6d6e880;
             image-rendering: pixelated;
@@ -98,7 +99,7 @@
                     gap: 8px;
 
                     background-color: #1e380d;
-                    padding: 2px 12px;
+                    padding: 3px 12px;
                     border-radius: 4px;
                     outline: 1px solid var(--lime);
 
@@ -113,8 +114,8 @@
                     p {
                         color: white;
                         text-decoration: none;
-                        font-weight: 600;
-                        font-size: .9rem;
+                        font-weight: 500;
+                        font-size: .85rem;
                     }
                 }
                 
@@ -162,7 +163,7 @@
     .node {
         position: absolute;
 
-        background-color: var(--main_mdblack);
+        background-color: #1e1e2caa;
         border-radius: 6px;
         outline: 1px solid var(--main_dkgrey);
 
@@ -209,7 +210,8 @@
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {

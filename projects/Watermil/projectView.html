@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Composer</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../pxc_style.css">
+</head>
+<body>
+    <div class = "header">
+        <div class = "header-menu">
+            <a class="" href="../../index.html">Home</a>
+            <a class="" href="https://docs.pixel-composer.com">Doc</a>
+            <a class="" href="../../community.html">Community</a>
+            <a class="select" href="../../showcases.html">Showcases</a>
+        </div>
+    </div>
+
+    <div class = "main">
+        <div style="height: 24px;"></div>
+        <!-- <div class="titlebar"><a href="showcases.html">Showcases</a></div>
+        <div style="height: 12px;"></div> -->
+
+        <div class="content-area">
+            <div class="summary">
+                <img class="thumbnail" src="./thumbnail.png">
+                <div class="metadata">
+                    <div class="project-metadata">
+                        <a class="go-back" href="../../showcases.html">Showcases</a>
+                        <h2 class="project-title">Watermil</h2>
+                        <p class="project-author">MakhamDev</p>
+                    </div>
+
+                    <div class="action-bar">
+                        <a class="action-download" href="./Watermil_121092.pxc">
+                            <div class="icon"></div>
+                            <p>Download .pxc (13.98 kb)</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="pxc-viewer" id="pxc_viewer" style="width: 1472px; height: 1040px;">
+                    <canvas id="pxc_canvas_under" width="2944" height="2080"></canvas>
+                    <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
+                    <canvas id="pxc_canvas_over" width="2944" height="2080"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</body>
+
+<script>
+    const pxc_canvas_under = document.getElementById("pxc_canvas_under").getContext("2d");
+    const pxc_canvas_over  = document.getElementById("pxc_canvas_over").getContext("2d");
+
+    const pxc_nodecontent = document.getElementById("pxc-nodecontent");
+
+    function drawNode(title, url, x, y, w, h, thumb="") {
+        const node = document.createElement("div");
+        node.className = "node";
+        node.style.top = y + "px";
+        node.style.left = x + "px";
+        node.style.width = w + "px";
+        node.style.height = h + "px";
+
+        if(thumb !== "") {
+            const nodeThumb = document.createElement("div");
+            nodeThumb.className = "node-thumb";
+            nodeThumb.style.backgroundImage = "url('" + thumb + "')";
+            node.appendChild(nodeThumb);
+        }
+
+        const nodeTitle = document.createElement("div");
+        nodeTitle.className = "node-title";
+        nodeTitle.innerHTML = "<a href='" + url + "'>" + title + "</a>";
+        node.appendChild(nodeTitle);
+
+        pxc_nodecontent.appendChild(node);
+    }
+
+    function connect(x0, y0, x1, y1) {
+        x0 *= 2;
+        y0 *= 2;
+        x1 *= 2;
+        y1 *= 2;
+
+        pxc_canvas_under.strokeStyle = "#6d6d81";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(x0, y0);
+        pxc_canvas_under.lineTo(x1, y1);
+        pxc_canvas_under.stroke();
+        pxc_canvas_under.closePath();
+        
+        pxc_canvas_over.fillStyle   = "#6d6d81";
+
+        pxc_canvas_over.beginPath();
+        pxc_canvas_over.arc(x0, y0, 6, 0, 2 * Math.PI);
+        pxc_canvas_over.arc(x1, y1, 6, 0, 2 * Math.PI);
+        pxc_canvas_over.fill();
+        pxc_canvas_over.closePath();
+
+
+    }
+
+drawNode("Shape Path", "https://docs.pixel-composer.com/nodes/_index/path_shape.html", 32, 240, 96, 48);
+drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 176, 224, 128, 128, "./src/Draw_Line80685.png");
+connect(128, 264, 176, 264);
+drawNode("Sample Path", "https://docs.pixel-composer.com/nodes/_index/path_sample.html", 160, 544, 96, 56);
+connect(128, 424, 160, 568);
+connect(128, 584, 160, 584);
+drawNode("Transform Path", "https://docs.pixel-composer.com/nodes/_index/path_transform.html", 32, 400, 96, 48);
+connect(128, 264, 32, 424);
+drawNode("Sample Path", "https://docs.pixel-composer.com/nodes/_index/path_sample.html", 160, 624, 96, 56);
+connect(128, 424, 160, 648);
+connect(128, 664, 160, 664);
+drawNode("Draw Line", "https://docs.pixel-composer.com/nodes/_index/line.html", 176, 384, 128, 128, "./src/Draw_Line80685.png");
+connect(128, 424, 176, 424);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 336, 544, 128, 128, "./src/Draw_Line_2_Points49125.png");
+connect(256, 568, 336, 584);
+connect(256, 648, 336, 600);
+drawNode("Composite", "https://docs.pixel-composer.com/nodes/_index/composite.html", 1152, 240, 128, 128, "./src/Composite25026.png");
+connect(960, 248, 1152, 264);
+connect(1120, 568, 1152, 280);
+connect(1120, 408, 1152, 296);
+connect(784, 88, 1152, 312);
+connect(768, 40, 1152, 328);
+drawNode("Number", "https://docs.pixel-composer.com/nodes/_index/number.html", 32, 560, 96, 48);
+drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 336, 224, 128, 128, "./src/Solid49241.png");
+connect(304, 248, 336, 264);
+drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 336, 384, 128, 128, "./src/Solid49241.png");
+connect(304, 408, 336, 424);
+drawNode("2D Extrude", "https://docs.pixel-composer.com/nodes/_index/2d_extrude.html", 656, 224, 128, 128, "./src/2D_Extrude72529.png");
+connect(624, 248, 656, 248);
+drawNode("2D Extrude", "https://docs.pixel-composer.com/nodes/_index/2d_extrude.html", 656, 384, 128, 128, "./src/2D_Extrude72529.png");
+connect(624, 408, 656, 408);
+drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 32, 640, 96, 48);
+connect(128, 584, 32, 664);
+drawNode("2D Extrude", "https://docs.pixel-composer.com/nodes/_index/2d_extrude.html", 496, 544, 128, 128, "./src/2D_Extrude98805.png");
+connect(464, 568, 496, 568);
+drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 832, 384, 128, 128, "./src/Shadow38124.png");
+connect(784, 408, 832, 408);
+connect(624, 568, 832, 424);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 1152, 560, 128, 128, "./src/Outline58611.png");
+connect(1440, 424, 1152, 584);
+drawNode("Shadow", "https://docs.pixel-composer.com/nodes/_index/shadow.html", 656, 544, 128, 128, "./src/Shadow48673.png");
+connect(464, 248, 656, 568);
+connect(624, 568, 656, 584);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 832, 544, 128, 128, "./src/Blend37290.png");
+connect(784, 728, 832, 568);
+connect(784, 584, 832, 584);
+drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/color_adjust.html", 992, 544, 128, 128, "./src/Color_Adjust24436.png");
+connect(960, 568, 992, 568);
+connect(960, 696, 992, 584);
+drawNode("Draw Half", "https://docs.pixel-composer.com/nodes/_index/shape_half.html", 832, 688, 128, 16);
+drawNode("2D Extrude", "https://docs.pixel-composer.com/nodes/_index/2d_extrude.html", 640, 32, 128, 32);
+connect(464, 88, 640, 40);
+connect(608, 40, 640, 56);
+drawNode("Sample Path", "https://docs.pixel-composer.com/nodes/_index/path_sample.html", 160, 720, 96, 56);
+connect(128, 424, 160, 744);
+connect(128, 760, 160, 760);
+drawNode("Math", "https://docs.pixel-composer.com/nodes/_index/math.html", 32, 736, 96, 48);
+connect(128, 584, 32, 760);
+drawNode("Draw Line 2 Points", "https://docs.pixel-composer.com/nodes/_index/line_2points.html", 336, 704, 128, 128, "./src/Draw_Line_2_Points24381.png");
+connect(256, 744, 336, 744);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 496, 384, 128, 128, "./src/Blend68558.png");
+connect(464, 408, 496, 408);
+connect(464, 728, 496, 424);
+drawNode("2D Extrude", "https://docs.pixel-composer.com/nodes/_index/2d_extrude.html", 656, 64, 128, 128, "./src/2D_Extrude72529.png");
+connect(624, 88, 656, 88);
+connect(608, 40, 656, 104);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 496, 224, 128, 128, "./src/Blend93564.png");
+connect(464, 248, 496, 248);
+connect(464, 728, 496, 264);
+drawNode("Grid", "https://docs.pixel-composer.com/nodes/_index/grid.html", 496, 704, 128, 128, "./src/Grid84171.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 656, 704, 128, 128, "./src/Blend54364.png");
+connect(624, 568, 656, 728);
+connect(624, 856, 656, 744);
+drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/offset.html", 496, 848, 128, 16);
+connect(624, 728, 496, 856);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 1152, 400, 128, 128, "./src/Outline96704.png");
+connect(1280, 264, 1152, 424);
+drawNode("De-Corner", "https://docs.pixel-composer.com/nodes/_index/de_corner.html", 832, 224, 128, 128, "./src/DeCorner55123.png");
+connect(784, 248, 832, 248);
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 336, 64, 128, 128, "./src/Draw_Shape27135.png");
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 496, 64, 128, 128, "./src/Outline61233.png");
+connect(464, 88, 496, 88);
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 480, 32, 128, 16);
+drawNode("De-Corner", "https://docs.pixel-composer.com/nodes/_index/de_corner.html", 992, 384, 128, 128, "./src/DeCorner76251.png");
+connect(960, 408, 992, 408);
+drawNode("Checker", "https://docs.pixel-composer.com/nodes/_index/checker.html", 1152, 720, 128, 128, "./src/Checker31146.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 1312, 560, 128, 128, "./src/Blend66274.png");
+connect(1280, 584, 1312, 584);
+connect(1280, 744, 1312, 600);
+drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 1312, 720, 128, 128, "./src/Vignette12951.png");
+connect(1440, 584, 1312, 744);
+drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/offset.html", 1312, 400, 128, 128, "./src/Offset99513.png");
+connect(1280, 424, 1312, 424);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 1312, 880, 128, 128, "./src/Posterize84446.png");
+connect(1440, 744, 1312, 904);
+
+
+    // drawNode("Node Title", 16, 16, 96, 32);
+    // drawNode("Node Title", 200, 16, 96, 32);
+
+    // connect(16+96, 16+16, 200, 16+16);
+</script>
+
+</html>

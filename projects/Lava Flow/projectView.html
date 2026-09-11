@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Composer</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../pxc_style.css">
+</head>
+<body>
+    <div class = "header">
+        <div class = "header-menu">
+            <a class="" href="../../index.html">Home</a>
+            <a class="" href="https://docs.pixel-composer.com">Doc</a>
+            <a class="" href="../../community.html">Community</a>
+            <a class="select" href="../../showcases.html">Showcases</a>
+        </div>
+    </div>
+
+    <div class = "main">
+        <div style="height: 24px;"></div>
+        <!-- <div class="titlebar"><a href="showcases.html">Showcases</a></div>
+        <div style="height: 12px;"></div> -->
+
+        <div class="content-area">
+            <div class="summary">
+                <img class="thumbnail" src="./thumbnail.png">
+                <div class="metadata">
+                    <div class="project-metadata">
+                        <a class="go-back" href="../../showcases.html">Showcases</a>
+                        <h2 class="project-title">Lava Flow</h2>
+                        <p class="project-author">MakhamDev</p>
+                    </div>
+
+                    <div class="action-bar">
+                        <a class="action-download" href="./Lava Flow_121092.pxc">
+                            <div class="icon"></div>
+                            <p>Download .pxc (9.04 kb)</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="pxc-viewer" id="pxc_viewer" style="width: 672px; height: 512px;">
+                    <canvas id="pxc_canvas_under" width="1344" height="1024"></canvas>
+                    <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
+                    <canvas id="pxc_canvas_over" width="1344" height="1024"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</body>
+
+<script>
+    const pxc_canvas_under = document.getElementById("pxc_canvas_under").getContext("2d");
+    const pxc_canvas_over  = document.getElementById("pxc_canvas_over").getContext("2d");
+
+    const pxc_nodecontent = document.getElementById("pxc-nodecontent");
+
+    function drawNode(title, url, x, y, w, h, thumb="") {
+        const node = document.createElement("div");
+        node.className = "node";
+        node.style.top = y + "px";
+        node.style.left = x + "px";
+        node.style.width = w + "px";
+        node.style.height = h + "px";
+
+        if(thumb !== "") {
+            const nodeThumb = document.createElement("div");
+            nodeThumb.className = "node-thumb";
+            nodeThumb.style.backgroundImage = "url('" + thumb + "')";
+            node.appendChild(nodeThumb);
+        }
+
+        const nodeTitle = document.createElement("div");
+        nodeTitle.className = "node-title";
+        nodeTitle.innerHTML = "<a href='" + url + "'>" + title + "</a>";
+        node.appendChild(nodeTitle);
+
+        pxc_nodecontent.appendChild(node);
+    }
+
+    function connect(x0, y0, x1, y1) {
+        x0 *= 2;
+        y0 *= 2;
+        x1 *= 2;
+        y1 *= 2;
+
+        pxc_canvas_under.strokeStyle = "#6d6d81";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(x0, y0);
+        pxc_canvas_under.lineTo(x1, y1);
+        pxc_canvas_under.stroke();
+        pxc_canvas_under.closePath();
+        
+        pxc_canvas_over.fillStyle   = "#6d6d81";
+
+        pxc_canvas_over.beginPath();
+        pxc_canvas_over.arc(x0, y0, 6, 0, 2 * Math.PI);
+        pxc_canvas_over.arc(x1, y1, 6, 0, 2 * Math.PI);
+        pxc_canvas_over.fill();
+        pxc_canvas_over.closePath();
+
+
+    }
+
+drawNode("Simplex Noise", "https://docs.pixel-composer.com/nodes/_index/noise_simplex.html", 192, 352, 128, 128, "./src/Simplex_Noise18012.png");
+drawNode("Displace", "https://docs.pixel-composer.com/nodes/_index/displace.html", 192, 192, 128, 128, "./src/Displace49699.png");
+connect(160, 56, 192, 216);
+connect(320, 376, 192, 264);
+drawNode("Cellular Noise", "https://docs.pixel-composer.com/nodes/_index/cellular.html", 32, 352, 128, 128, "./src/Cellular_Noise34409.png");
+drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/offset.html", 32, 32, 128, 128, "./src/Offset15015.png");
+connect(160, 216, 32, 56);
+drawNode("Colorize", "https://docs.pixel-composer.com/nodes/_index/colorize.html", 352, 32, 128, 128, "./src/Colorize43092.png");
+connect(320, 56, 352, 56);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 352, 192, 128, 128, "./src/Posterize68248.png");
+connect(480, 56, 352, 216);
+drawNode("Curve", "https://docs.pixel-composer.com/nodes/_index/curve.html", 192, 32, 128, 128, "./src/Curve85528.png");
+connect(320, 216, 192, 56);
+drawNode("Bloom", "https://docs.pixel-composer.com/nodes/_index/bloom.html", 352, 352, 128, 128, "./src/Bloom78264.png");
+connect(480, 216, 352, 376);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 512, 352, 128, 128, "./src/Posterize75190.png");
+connect(480, 376, 512, 376);
+connect(480, 376, 512, 408);
+drawNode("Displace", "https://docs.pixel-composer.com/nodes/_index/displace.html", 32, 192, 128, 128, "./src/Displace44153.png");
+connect(160, 376, 32, 216);
+connect(160, 376, 32, 264);
+drawNode("Stack", "https://docs.pixel-composer.com/nodes/_index/stack.html", 512, 192, 128, 128, "./src/Stack52769.png");
+connect(640, 376, 512, 216);
+
+
+    // drawNode("Node Title", 16, 16, 96, 32);
+    // drawNode("Node Title", 200, 16, 96, 32);
+
+    // connect(16+96, 16+16, 200, 16+16);
+</script>
+
+</html>
