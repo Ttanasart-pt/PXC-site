@@ -1,21 +1,22 @@
 {
+  "preview_frames":1.0,
+  "author_steam_id":0.0,
   "file_id":0.0,
-  "tagMap":null,
   "thumbnail":null,
+  "tagMap":null,
   "author":"MakhamDev",
   "description":"",
+  "versionStr":"1.21.9.210",
   "hidden":false,
   "name":"",
   "isDefault":false,
   "version":117100.0,
-  "alias":"",
   "tags":[
   ],
+  "alias":"",
   "contact":"",
-  "deprecated":false,
   "type":1,
-  "preview_frames":1.0,
-  "author_steam_id":0.0,
+  "deprecated":false,
   "displays":[
     [
       "Description",

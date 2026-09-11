@@ -31,23 +31,41 @@
                         <a class="go-back" href="../../showcases.html">Showcases</a>
                         <h2 class="project-title">Windmill</h2>
                         <p class="project-author">MakhamDev</p>
+                        <p class="project-desc"></p>
+                        <div class="project-badges"></div>
                     </div>
 
                     <div class="action-bar">
                         <a class="action-download" href="./Windmill_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (10.32 kb)</p>
+                            <p>Download .pxc (10.38 kb)</p>
                         </a>
                     </div>
+                </div>
+                <div class="details">
+                    <div style="height: 16px;"></div>
+                    <p>11/9/2026</p>
+                    <p><span class='version-major'>v1.21</span>.9.210</p>
                 </div>
             </div>
             
             <div class="content">
-                <div class="pxc-viewer" id="pxc_viewer" style="width: 896px; height: 848px;">
-                    <canvas id="pxc_canvas_under" width="1792" height="1696"></canvas>
-                    <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
-                    <canvas id="pxc_canvas_over" width="1792" height="1696"></canvas>
+                <div class="content-wrapper">
+                    <div class="pxc-viewer" id="pxc_viewer" style="width: 896px; height: 848px;">
+                        <canvas id="pxc_canvas_under" width="1792" height="1696"></canvas>
+                        <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
+                        <canvas id="pxc_canvas_over" width="1792" height="1696"></canvas>
+                    </div>
                 </div>
+                
+                <!-- <div class="control">
+                    <a class="control-button" id="control-zoom-in" href="#">
+                        <img src="../../src/view_zoom_in.png">
+                    </a>
+                    <a class="control-button" id="control-zoom-out" href="#">
+                        <img src="../../src/view_zoom_out.png">
+                    </a>
+                </div> -->
             </div>
         </div>
         
@@ -57,6 +75,24 @@
 </body>
 
 <script>
+    // const pxc_viewer = document.getElementById("pxc_viewer");
+    // const pxc_view_zoom_in = document.getElementById("control-zoom-in");
+    // const pxc_view_zoom_out = document.getElementById("control-zoom-out");
+
+    // let pxc_view_scale = 1;
+
+    // pxc_view_zoom_in.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     pxc_view_scale *= 1.25;
+    //     pxc_viewer.style.transform = "scale(" + pxc_view_scale + ")";
+    // });
+
+    // pxc_view_zoom_out.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     pxc_view_scale /= 1.25;
+    //     pxc_viewer.style.transform = "scale(" + pxc_view_scale + ")";
+    // });
+
     const pxc_canvas_under = document.getElementById("pxc_canvas_under").getContext("2d");
     const pxc_canvas_over  = document.getElementById("pxc_canvas_over").getContext("2d");
 
@@ -114,7 +150,7 @@ drawNode("3D Cylinder", "https://docs.pixel-composer.com/nodes/_index/3d_mesh_cy
 connect(352, 56, 384, 56);
 connect(352, 56, 384, 72);
 connect(352, 56, 384, 88);
-drawNode("3D Camera Set", "https://docs.pixel-composer.com/nodes/_index/3d_camera_set.html", 576, 192, 128, 128, "./src/3D_Camera_Set69433.png");
+drawNode("3D Camera Set", "https://docs.pixel-composer.com/nodes/_index/3d_camera_set.html", 576, 192, 128, 128, "./src/gF340h026702HlgwGpvb2gVPNqRgQ2Fg.png");
 connect(704, 56, 576, 216);
 drawNode("3D Cylinder", "https://docs.pixel-composer.com/nodes/_index/3d_mesh_cylinder.html", 384, 192, 128, 128);
 connect(160, 216, 384, 216);
@@ -124,13 +160,13 @@ drawNode("3D Scene", "https://docs.pixel-composer.com/nodes/_index/3d_scene.html
 connect(512, 56, 576, 56);
 connect(512, 216, 576, 72);
 connect(512, 392, 576, 88);
-drawNode("Canvas", "https://docs.pixel-composer.com/nodes/_index/canvas.html", 32, 368, 128, 128, "./src/Canvas98806.png");
+drawNode("Canvas", "https://docs.pixel-composer.com/nodes/_index/canvas.html", 32, 368, 128, 128, "./src/gF342o154288vPu8RP8gcdZvXZAegwWK.png");
 drawNode("Surface Extrude", "https://docs.pixel-composer.com/nodes/_index/3d_mesh_extrude.html", 192, 368, 128, 128);
 connect(160, 392, 192, 392);
 connect(160, 712, 192, 408);
-drawNode("Greyscale", "https://docs.pixel-composer.com/nodes/_index/greyscale.html", 32, 528, 128, 128, "./src/Greyscale18938.png");
+drawNode("Greyscale", "https://docs.pixel-composer.com/nodes/_index/greyscale.html", 32, 528, 128, 128, "./src/gF343t218406sCtAsHAi2FUEh6Yi94Ym.png");
 connect(160, 392, 32, 552);
-drawNode("Level", "https://docs.pixel-composer.com/nodes/_index/level.html", 32, 688, 128, 128, "./src/Level85835.png");
+drawNode("Level", "https://docs.pixel-composer.com/nodes/_index/level.html", 32, 688, 128, 128, "./src/gF343v220515aWJT3dS71oeZ0iIG5ZwV.png");
 connect(160, 552, 32, 712);
 drawNode("3D Repeat", "https://docs.pixel-composer.com/nodes/_index/3d_repeat.html", 192, 528, 128, 128);
 connect(320, 392, 192, 552);
@@ -138,23 +174,21 @@ drawNode("Transform 3D", "https://docs.pixel-composer.com/nodes/_index/3d_transf
 connect(512, 552, 384, 392);
 drawNode("Transform 3D", "https://docs.pixel-composer.com/nodes/_index/3d_transform.html", 384, 528, 128, 128);
 connect(320, 552, 384, 552);
-drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 576, 352, 128, 128, "./src/Outline13243.png");
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 576, 352, 128, 128, "./src/gF3476409647JAxKtzHgjZwGTxxrjJYO.png");
 connect(704, 216, 576, 376);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 736, 512, 128, 128, "./src/Posterize37214.png");
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 736, 512, 128, 128, "./src/gF347A413365gTq4RlPZF4SbWl26wRvU.png");
 connect(864, 376, 736, 536);
-drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 32, 192, 128, 128, "./src/Solid20627.png");
-drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 192, 32, 128, 128, "./src/Draw_Gradient16917.png");
-drawNode("Pin", "https://docs.pixel-composer.com/nodes/_index/pin.html", 352, 224, 32, 128, "./src/Pin80252.png");
+drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 32, 192, 128, 128, "./src/gF34BT672954l5EI301WuCSeCDlZaftP.png");
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 192, 32, 128, 128, "./src/gF34Bh6866137QoV8uqQgqVPDtnoyQGN.png");
 connect(320, 232, 352, 232);
-drawNode("Pin", "https://docs.pixel-composer.com/nodes/_index/pin.html", 352, 48, 32, 128, "./src/Pin16869.png");
 connect(320, 56, 352, 56);
-drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 192, 208, 128, 128, "./src/Draw_Shape76713.png");
+drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 192, 208, 128, 128, "./src/gF34CM725804Uwtgtn3yvrVa8AMjzqcx.png");
 connect(160, 216, 192, 264);
-drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 736, 32, 128, 128, "./src/Draw_Gradient12547.png");
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 736, 192, 128, 128, "./src/Blend86205.png");
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 736, 32, 128, 128, "./src/gF34D07638188NytlL28nZxb8btQ7RLq.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 736, 192, 128, 128, "./src/gF34D3766953neJeTEIzhonysCkvjBrp.png");
 connect(864, 56, 736, 216);
 connect(704, 376, 736, 232);
-drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 736, 352, 128, 128, "./src/Vignette74959.png");
+drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/vignette.html", 736, 352, 128, 128, "./src/gF34DT792349KKmKyECDpj76WuUS60gW.png");
 connect(864, 216, 736, 376);
 
 

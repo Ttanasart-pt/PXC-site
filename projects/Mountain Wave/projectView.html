@@ -31,23 +31,41 @@
                         <a class="go-back" href="../../showcases.html">Showcases</a>
                         <h2 class="project-title">Mountain Wave</h2>
                         <p class="project-author">MakhamDev</p>
+                        <p class="project-desc"></p>
+                        <div class="project-badges"></div>
                     </div>
 
                     <div class="action-bar">
                         <a class="action-download" href="./Mountain Wave_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (14.04 kb)</p>
+                            <p>Download .pxc (14.08 kb)</p>
                         </a>
                     </div>
+                </div>
+                <div class="details">
+                    <div style="height: 16px;"></div>
+                    <p>11/9/2026</p>
+                    <p><span class='version-major'>v1.21</span>.9.210</p>
                 </div>
             </div>
             
             <div class="content">
-                <div class="pxc-viewer" id="pxc_viewer" style="width: 832px; height: 544px;">
-                    <canvas id="pxc_canvas_under" width="1664" height="1088"></canvas>
-                    <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
-                    <canvas id="pxc_canvas_over" width="1664" height="1088"></canvas>
+                <div class="content-wrapper">
+                    <div class="pxc-viewer" id="pxc_viewer" style="width: 832px; height: 544px;">
+                        <canvas id="pxc_canvas_under" width="1664" height="1088"></canvas>
+                        <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
+                        <canvas id="pxc_canvas_over" width="1664" height="1088"></canvas>
+                    </div>
                 </div>
+                
+                <!-- <div class="control">
+                    <a class="control-button" id="control-zoom-in" href="#">
+                        <img src="../../src/view_zoom_in.png">
+                    </a>
+                    <a class="control-button" id="control-zoom-out" href="#">
+                        <img src="../../src/view_zoom_out.png">
+                    </a>
+                </div> -->
             </div>
         </div>
         
@@ -57,6 +75,24 @@
 </body>
 
 <script>
+    // const pxc_viewer = document.getElementById("pxc_viewer");
+    // const pxc_view_zoom_in = document.getElementById("control-zoom-in");
+    // const pxc_view_zoom_out = document.getElementById("control-zoom-out");
+
+    // let pxc_view_scale = 1;
+
+    // pxc_view_zoom_in.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     pxc_view_scale *= 1.25;
+    //     pxc_viewer.style.transform = "scale(" + pxc_view_scale + ")";
+    // });
+
+    // pxc_view_zoom_out.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     pxc_view_scale /= 1.25;
+    //     pxc_viewer.style.transform = "scale(" + pxc_view_scale + ")";
+    // });
+
     const pxc_canvas_under = document.getElementById("pxc_canvas_under").getContext("2d");
     const pxc_canvas_over  = document.getElementById("pxc_canvas_over").getContext("2d");
 
@@ -110,36 +146,36 @@
 
     }
 
-drawNode("Cellular Noise", "https://docs.pixel-composer.com/nodes/_index/cellular.html", 32, 352, 128, 128, "./src/Cellular_Noise91928.png");
-drawNode("Smear", "https://docs.pixel-composer.com/nodes/_index/smear.html", 352, 32, 128, 128, "./src/Smear66344.png");
+drawNode("Cellular Noise", "https://docs.pixel-composer.com/nodes/_index/cellular.html", 32, 352, 128, 128, "./src/gMF9m81304268DqrwDjVqJvjYkKfemnl.png");
+drawNode("Smear", "https://docs.pixel-composer.com/nodes/_index/smear.html", 352, 32, 128, 128, "./src/gMF9mJ13154905iTOimvp90dMsHBWoF7.png");
 connect(480, 216, 352, 56);
-drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 192, 352, 128, 128, "./src/Draw_Gradient83728.png");
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 352, 192, 128, 128, "./src/Blend39624.png");
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 192, 352, 128, 128, "./src/gMF9mw1354931c5GMDvYfj9PzpK6oxYA.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 352, 192, 128, 128, "./src/gMF9n61362882EOinaN0knCEmUI7D6Gv.png");
 connect(320, 216, 352, 216);
 connect(480, 376, 352, 232);
-drawNode("Level", "https://docs.pixel-composer.com/nodes/_index/level.html", 512, 32, 128, 128, "./src/Level71022.png");
+drawNode("Level", "https://docs.pixel-composer.com/nodes/_index/level.html", 512, 32, 128, 128, "./src/gMF9os1470094HzJVJXfguIs7USTJJC1.png");
 connect(480, 56, 512, 56);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 512, 352, 128, 128, "./src/Posterize91734.png");
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 512, 352, 128, 128, "./src/gMF9p014754565s36GM6h4B8VwMkLCVV.png");
 connect(640, 216, 512, 376);
-drawNode("Ridge Noise", "https://docs.pixel-composer.com/nodes/_index/ridge_noise.html", 32, 32, 128, 128, "./src/Ridge_Noise87188.png");
+drawNode("Ridge Noise", "https://docs.pixel-composer.com/nodes/_index/ridge_noise.html", 32, 32, 128, 128, "./src/gMF9r11597443AYWLkjG710Fr0kGY3lx.png");
 connect(160, 216, 32, 56);
-drawNode("XDoG Threshold", "https://docs.pixel-composer.com/nodes/_index/xdog_threshold.html", 192, 32, 128, 128, "./src/XDoG_Threshold78476.png");
+drawNode("XDoG Threshold", "https://docs.pixel-composer.com/nodes/_index/xdog_threshold.html", 192, 32, 128, 128, "./src/gMF9uw18345234gVHGdoUm3sdB40vz1Z.png");
 connect(160, 56, 192, 56);
-drawNode("Curve", "https://docs.pixel-composer.com/nodes/_index/curve.html", 32, 192, 128, 128, "./src/Curve13827.png");
+drawNode("Curve", "https://docs.pixel-composer.com/nodes/_index/curve.html", 32, 192, 128, 128, "./src/gMF9vH1853780WNckwRAKZd667eMXNc8.png");
 connect(160, 376, 32, 216);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 192, 192, 128, 128, "./src/Blend75578.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 192, 192, 128, 128, "./src/gMF9w41900986CyIXVxRmKRNhDpc1oKZ.png");
 connect(320, 56, 192, 216);
 connect(160, 56, 192, 232);
-drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/offset.html", 352, 352, 128, 128, "./src/Offset27165.png");
+drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/offset.html", 352, 352, 128, 128, "./src/gMFA0r2009525BmUFhRURVOSCmvi9eqb.png");
 connect(320, 504, 352, 376);
 drawNode("XDoG Threshold", "https://docs.pixel-composer.com/nodes/_index/xdog_threshold.html", 512, 176, 128, 16);
 connect(640, 56, 512, 184);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 512, 192, 128, 128, "./src/Blend45969.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 512, 192, 128, 128, "./src/gMFA112077175Rj9vcyKGdmhvT0qoSQS.png");
 connect(640, 56, 512, 216);
 connect(640, 184, 512, 232);
 drawNode("Curve", "https://docs.pixel-composer.com/nodes/_index/curve.html", 192, 496, 128, 16);
 connect(320, 376, 192, 504);
-drawNode("Export", "https://docs.pixel-composer.com/nodes/_index/export.html", 672, 368, 128, 128, "./src/Export39558.png");
+drawNode("Export", "https://docs.pixel-composer.com/nodes/_index/export.html", 672, 368, 128, 128, "./src/gMFACn343859CLomprDHYHdvmRWaeO0G.png");
 connect(640, 376, 672, 392);
 
 

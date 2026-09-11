@@ -48,8 +48,6 @@
         align-items: flex-start;
         gap: 16px;
 
-        padding-right: 16px;
-
         .thumbnail {
             height: 160px;
             width: auto;
@@ -76,6 +74,13 @@
                 line-height: 1;
             }
 
+            .project-desc {
+                padding-top: 8px;
+                color: var(--main_white);
+                line-height: 1;
+                font-size: 0.9rem;
+            }
+
             .go-back {
                 color: var(--main_grey);
                 cursor: pointer;
@@ -84,6 +89,25 @@
 
                 &:hover {
                     color: var(--accent);
+                }
+            }
+
+            .project-badges {
+                display: flex;
+                flex-direction: row;
+                gap: 4px;
+                padding-top: 8px;
+
+                .badge {
+                    background-color: var(--main_dkgrey);
+                    border-radius: 4px;
+
+                    p {
+                        color: var(--main_white);
+                        padding: 1px 6px;
+                        font-size: 0.75rem;
+                        font-weight: 500;
+                    }
                 }
             }
 
@@ -128,16 +152,73 @@
                 }
             }
         }
+
+        .details {
+            width: 200px;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+
+            p {
+                color: var(--main_ltgrey);
+                font-size: 0.8rem;
+                text-align: right;
+            }
+
+            .version-major {
+                color: var(--main_white);
+                font-weight: 700;
+            }
+        }
     }
 
     .content {
         width: 100%;
+        position: relative;
+
+        .control {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            
+            top: 8px;
+            right: 8px;
+            
+            background-color: #1e1e2cb0;
+            outline: 1px solid #6d6d8188;
+            border-radius: 4px;
+
+            padding: 4px;
+
+            .control-button {
+                width: 20px;
+                height: 20px;
+                padding: 2px 4px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    opacity: .5;
+                }
+            }
+
+            .control-button:hover {
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
         overflow-x: scroll;
         
         background-color: var(--main_dkblack);
         background-image: url("./src/pxc_bg.png");
         background-repeat: repeat;
-        background-attachment: scroll;
+        background-attachment: local;
 
         border-radius: 6px;
         outline: 1px solid #101016;
@@ -148,6 +229,10 @@
 
 .pxc-viewer {
     position: relative;
+
+    transform-origin: top left;
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
     
     canvas {
         position: absolute;
@@ -207,6 +292,7 @@
             image-rendering: pixelated;
         }
     }
+    
 }
 
 ::-webkit-scrollbar {

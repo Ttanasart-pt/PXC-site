@@ -31,23 +31,41 @@
                         <a class="go-back" href="../../showcases.html">Showcases</a>
                         <h2 class="project-title">Mushroom Cloud</h2>
                         <p class="project-author">MakhamDev</p>
+                        <p class="project-desc"></p>
+                        <div class="project-badges"></div>
                     </div>
 
                     <div class="action-bar">
                         <a class="action-download" href="./Mushroom Cloud_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (7.61 kb)</p>
+                            <p>Download .pxc (7.64 kb)</p>
                         </a>
                     </div>
+                </div>
+                <div class="details">
+                    <div style="height: 16px;"></div>
+                    <p>11/9/2026</p>
+                    <p><span class='version-major'>v1.21</span>.9.210</p>
                 </div>
             </div>
             
             <div class="content">
-                <div class="pxc-viewer" id="pxc_viewer" style="width: 512px; height: 368px;">
-                    <canvas id="pxc_canvas_under" width="1024" height="736"></canvas>
-                    <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
-                    <canvas id="pxc_canvas_over" width="1024" height="736"></canvas>
+                <div class="content-wrapper">
+                    <div class="pxc-viewer" id="pxc_viewer" style="width: 512px; height: 368px;">
+                        <canvas id="pxc_canvas_under" width="1024" height="736"></canvas>
+                        <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
+                        <canvas id="pxc_canvas_over" width="1024" height="736"></canvas>
+                    </div>
                 </div>
+                
+                <!-- <div class="control">
+                    <a class="control-button" id="control-zoom-in" href="#">
+                        <img src="../../src/view_zoom_in.png">
+                    </a>
+                    <a class="control-button" id="control-zoom-out" href="#">
+                        <img src="../../src/view_zoom_out.png">
+                    </a>
+                </div> -->
             </div>
         </div>
         
@@ -57,6 +75,24 @@
 </body>
 
 <script>
+    // const pxc_viewer = document.getElementById("pxc_viewer");
+    // const pxc_view_zoom_in = document.getElementById("control-zoom-in");
+    // const pxc_view_zoom_out = document.getElementById("control-zoom-out");
+
+    // let pxc_view_scale = 1;
+
+    // pxc_view_zoom_in.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     pxc_view_scale *= 1.25;
+    //     pxc_viewer.style.transform = "scale(" + pxc_view_scale + ")";
+    // });
+
+    // pxc_view_zoom_out.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     pxc_view_scale /= 1.25;
+    //     pxc_viewer.style.transform = "scale(" + pxc_view_scale + ")";
+    // });
+
     const pxc_canvas_under = document.getElementById("pxc_canvas_under").getContext("2d");
     const pxc_canvas_over  = document.getElementById("pxc_canvas_over").getContext("2d");
 
@@ -110,18 +146,18 @@
 
     }
 
-drawNode("MK Cloud", "https://docs.pixel-composer.com/nodes/_index/mk_cloud.html", 192, 208, 128, 128, "./src/MK_Cloud78406.png");
+drawNode("MK Cloud", "https://docs.pixel-composer.com/nodes/_index/mk_cloud.html", 192, 208, 128, 128, "./src/gYBFau777928xDK7gnxkWlp34WGJrz45.png");
 connect(320, 168, 192, 232);
 connect(160, 232, 192, 248);
 drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 32, 48, 128, 16);
 connect(160, 40, 32, 56);
 drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/shape.html", 32, 32, 128, 16);
-drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 32, 208, 128, 128, "./src/Draw_Gradient16053.png");
-drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 32, 64, 128, 128, "./src/Draw_Gradient27355.png");
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 32, 208, 128, 128, "./src/gYBFiN025001cjtkMXv5wRgYUJTn7Uza.png");
+drawNode("Draw Gradient", "https://docs.pixel-composer.com/nodes/_index/gradient.html", 32, 64, 128, 128, "./src/gYC6Lk142668SC0vmvuhJhG8WwAZARDa.png");
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 192, 160, 128, 32);
 connect(160, 56, 192, 168);
 connect(160, 88, 192, 184);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 352, 208, 128, 128, "./src/Posterize68080.png");
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 352, 208, 128, 128, "./src/gYBFip053436KgVJh7jstqaKHSEdaj0w.png");
 connect(320, 232, 352, 232);
 
 
