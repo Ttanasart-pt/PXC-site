@@ -138,6 +138,7 @@ div.showcase-grid {
     width: 100%;
     
     div.showcase-item {
+        z-index: 0;
         position: relative;
         width: var(--grid-size);
         height: var(--grid-size);
@@ -151,6 +152,7 @@ div.showcase-grid {
         img.thumbnail {
             width: var(--grid-size);
             height: var(--grid-size);
+            object-fit: cover;
             image-rendering: pixelated;
         }
 
@@ -175,7 +177,7 @@ div.showcase-grid {
             
             .project-title {
                 font-family: 'Atkinson Hyperlegible Next', sans-serif;
-                font-weight: 600;
+                font-weight: 500;
                 font-size: 1rem;
                 color: var(--main_white);
                 margin: 0;
@@ -206,7 +208,7 @@ div.showcase-grid {
         border-radius: 4px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
 
-        div.description {
+        .description {
             opacity: 1;
         }
     }
