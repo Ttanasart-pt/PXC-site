@@ -5,7 +5,7 @@ import subprocess
 
 scrDir = os.path.realpath(__file__)
 scrDir = os.path.dirname(scrDir)
-templatePath = os.path.join(scrDir, "__template.html")
+templatePath = os.path.join(scrDir, "__projects_template.html")
 listPath     = os.path.join(scrDir, "list.html")
 targetPath   = os.path.join(scrDir, "projects.html")
 
