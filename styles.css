@@ -134,7 +134,7 @@ div.showcase-grid {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 2px;
+    gap: 4px;
     width: 100%;
     
     div.showcase-item {
@@ -169,7 +169,7 @@ div.showcase-grid {
             padding: 8px 8px;
 
             background-image: linear-gradient(0deg, #121220cc, #121220cc, #12122000);
-            border-radius: 3px;
+            border-radius: 4px;
             
             opacity: 0;
 
@@ -179,6 +179,8 @@ div.showcase-grid {
                 font-family: 'Atkinson Hyperlegible Next', sans-serif;
                 font-weight: 500;
                 font-size: 1rem;
+                line-height: 1.1;
+
                 color: var(--main_white);
                 margin: 0;
             }
