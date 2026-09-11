@@ -9,7 +9,11 @@
 
     --accent: #ff9166;
 
-    --grid-size: 160px;
+    --grid-gap: 4px;
+    --grid-columns: 4;
+    --grid-size: calc((75vw - var(--grid-gap) * (var(--grid-columns) - 1)) / var(--grid-columns));
+
+    --transition-duration: 0.1s;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@500;600;700&display=swap');
@@ -134,7 +138,7 @@ div.showcase-grid {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 4px;
+    gap: var(--grid-gap);
     width: 100%;
     
     div.showcase-item {
@@ -147,7 +151,10 @@ div.showcase-grid {
         border-radius: 0px;
         box-shadow: 0 4px 8px transparent;
 
-        transition: transform 0.2s ease, outline 0.2s ease, border-radius 0.2s ease, box-shadow 0.2s ease;
+        transition: transform     var(--transition-duration) ease, 
+                    outline       var(--transition-duration) ease, 
+                    border-radius var(--transition-duration) ease, 
+                    box-shadow    var(--transition-duration) ease;
 
         img.thumbnail {
             width: var(--grid-size);
@@ -156,7 +163,7 @@ div.showcase-grid {
             image-rendering: pixelated;
 
             border-radius: 0px;
-            transition: border-radius 0.2s ease;
+            transition: border-radius 0.1s ease;
         }
 
         .description {
@@ -176,7 +183,7 @@ div.showcase-grid {
             
             opacity: .25;
 
-            transition: opacity 0.2s ease;
+            transition: opacity var(--transition-duration) ease;
             
             .project-title {
                 font-family: 'Atkinson Hyperlegible Next', sans-serif;
@@ -196,7 +203,7 @@ div.showcase-grid {
                 color: var(--main_ltgrey);
                 opacity: .0;
 
-                transition: opacity 0.1s ease;
+                transition: opacity var(--transition-duration) ease;
             }
         }
 
@@ -210,8 +217,8 @@ div.showcase-grid {
     
     div.showcase-item:hover {
         z-index: 1;
-        transform: scale(1.1);
-        outline: 1px solid var(--main_dkgrey);
+        transform: scale(1.25);
+        outline: 1px solid #d6d6e880;
         border-radius: 4px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
 
