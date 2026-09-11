@@ -157,6 +157,8 @@ div.showcase-grid {
         border-radius: 0px;
         box-shadow: 0 4px 8px transparent;
 
+        background-color: var(--main_dkblack);
+
         transition: transform     var(--transition-duration) ease, 
                     outline       var(--transition-duration) ease, 
                     border-radius var(--transition-duration) ease, 
