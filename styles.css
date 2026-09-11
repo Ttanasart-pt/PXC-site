@@ -10,7 +10,7 @@
     --accent: #ff9166;
     --lime: #8fde5d;
 
-    --content-width: min(75vw, 800px);
+    --content-width: 75vw;
 
     --grid-gap: 4px;
     --grid-columns: 4;
