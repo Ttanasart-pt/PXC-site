@@ -51,7 +51,7 @@ for project in projects:
 
     fileSizeStr = f"{(fileSize/divider):.2f} {unit}"
 
-    contentUrl  = os.path.join("./projects", project, "projectView.html")
+    contentUrl  = os.path.join("./projects", project)
 
     projectStr = listContent.replace("{{PROJECT_NAME}}", project)
     projectStr = projectStr.replace("{{CONTENT_URL}}",   contentUrl)
