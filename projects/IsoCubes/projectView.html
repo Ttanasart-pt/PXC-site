@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Composer</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../pxc_style.css">
+</head>
+<body>
+    <div class = "header">
+        <div class = "header-menu">
+            <a class="" href="../../index.html">Home</a>
+            <a class="" href="https://docs.pixel-composer.com">Doc</a>
+            <a class="" href="../../community.html">Community</a>
+            <a class="select" href="../../showcases.html">Showcases</a>
+        </div>
+    </div>
+
+    <div class = "main">
+        <div style="height: 24px;"></div>
+        <!-- <div class="titlebar"><a href="showcases.html">Showcases</a></div>
+        <div style="height: 12px;"></div> -->
+
+        <div class="content-area">
+            <div class="summary">
+                <img class="thumbnail" src="./thumbnail.png">
+                <div class="metadata">
+                    <div class="project-metadata">
+                        <a class="go-back" href="../../showcases.html">Showcases</a>
+                        <h2 class="project-title">IsoCubes</h2>
+                        <p class="project-author">MakhamDev</p>
+                    </div>
+
+                    <div class="action-bar">
+                        <a class="action-download" href="./IsoCubes_121092.pxc">
+                            <div class="icon"></div>
+                            <p>Download (.pxc)</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="pxc-viewer" id="pxc_viewer" style="width: 912px; height: 432px;">
+                    <canvas id="pxc_canvas_under" width="1824" height="864"></canvas>
+                    <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
+                    <canvas id="pxc_canvas_over" width="1824" height="864"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</body>
+
+<script>
+    const pxc_canvas_under = document.getElementById("pxc_canvas_under").getContext("2d");
+    const pxc_canvas_over  = document.getElementById("pxc_canvas_over").getContext("2d");
+
+    const pxc_nodecontent = document.getElementById("pxc-nodecontent");
+
+    function drawNode(title, url, x, y, w, h, thumb="") {
+        const node = document.createElement("div");
+        node.className = "node";
+        node.style.top = y + "px";
+        node.style.left = x + "px";
+        node.style.width = w + "px";
+        node.style.height = h + "px";
+
+        if(thumb !== "") {
+            const nodeThumb = document.createElement("div");
+            nodeThumb.className = "node-thumb";
+            nodeThumb.style.backgroundImage = "url('" + thumb + "')";
+            node.appendChild(nodeThumb);
+        }
+
+        const nodeTitle = document.createElement("div");
+        nodeTitle.className = "node-title";
+        nodeTitle.innerHTML = "<a href='" + url + "'>" + title + "</a>";
+        node.appendChild(nodeTitle);
+
+        pxc_nodecontent.appendChild(node);
+    }
+
+    function connect(x0, y0, x1, y1) {
+        x0 *= 2;
+        y0 *= 2;
+        x1 *= 2;
+        y1 *= 2;
+
+        pxc_canvas_under.strokeStyle = "#6d6d81";
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(x0, y0);
+        pxc_canvas_under.lineTo(x1, y1);
+        pxc_canvas_under.stroke();
+        pxc_canvas_under.closePath();
+        
+        pxc_canvas_over.fillStyle   = "#6d6d81";
+
+        pxc_canvas_over.beginPath();
+        pxc_canvas_over.arc(x0, y0, 6, 0, 2 * Math.PI);
+        pxc_canvas_over.arc(x1, y1, 6, 0, 2 * Math.PI);
+        pxc_canvas_over.fill();
+        pxc_canvas_over.closePath();
+
+
+    }
+
+drawNode("MK IsoCube", "https://docs.pixel-composer.com/nodes/_index/mk_isocube.html", 272, 96, 128, 128, "./src/MK_IsoCube67667.png");
+connect(240, 40, 272, 120);
+connect(240, 152, 272, 152);
+connect(240, 280, 272, 168);
+connect(240, 152, 272, 136);
+connect(240, 296, 272, 184);
+connect(240, 312, 272, 200);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 272, 256, 128, 128, "./src/Outline11411.png");
+connect(400, 120, 272, 280);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/posterize.html", 432, 256, 128, 128, "./src/Posterize75736.png");
+connect(400, 280, 432, 280);
+drawNode("Stripe", "https://docs.pixel-composer.com/nodes/_index/stripe.html", 112, 128, 128, 128, "./src/Stripe73827.png");
+drawNode("Solid", "https://docs.pixel-composer.com/nodes/_index/solid.html", 112, 272, 128, 32);
+drawNode("Vector4", "https://docs.pixel-composer.com/nodes/_index/vector4.html", 32, 48, 96, 16);
+drawNode("Vector4", "https://docs.pixel-composer.com/nodes/_index/vector4.html", 32, 32, 96, 16);
+drawNode("Array", "https://docs.pixel-composer.com/nodes/_index/array.html", 144, 32, 96, 80);
+connect(128, 40, 144, 40);
+connect(128, 56, 144, 56);
+connect(128, 72, 144, 72);
+connect(128, 88, 144, 88);
+drawNode("Vector4", "https://docs.pixel-composer.com/nodes/_index/vector4.html", 32, 80, 96, 16);
+drawNode("Image Grid", "https://docs.pixel-composer.com/nodes/_index/image_grid.html", 432, 96, 128, 128, "./src/Image_Grid62396.png");
+connect(560, 280, 432, 120);
+drawNode("Palette", "https://docs.pixel-composer.com/nodes/_index/palette.html", 144, 288, 96, 16);
+drawNode("Palette", "https://docs.pixel-composer.com/nodes/_index/palette.html", 144, 304, 96, 16);
+drawNode("Vector4", "https://docs.pixel-composer.com/nodes/_index/vector4.html", 32, 64, 96, 16);
+drawNode("Checker", "https://docs.pixel-composer.com/nodes/_index/checker.html", 592, 272, 128, 128, "./src/Checker41434.png");
+connect(560, 120, 592, 296);
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/blend.html", 752, 96, 128, 128, "./src/Blend43592.png");
+connect(720, 296, 752, 120);
+connect(720, 120, 752, 136);
+drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/outline.html", 592, 96, 128, 128, "./src/Outline58439.png");
+connect(560, 120, 592, 120);
+
+
+    // drawNode("Node Title", 16, 16, 96, 32);
+    // drawNode("Node Title", 200, 16, 96, 32);
+
+    // connect(16+96, 16+16, 200, 16+16);
+</script>
+
+</html>

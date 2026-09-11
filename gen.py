@@ -48,8 +48,10 @@ for project in projects:
         divider = 1024
 
     fileSizeStr = f"{(fileSize/divider):.2f} {unit}"
+    contentUrl  = os.path.join(fileDir, "projectView.html")
 
     projectStr = listContent.replace("{{PROJECT_NAME}}", project)
+    projectStr = projectStr.replace("{{CONTENT_URL}}",   contentUrl)
     projectStr = projectStr.replace("{{FILE_URL}}",      fileUrl)
     projectStr = projectStr.replace("{{FILE_SIZE}}",     fileSizeStr)
 
