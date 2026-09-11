@@ -32,12 +32,14 @@ for project in projects:
     fileUrl  = ""
     for _f in fileList:
         if _f.endswith(".pxc"):
-            fileUrl = os.path.join(fileDir, _f)
-
+            fileUrl = _f
     if fileUrl == "":
         continue
-    fileSize = os.path.getsize(fileUrl)
 
+    fileUrl_local = os.path.join(fileDir, fileUrl)
+    fileUrl_web   = os.path.join("./projects", project, fileUrl)
+
+    fileSize = os.path.getsize(fileUrl_local)
     unit    = "b"
     divider = 1
     if fileSize > 1024 * 1024:
@@ -48,11 +50,12 @@ for project in projects:
         divider = 1024
 
     fileSizeStr = f"{(fileSize/divider):.2f} {unit}"
-    contentUrl  = os.path.join(fileDir, "projectView.html")
+
+    contentUrl  = os.path.join("./projects", project, "projectView.html")
 
     projectStr = listContent.replace("{{PROJECT_NAME}}", project)
     projectStr = projectStr.replace("{{CONTENT_URL}}",   contentUrl)
-    projectStr = projectStr.replace("{{FILE_URL}}",      fileUrl)
+    projectStr = projectStr.replace("{{FILE_URL}}",      fileUrl_web)
     projectStr = projectStr.replace("{{FILE_SIZE}}",     fileSizeStr)
 
     projectsList += projectStr + "\n"
