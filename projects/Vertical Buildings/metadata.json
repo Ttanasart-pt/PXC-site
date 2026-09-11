@@ -7,15 +7,15 @@
   "hidden":false,
   "name":"",
   "isDefault":false,
-  "alias":"",
   "version":117100.0,
+  "alias":"",
   "tags":[
   ],
   "contact":"",
   "deprecated":false,
+  "type":1,
   "preview_frames":1.0,
   "author_steam_id":0.0,
-  "type":1,
   "displays":[
     [
       "Description",
