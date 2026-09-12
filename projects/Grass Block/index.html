@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Grass Block_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (20.22 kb)</p>
+                            <p>Download .pxc (19.82 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
         frame.appendChild(frameTitle);
         
         if(color !== "") {
-            frame.style.backgroundColor = color + "15";
+            frame.style.backgroundColor = color + "10";
             frame.style.border = "1px solid " + color + "40";
             frameTitle.style.borderBottomColor = color + "40";
         }
@@ -176,11 +176,18 @@
 
     }
 
-drawFrame("Cube", 48, 64, 1360, 736, "#FFFFFFFF");
-drawFrame("Grass", 1072, 912, 1024, 448, "#64C74DFF");
-drawFrame("Dirt", 32, 912, 1008, 448, "#B86F50FF");
-drawFrame("Scene", 1408, 32, 688, 800, "#FFFFFFFF");
+drawFrame("Cube", 48, 64, 1360, 736, "#FFFFFF");
+drawFrame("Grass", 1072, 912, 1024, 448, "#64C74D");
+drawFrame("Dirt", 32, 912, 1008, 448, "#B86F50");
+drawFrame("Scene", 1408, 32, 688, 800, "#FFFFFF");
 drawPolygon([[1392,1328],[1488,1328],[1488,1136],[1264,1136],[1264,1312]], "#FF9166");
+drawNode("Strand Create", "https://docs.pixel-composer.com/nodes/_index/node_strand_create.html", 1296, 1232, 96, 48, "./src/fABC0H6918196xSflsDmZLOBF5CTybgm.png");
+connect(1264, 1208, 1296, 1256);
+drawNode("Strand Render", "https://docs.pixel-composer.com/nodes/_index/node_strand_render.html", 1424, 1168, 128, 128, "./src/fABC0H6918205OvvL85pJ05Q1hWgKPon.png");
+connect(1392, 1192, 1424, 1192);
+drawNode("Draw Shape Polygon", "https://docs.pixel-composer.com/nodes/_index/node_shape_polygon.html", 1136, 1168, 128, 128, "./src/fABC0R6927955W2jNoUKn6k2vFRy1ZnJ.png");
+drawNode("Strand Force Apply", "https://docs.pixel-composer.com/nodes/_index/node_strand_force_apply.html", 1296, 1168, 96, 48, "./src/fABDjh846177BMki3d5593Q3RnCEYsxm.png");
+connect(1392, 1256, 1296, 1192);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/node_blend.html", 1856, 96, 128, 128, "./src/fABDtZ071327xpnBxh6naqvt70bG2itg.png");
 connect(1824, 120, 1856, 120);
 connect(1824, 280, 1856, 136);
@@ -265,20 +272,16 @@ drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/node_outline.h
 connect(1984, 120, 1856, 280);
 drawNode("Transform", "https://docs.pixel-composer.com/nodes/_index/node_transform.html", 1696, 256, 128, 128, "./src/fAC7pu25498861TLaeM7ra3MsdzLrXpC.png");
 connect(1664, 280, 1696, 280);
-connect(1312, 328, 1344, 320);
-connect(1312, 120, 1344, 112);
-connect(848, 1080, 880, 1072);
-connect(2032, 1144, 2064, 1136);
-connectDash(1504, 128, 2064, 1136);
-drawNode("Strand Render", "https://docs.pixel-composer.com/nodes/_index/node_strand_render.html", 1424, 1168, 128, 128, "./src/fABC0H6918205OvvL85pJ05Q1hWgKPon.png");
-connect(1392, 1192, 1424, 1192);
-drawNode("Strand Force Apply", "https://docs.pixel-composer.com/nodes/_index/node_strand_force_apply.html", 1296, 1168, 96, 48, "./src/fABDjh846177BMki3d5593Q3RnCEYsxm.png");
-connect(1392, 1256, 1296, 1192);
-drawNode("Draw Shape Polygon", "https://docs.pixel-composer.com/nodes/_index/node_shape_polygon.html", 1136, 1168, 128, 128, "./src/fABC0R6927955W2jNoUKn6k2vFRy1ZnJ.png");
-drawNode("Strand Create", "https://docs.pixel-composer.com/nodes/_index/node_strand_create.html", 1296, 1232, 96, 48, "./src/fABC0H6918196xSflsDmZLOBF5CTybgm.png");
-connect(1264, 1208, 1296, 1256);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/node_outline.html", 1696, 416, 280, 280, "./src/fAC7qI2571730DH4vwV4HHsaIGKbQXd9.png");
 connect(1984, 280, 1696, 440);
+connect(1312, 328, 1344, 320);
+connectDash(528, 1024, 1344, 320);
+connect(1312, 120, 1344, 112);
+connectDash(1232, 960, 1344, 112);
+connect(848, 1080, 880, 1072);
+connectDash(1504, 112, 880, 1072);
+connect(2032, 1144, 2064, 1136);
+connectDash(1504, 128, 2064, 1136);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);
