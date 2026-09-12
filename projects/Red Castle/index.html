@@ -96,6 +96,30 @@
         pxc_nodecontent.appendChild(node);
     }
 
+    function drawFrame(title, x, y, w, h, color="") {
+        const frame = document.createElement("div");
+        frame.className = "frame";
+        frame.style.top = y + "px";
+        frame.style.left = x + "px";
+        frame.style.width = w + "px";
+        frame.style.height = h + "px";
+
+        const frameTitle = document.createElement("div");
+        frameTitle.className = "frame-title";
+        frameTitle.innerHTML = "<p>" + title + "</p>";
+        frame.appendChild(frameTitle);
+        
+        if(color !== "") {
+            frame.style.backgroundColor = color + "15";
+            frame.style.border = "1px solid " + color + "40";
+            frameTitle.style.borderBottomColor = color + "40";
+        }
+
+        pxc_nodecontent.appendChild(frame);
+    }
+
+    drawFrame("Frame", 400, 800, 128, 128, "#ffaaaa");
+
     function connect(x0, y0, x1, y1) {
         x0 *= 2;
         y0 *= 2;
