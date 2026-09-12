@@ -112,7 +112,9 @@
         if(color !== "") {
             frame.style.backgroundColor = color + "10";
             frame.style.border = "1px solid " + color + "40";
-            frameTitle.style.borderBottomColor = color + "40";
+
+            frameTitle.style.backgroundColor = color + "10";
+            frameTitle.style.borderBottomColor = color + "20";
         }
 
         pxc_nodecontent.appendChild(frame);
@@ -275,13 +277,13 @@ connect(1664, 280, 1696, 280);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/node_outline.html", 1696, 416, 280, 280, "./src/fAC7qI2571730DH4vwV4HHsaIGKbQXd9.png");
 connect(1984, 280, 1696, 440);
 connect(1312, 328, 1344, 320);
-connectDash(528, 1024, 1344, 320);
+connectDash(528, 1024, 1344, 328);
 connect(1312, 120, 1344, 112);
-connectDash(1232, 960, 1344, 112);
+connectDash(1232, 960, 1344, 120);
 connect(848, 1080, 880, 1072);
-connectDash(1504, 112, 880, 1072);
+connectDash(1504, 112, 880, 1080);
 connect(2032, 1144, 2064, 1136);
-connectDash(1504, 128, 2064, 1136);
+connectDash(1504, 128, 2064, 1144);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

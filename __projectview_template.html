@@ -112,7 +112,9 @@
         if(color !== "") {
             frame.style.backgroundColor = color + "10";
             frame.style.border = "1px solid " + color + "40";
-            frameTitle.style.borderBottomColor = color + "40";
+
+            frameTitle.style.backgroundColor = color + "10";
+            frameTitle.style.borderBottomColor = color + "20";
         }
 
         pxc_nodecontent.appendChild(frame);
