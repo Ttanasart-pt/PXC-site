@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Red Castle_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (24.59 kb)</p>
+                            <p>Download .pxc (24.60 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -110,15 +110,15 @@
         frame.appendChild(frameTitle);
         
         if(color !== "") {
-            frame.style.backgroundColor = color + "15";
+            frame.style.backgroundColor = color + "08";
             frame.style.border = "1px solid " + color + "40";
-            frameTitle.style.borderBottomColor = color + "40";
+
+            frameTitle.style.backgroundColor = color + "08";
+            frameTitle.style.borderBottomColor = color + "20";
         }
 
         pxc_nodecontent.appendChild(frame);
     }
-
-    drawFrame("Frame", 400, 800, 128, 128, "#ffaaaa");
 
     function connect(x0, y0, x1, y1) {
         x0 *= 2;
