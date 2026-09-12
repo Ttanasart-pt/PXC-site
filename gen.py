@@ -66,6 +66,6 @@ content = content.replace("{{CONTENT}}", projectsList)
 with open(targetPath, "w") as f:
     f.write(content)
 
-subprocess.run(["git", "add", "."])
-subprocess.run(["git", "commit", "-m", "Auto push from gen.py"])
-subprocess.run(["git", "push"])
+subprocess.run(["git", "add", "."], cwd=scrDir)
+subprocess.run(["git", "commit", "-m", "Auto push from gen.py"], cwd=scrDir)
+subprocess.run(["git", "push"], cwd=scrDir)

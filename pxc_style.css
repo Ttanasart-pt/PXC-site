@@ -89,6 +89,25 @@
 
                 &:hover {
                     color: var(--accent);
+
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 10px;
+                    height: 12px;
+                    padding-right: 4px;
+                    transform: translateY(1px) translateX(-2px);
+
+                    background-image: url('./src/s_arrow_back_32.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    opacity: 0.6;
                 }
             }
 
