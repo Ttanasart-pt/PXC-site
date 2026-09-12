@@ -57,15 +57,6 @@
                         <canvas id="pxc_canvas_over" width="{{width2}}" height="{{height2}}"></canvas>
                     </div>
                 </div>
-                
-                <!-- <div class="control">
-                    <a class="control-button" id="control-zoom-in" href="#">
-                        <img src="../../src/view_zoom_in.png">
-                    </a>
-                    <a class="control-button" id="control-zoom-out" href="#">
-                        <img src="../../src/view_zoom_out.png">
-                    </a>
-                </div> -->
             </div>
         </div>
         
@@ -75,24 +66,8 @@
 </body>
 
 <script>
-    // const pxc_viewer = document.getElementById("pxc_viewer");
-    // const pxc_view_zoom_in = document.getElementById("control-zoom-in");
-    // const pxc_view_zoom_out = document.getElementById("control-zoom-out");
-
-    // let pxc_view_scale = 1;
-
-    // pxc_view_zoom_in.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    //     pxc_view_scale *= 1.25;
-    //     pxc_viewer.style.transform = "scale(" + pxc_view_scale + ")";
-    // });
-
-    // pxc_view_zoom_out.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    //     pxc_view_scale /= 1.25;
-    //     pxc_viewer.style.transform = "scale(" + pxc_view_scale + ")";
-    // });
-
+    const pxc_viewer = document.getElementById("pxc_viewer");
+    
     const pxc_canvas_under = document.getElementById("pxc_canvas_under").getContext("2d");
     const pxc_canvas_over  = document.getElementById("pxc_canvas_over").getContext("2d");
 
@@ -143,6 +118,23 @@
         pxc_canvas_over.fill();
         pxc_canvas_over.closePath();
 
+    }
+
+    function connectDash(x0, y0, x1, y1) {
+        x0 *= 2;
+        y0 *= 2;
+        x1 *= 2;
+        y1 *= 2;
+
+        pxc_canvas_under.strokeStyle = "#6d6d81";
+        pxc_canvas_under.setLineDash([12]);
+        
+        pxc_canvas_under.beginPath();
+        pxc_canvas_under.moveTo(x0, y0);
+        pxc_canvas_under.lineTo(x1, y1);
+        pxc_canvas_under.stroke();
+        pxc_canvas_under.closePath();
+        pxc_canvas_under.setLineDash([]);
     }
 
     function drawPolygon(points, color) {
