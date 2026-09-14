@@ -38,7 +38,7 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Glass Block Refraction_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (16.77 kb)</p>
+                            <p>Download .pxc (16.69 kb)</p>
                         </a>
                     </div>
                 </div>
@@ -178,9 +178,12 @@
 
     }
 
+drawNode("Grid", "https://docs.pixel-composer.com/nodes/_index/node_grid.html", 32, 384, 128, 128, "./src/gSDF4u421661AoRs9UHD5aQ0Xwkj5Hq6.png");
 drawNode("Displace", "https://docs.pixel-composer.com/nodes/_index/node_displace.html", 832, 208, 128, 128, "./src/gSDF5B4365384JksJyHTcv513SC542QN.png");
 connect(800, 56, 832, 232);
 connect(640, 408, 832, 248);
+drawNode("Level", "https://docs.pixel-composer.com/nodes/_index/node_level.html", 352, 384, 128, 128, "./src/gSDF5X458820lIhxW0Ktot5HcaCHNYoH.png");
+connect(320, 408, 352, 408);
 drawNode("Blur", "https://docs.pixel-composer.com/nodes/_index/node_blur.html", 512, 384, 128, 128, "./src/gSDF5k471654QfHWycITLP9SAklbxWXW.png");
 connect(480, 568, 512, 408);
 drawPolygon([[160,368],[416,368],[416,176],[120,176],[120,288]], "#50EB17");
@@ -238,26 +241,23 @@ connect(640, 408, 672, 888);
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/node_blend.html", 1152, 848, 128, 128, "./src/gSDFLN1408595S09RccURORngAGCaMD7.png");
 connect(1280, 712, 1152, 872);
 connect(1120, 840, 1152, 888);
-drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/node_color_adjust.html", 1088, 1056, 128, 128, "./src/gSE5q4349937vQTmjolKlVcvnAAXZZEV.png");
-connect(1280, 872, 1088, 1080);
-connect(1040, 1080, 1088, 1096);
-drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/node_blend.html", 576, 1056, 128, 128, "./src/gSE5qb382331FB6zZbhPMWvXJFuTxYZC.png");
-connect(480, 408, 576, 1080);
-connect(528, 1080, 576, 1096);
-drawNode("Level", "https://docs.pixel-composer.com/nodes/_index/node_level.html", 352, 384, 128, 128, "./src/gSDF5X458820lIhxW0Ktot5HcaCHNYoH.png");
-connect(320, 408, 352, 408);
-drawNode("Grid", "https://docs.pixel-composer.com/nodes/_index/node_grid.html", 32, 384, 128, 128, "./src/gSDF4u421661AoRs9UHD5aQ0Xwkj5Hq6.png");
-drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/node_offset.html", 192, 384, 128, 128, "./src/gSE5rw463574zeHJlnm27k3rMJy13rqB.png");
-connect(160, 408, 192, 408);
-drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/node_offset.html", 400, 1056, 128, 128, "./src/gSE5sL486929UkDABNbDFLIbebgIkihW.png");
-connect(368, 1080, 400, 1080);
 drawNode("Threshold", "https://docs.pixel-composer.com/nodes/_index/node_threshold.html", 752, 1056, 128, 128, "./src/gSE5pl332529bvsLvmrGlTdhAuUhipEf.png");
 connect(704, 1080, 752, 1080);
 drawNode("Invert", "https://docs.pixel-composer.com/nodes/_index/node_invert.html", 912, 1056, 128, 128, "./src/gSE5ps3399155MFO4PpiVjRFOok0R48k.png");
 connect(880, 1080, 912, 1080);
+drawNode("Color Adjust", "https://docs.pixel-composer.com/nodes/_index/node_color_adjust.html", 1088, 1056, 128, 128, "./src/gSE5q4349937vQTmjolKlVcvnAAXZZEV.png");
+connect(1280, 872, 1088, 1080);
+connect(1040, 1080, 1088, 1096);
+drawNode("Simplex Noise", "https://docs.pixel-composer.com/nodes/_index/node_noise_simplex.html", 80, 1056, 128, 128, "./src/gSE5qV377001RdwAZRD7zafCVPfsp95o.png");
+drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/node_blend.html", 576, 1056, 128, 128, "./src/gSE5qb382331FB6zZbhPMWvXJFuTxYZC.png");
+connect(480, 408, 576, 1080);
+connect(528, 1080, 576, 1096);
+drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/node_offset.html", 192, 384, 128, 128, "./src/gSE5rw463574zeHJlnm27k3rMJy13rqB.png");
+connect(160, 408, 192, 408);
+drawNode("Offset", "https://docs.pixel-composer.com/nodes/_index/node_offset.html", 400, 1056, 128, 128, "./src/gSE5sL486929UkDABNbDFLIbebgIkihW.png");
+connect(368, 1080, 400, 1080);
 drawNode("Tile", "https://docs.pixel-composer.com/nodes/_index/node_tile.html", 240, 1056, 128, 128, "./src/gSE5sZ500331JV98qrlxbWtlZ6RVo4V6.png");
 connect(208, 1080, 240, 1080);
-drawNode("Simplex Noise", "https://docs.pixel-composer.com/nodes/_index/node_noise_simplex.html", 80, 1056, 128, 128, "./src/gSE5qV377001RdwAZRD7zafCVPfsp95o.png");
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/node_posterize.html", 1248, 1056, 128, 128, "./src/gSDFAi769794aqfifGPMnFF0oXfSSMt2.png");
 connect(1216, 1080, 1248, 1080);
 
