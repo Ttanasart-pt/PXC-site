@@ -180,11 +180,24 @@
             flex-direction: column;
             gap: 0px;
 
-            p {
+            p, a {
                 color: var(--main_ltgrey);
                 font-size: 0.8rem;
                 text-align: right;
             }
+
+            .page-counter {
+                position: relative;
+                display: block;
+                height: 24px;
+
+                img {
+                    position: absolute;
+                    right: 0px;
+                    bottom: 0px;
+                }
+            }
+            
 
             .version-major {
                 color: var(--main_white);
@@ -325,7 +338,7 @@
             width: 100%;
             border-bottom: 1px solid var(--main_dkgrey);
             
-            
+
             p {
                 font-weight: 500;
                 font-size: .7rem;
