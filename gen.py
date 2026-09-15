@@ -6,12 +6,13 @@ import subprocess
 scrDir = os.path.realpath(__file__)
 scrDir = os.path.dirname(scrDir)
 
-def generate_showcases():
-    templatePath = os.path.join(scrDir, "__showcases_template.html")
-    listPath     = os.path.join(scrDir, "list.html")
-    targetPath   = os.path.join(scrDir, "showcases.html")
+templatePath = os.path.join(scrDir, "__showcases_template.html")
+listPath     = os.path.join(scrDir, "list.html")
+targetPath   = os.path.join(scrDir, "showcases.html")
 
-    projectDir   = os.path.join(scrDir, "projects")
+projectDir   = os.path.join(scrDir, "projects")
+
+def generate_showcases():
 
     with open(templatePath, "r") as f:
         templateContent = f.read()
@@ -78,7 +79,7 @@ if os.path.exists(editFile):
     with open(editFile, "r") as f:
         editTime = float(f.read())
 
-lastEditTime = max(os.path.getmtime(r) if os.path.basename(r) != "lastEditTime.txt" else 0 for r,_,_ in os.walk(scrDir))
+lastEditTime = max(os.path.getmtime(r) if os.path.basename(r) != "lastEditTime.txt" else 0 for r,_,_ in os.walk(projectDir))
 
 if lastEditTime > editTime:
     print(f" > Generating showcases... {lastEditTime} > {editTime}")
