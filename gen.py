@@ -81,7 +81,7 @@ if os.path.exists(editFile):
 lastEditTime = max(os.path.getmtime(r) if os.path.basename(r) != "lastEditTime.txt" else 0 for r,_,_ in os.walk(scrDir))
 
 if lastEditTime > editTime:
-    print(" > Generating showcases...")
+    print(f" > Generating showcases... {lastEditTime} > {editTime}")
     generate_showcases()
     with open(editFile, "w") as f:
         f.write(str(lastEditTime))
