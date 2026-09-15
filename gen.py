@@ -5,67 +5,85 @@ import subprocess
 
 scrDir = os.path.realpath(__file__)
 scrDir = os.path.dirname(scrDir)
-templatePath = os.path.join(scrDir, "__showcases_template.html")
-listPath     = os.path.join(scrDir, "list.html")
-targetPath   = os.path.join(scrDir, "showcases.html")
 
-projectDir   = os.path.join(scrDir, "projects")
+def generate_showcases():
+    templatePath = os.path.join(scrDir, "__showcases_template.html")
+    listPath     = os.path.join(scrDir, "list.html")
+    targetPath   = os.path.join(scrDir, "showcases.html")
 
-with open(templatePath, "r") as f:
-    templateContent = f.read()
+    projectDir   = os.path.join(scrDir, "projects")
 
-with open(listPath, "r") as f:
-    listContent = f.read()
+    with open(templatePath, "r") as f:
+        templateContent = f.read()
 
-content  = templateContent
-projects = os.listdir(projectDir)
-projects.sort(key=lambda x: os.path.getmtime(os.path.join(projectDir, x)), reverse=True)
+    with open(listPath, "r") as f:
+        listContent = f.read()
 
-projectsList = ""
-for project in projects:
-    projectPath = os.path.join(projectDir, project)
-    if not os.path.isdir(projectPath):
-        continue
+    content  = templateContent
+    projects = os.listdir(projectDir)
+    projects.sort(key=lambda x: os.path.getmtime(os.path.join(projectDir, x)), reverse=True)
 
-    fileDir  = os.path.join(projectDir, project)
-    fileList = os.listdir(fileDir)
-    fileUrl  = ""
-    for _f in fileList:
-        if _f.endswith(".pxc"):
-            fileUrl = _f
-    if fileUrl == "":
-        continue
+    projectsList = ""
+    for project in projects:
+        projectPath = os.path.join(projectDir, project)
+        if not os.path.isdir(projectPath):
+            continue
 
-    fileUrl_local = os.path.join(fileDir, fileUrl)
-    fileUrl_web   = os.path.join("./projects", project, fileUrl)
+        fileDir  = os.path.join(projectDir, project)
+        fileList = os.listdir(fileDir)
+        fileUrl  = ""
+        for _f in fileList:
+            if _f.endswith(".pxc"):
+                fileUrl = _f
+        if fileUrl == "":
+            continue
 
-    fileSize = os.path.getsize(fileUrl_local)
-    unit    = "b"
-    divider = 1
-    if fileSize > 1024 * 1024:
-        unit    = "mb"
-        divider = 1024 * 1024
-    elif fileSize > 1024:
-        unit    = "kb"
-        divider = 1024
+        fileUrl_local = os.path.join(fileDir, fileUrl)
+        fileUrl_web   = os.path.join("./projects", project, fileUrl)
 
-    fileSizeStr = f"{(fileSize/divider):.2f} {unit}"
+        fileSize = os.path.getsize(fileUrl_local)
+        unit    = "b"
+        divider = 1
+        if fileSize > 1024 * 1024:
+            unit    = "mb"
+            divider = 1024 * 1024
+        elif fileSize > 1024:
+            unit    = "kb"
+            divider = 1024
 
-    contentUrl  = os.path.join("./projects", project)
+        fileSizeStr = f"{(fileSize/divider):.2f} {unit}"
 
-    projectStr = listContent.replace("{{PROJECT_NAME}}", project)
-    projectStr = projectStr.replace("{{CONTENT_URL}}",   contentUrl)
-    projectStr = projectStr.replace("{{FILE_URL}}",      fileUrl_web)
-    projectStr = projectStr.replace("{{FILE_SIZE}}",     fileSizeStr)
+        contentUrl  = os.path.join("./projects", project)
 
-    projectsList += projectStr + "\n"
+        projectStr = listContent.replace("{{PROJECT_NAME}}", project)
+        projectStr = projectStr.replace("{{CONTENT_URL}}",   contentUrl)
+        projectStr = projectStr.replace("{{FILE_URL}}",      fileUrl_web)
+        projectStr = projectStr.replace("{{FILE_SIZE}}",     fileSizeStr)
+
+        projectsList += projectStr + "\n"
 
 
-content = content.replace("{{CONTENT}}", projectsList)
+    content = content.replace("{{CONTENT}}", projectsList)
 
-with open(targetPath, "w") as f:
-    f.write(content)
+    with open(targetPath, "w") as f:
+        f.write(content)
 
-subprocess.run(["git", "add", "."], cwd=scrDir)
-subprocess.run(["git", "commit", "-m", "Auto push from gen.py"], cwd=scrDir)
-subprocess.run(["git", "push"], cwd=scrDir)
+    subprocess.run(["git", "add", "."], cwd=scrDir)
+    subprocess.run(["git", "commit", "-m", "Auto push from gen.py"], cwd=scrDir)
+    subprocess.run(["git", "push"], cwd=scrDir)
+
+editFile = os.path.join(scrDir, "lastEditTime.txt")
+editTime = 0
+if os.path.exists(editFile):
+    with open(editFile, "r") as f:
+        editTime = float(f.read())
+
+lastEditTime = max(os.path.getmtime(r) if os.path.basename(r) != "lastEditTime.txt" else 0 for r,_,_ in os.walk(scrDir))
+
+if lastEditTime > editTime:
+    print(" > Generating showcases...")
+    generate_showcases()
+    with open(editFile, "w") as f:
+        f.write(str(lastEditTime))
+else:
+    print(" x Skipping showcases, no changes detected.")
