@@ -42,6 +42,8 @@ def generate_showcases():
 
         fileUrl_local = os.path.join(fileDir, fileUrl)
         fileUrl_web   = os.path.join("./projects", project, fileUrl)
+    
+        badgeStr = ""
 
         fileSize = os.path.getsize(fileUrl_local)
         unit    = "b"
@@ -59,6 +61,7 @@ def generate_showcases():
         tryGif = os.path.join(fileDir, "thumbnail.gif")
         if os.path.exists(tryGif):
             thumbnailPath = f"{project}/thumbnail.gif"
+            badgeStr = '<div class="badge animated">gif</div>'
 
         contentUrl  = os.path.join("./projects", project)
 
@@ -69,6 +72,8 @@ def generate_showcases():
         projectStr = projectStr.replace("{{FILE_URL}}",       fileUrl_web)
         projectStr = projectStr.replace("{{FILE_SIZE}}",      fileSizeStr)
 
+        projectStr = projectStr.replace("{{BADGE}}", badgeStr)
+        
         projectsList += projectStr + "\n"
 
 

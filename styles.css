@@ -178,6 +178,25 @@ div.showcase-grid {
                     border-radius var(--transition-duration) ease, 
                     box-shadow    var(--transition-duration) ease;
 
+        a {
+            position: relative;
+            display: block;
+            
+            div.badge {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                background-color: var(--accent);
+                color: var(--main_black);
+                
+                padding: 2px 4px;
+                border-radius: 2px;
+                font-size: 0.75rem;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+
         img.thumbnail {
             width: var(--grid-size);
             height: var(--grid-size);
@@ -186,14 +205,15 @@ div.showcase-grid {
 
             border-radius: 0px;
             transition: border-radius 0.1s ease;
-        }
+            
+            &.preview {
+                display: block;
+            }
 
-        img.thumbnail.preview {
-            display: block;
-        }
+            &.full {
+                display: none;
+            }
 
-        img.thumbnail.full {
-            display: none;
         }
 
         .description {
@@ -263,16 +283,21 @@ div.showcase-grid {
         border-radius: 4px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
 
+        div.badge {
+            opacity: .4;
+        }
+
         img.thumbnail {
             border-radius: 4px;
-        }
+            
+            &.preview {
+                display: none;
+            }
 
-        img.thumbnail.preview {
-            display: none;
-        }
+            &.full {
+                display: block;
+            }
 
-        img.thumbnail.full {
-            display: block;
         }
         
         .project-download {
