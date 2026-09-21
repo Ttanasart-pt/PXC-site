@@ -25,7 +25,7 @@
 
         <div class="content-area">
             <div class="summary">
-                <img class="thumbnail" src="./thumbnail.png">
+                <img class="thumbnail" src="./thumbnail.gif">
                 <div class="metadata">
                     <div class="project-metadata">
                         <a class="go-back" href="../../showcases.html">Showcases</a>
@@ -38,23 +38,23 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Gas-Station_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (18.30 kb)</p>
+                            <p>Download .pxc (18.63 kb)</p>
                         </a>
                     </div>
                 </div>
                 <div class="details">
                     <div style="height: 16px;"></div>
-                    <p>15/9/2026</p>
-                    <p><span class='version-major'>v1.21</span>.10.002</p>
+                    <p>21/9/2026</p>
+                    <p><span class='version-major'>v1.22</span>.10.201</p>
                 </div>
             </div>
             
             <div class="content">
                 <div class="content-wrapper">
-                    <div class="pxc-viewer" id="pxc_viewer" style="width: 1632px; height: 1248px;">
-                        <canvas id="pxc_canvas_under" width="3264" height="2496"></canvas>
+                    <div class="pxc-viewer" id="pxc_viewer" style="width: 1792px; height: 1248px;">
+                        <canvas id="pxc_canvas_under" width="3584" height="2496"></canvas>
                         <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
-                        <canvas id="pxc_canvas_over" width="3264" height="2496"></canvas>
+                        <canvas id="pxc_canvas_over" width="3584" height="2496"></canvas>
                     </div>
                 </div>
             </div>
@@ -224,8 +224,6 @@ drawNode("UV Isometric", "https://docs.pixel-composer.com/nodes/_index/node_uv_i
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/node_blend.html", 1472, 688, 128, 128, "./src/gSEA7L1051944LqP5ieF6ALzYhM5sbeu.png");
 connect(1600, 552, 1472, 712);
 connect(1440, 872, 1472, 728);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/node_posterize.html", 1472, 848, 128, 128, "./src/gSEA7N10539726RYOWOGQyG1kpuSLgOa.png");
-connect(1600, 712, 1472, 872);
 drawNode("Vignette", "https://docs.pixel-composer.com/nodes/_index/node_vignette.html", 1472, 368, 128, 128, "./src/gSEA7Q1056594Y25Zo9xYakpfrZQU2Sr.png");
 connect(1440, 392, 1472, 392);
 drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/node_shape.html", 832, 688, 128, 16);
@@ -290,6 +288,10 @@ drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/node_shape.
 drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/node_blend.html", 192, 400, 128, 32);
 connect(320, 472, 192, 408);
 connect(320, 440, 192, 424);
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/node_posterize.html", 1472, 848, 128, 128, "./src/gSEA7N10539726RYOWOGQyG1kpuSLgOa.png");
+connect(1600, 712, 1472, 872);
+drawNode("Project Output", "https://docs.pixel-composer.com/nodes/_index/node_project_output.html", 1632, 848, 128, 128, "./src/gSKBN72502117zcGhLXgmFEkR4sqxggG.png");
+connect(1600, 872, 1632, 872);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

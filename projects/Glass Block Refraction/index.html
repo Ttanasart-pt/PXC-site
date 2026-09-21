@@ -25,36 +25,36 @@
 
         <div class="content-area">
             <div class="summary">
-                <img class="thumbnail" src="./thumbnail.png">
+                <img class="thumbnail" src="./thumbnail.gif">
                 <div class="metadata">
                     <div class="project-metadata">
                         <a class="go-back" href="../../showcases.html">Showcases</a>
-                        <h2 class="project-title">Glass Block Refraction</h2>
+                        <h2 class="project-title">Glass-Block-Refraction</h2>
                         <p class="project-author">MakhamDev</p>
                         <p class="project-desc"></p>
                         <div class="project-badges"></div>
                     </div>
 
                     <div class="action-bar">
-                        <a class="action-download" href="./Glass Block Refraction_121092.pxc">
+                        <a class="action-download" href="./Glass-Block-Refraction_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (16.69 kb)</p>
+                            <p>Download .pxc (16.79 kb)</p>
                         </a>
                     </div>
                 </div>
                 <div class="details">
                     <div style="height: 16px;"></div>
-                    <p>15/9/2026</p>
-                    <p><span class='version-major'>v1.21</span>.10.002</p>
+                    <p>21/9/2026</p>
+                    <p><span class='version-major'>v1.22</span>.10.201</p>
                 </div>
             </div>
             
             <div class="content">
                 <div class="content-wrapper">
-                    <div class="pxc-viewer" id="pxc_viewer" style="width: 1408px; height: 1216px;">
-                        <canvas id="pxc_canvas_under" width="2816" height="2432"></canvas>
+                    <div class="pxc-viewer" id="pxc_viewer" style="width: 1568px; height: 1216px;">
+                        <canvas id="pxc_canvas_under" width="3136" height="2432"></canvas>
                         <div id="pxc-nodecontent" class="pxc-nodecontent"></div>
-                        <canvas id="pxc_canvas_over" width="2816" height="2432"></canvas>
+                        <canvas id="pxc_canvas_over" width="3136" height="2432"></canvas>
                     </div>
                 </div>
             </div>
@@ -186,7 +186,7 @@ drawNode("Level", "https://docs.pixel-composer.com/nodes/_index/node_level.html"
 connect(320, 408, 352, 408);
 drawNode("Blur", "https://docs.pixel-composer.com/nodes/_index/node_blur.html", 512, 384, 128, 128, "./src/gSDF5k471654QfHWycITLP9SAklbxWXW.png");
 connect(480, 568, 512, 408);
-drawPolygon([[160,368],[416,368],[416,176],[120,176],[120,288]], "#50EB17");
+drawPolygon([[166,368],[416,368],[419,367.20],[421.20,365.00],[422,362],[422,182],[421.20,179],[419.00,176.80],[416,176],[120,176],[117,176.80],[114.80,179.00],[114,182],[114,282],[114.80,285],[160.80,365],[163.00,367.20]], "#50EB17");
 drawNode("Trunk", "https://docs.pixel-composer.com/nodes/_index/node_mk_tree_root.html", 72, 208, 96, 48, "./src/gSDF6V517021ELc9EKlBeK5iXfb9Gzvc.png");
 drawNode("Render Tree", "https://docs.pixel-composer.com/nodes/_index/node_mk_tree_render.html", 352, 208, 128, 128, "./src/gSDF6V517026CyuI78SHu6VubYmX3v2B.png");
 connect(288, 312, 352, 232);
@@ -260,6 +260,8 @@ drawNode("Tile", "https://docs.pixel-composer.com/nodes/_index/node_tile.html", 
 connect(208, 1080, 240, 1080);
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/node_posterize.html", 1248, 1056, 128, 128, "./src/gSDFAi769794aqfifGPMnFF0oXfSSMt2.png");
 connect(1216, 1080, 1248, 1080);
+drawNode("Project Output", "https://docs.pixel-composer.com/nodes/_index/node_project_output.html", 1408, 1056, 128, 128, "./src/gSKAiP180467pJ0YpXbwrplRMgj671sM.png");
+connect(1376, 1080, 1408, 1080);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);

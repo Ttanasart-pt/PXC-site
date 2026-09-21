@@ -25,7 +25,7 @@
 
         <div class="content-area">
             <div class="summary">
-                <img class="thumbnail" src="./thumbnail.png">
+                <img class="thumbnail" src="./thumbnail.gif">
                 <div class="metadata">
                     <div class="project-metadata">
                         <a class="go-back" href="../../showcases.html">Showcases</a>
@@ -38,14 +38,14 @@
                     <div class="action-bar">
                         <a class="action-download" href="./Aqua-Shots_121092.pxc">
                             <div class="icon"></div>
-                            <p>Download .pxc (19.04 kb)</p>
+                            <p>Download .pxc (19.23 kb)</p>
                         </a>
                     </div>
                 </div>
                 <div class="details">
                     <div style="height: 16px;"></div>
-                    <p>20/9/2026</p>
-                    <p><span class='version-major'>v1.21</span>.10.103</p>
+                    <p>21/9/2026</p>
+                    <p><span class='version-major'>v1.22</span>.10.201</p>
                 </div>
             </div>
             
@@ -208,8 +208,6 @@ connect(1952, 728, 1824, 888);
 connect(1632, 888, 1824, 904);
 drawNode("Transform", "https://docs.pixel-composer.com/nodes/_index/node_transform.html", 1184, 880, 128, 16);
 connect(1152, 792, 1184, 888);
-drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/node_posterize.html", 2304, 496, 128, 128, "./src/gSI95a12911586gGv9ib450IcTIq03gp.png");
-connect(2272, 520, 2304, 520);
 drawNode("Outline", "https://docs.pixel-composer.com/nodes/_index/node_outline.html", 1984, 864, 128, 128, "./src/gSI96613207853JGTnyoex8X1vZShMj7.png");
 connect(1952, 888, 1984, 888);
 drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/node_shape.html", 32, 608, 128, 128, "./src/gSI99f15362443hUQv6lfzjo2lWbfr78.png");
@@ -293,8 +291,12 @@ drawNode("Blend", "https://docs.pixel-composer.com/nodes/_index/node_blend.html"
 connect(320, 632, 512, 632);
 connect(480, 792, 512, 648);
 drawNode("Draw Shape", "https://docs.pixel-composer.com/nodes/_index/node_shape.html", 496, 768, 128, 128, "./src/gSJ69T1335259XD6xuLhZXQhr1hNYYpQ.png");
+drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/node_posterize.html", 2304, 496, 128, 128, "./src/gSI95a12911586gGv9ib450IcTIq03gp.png");
+connect(2272, 520, 2304, 520);
 drawNode("Posterize", "https://docs.pixel-composer.com/nodes/_index/node_posterize.html", 2624, 496, 128, 128, "./src/gSI9Zd3094128NToMv64jlUcpWriCHeU.png");
 connect(2592, 520, 2624, 520);
+drawNode("Project Output", "https://docs.pixel-composer.com/nodes/_index/node_project_output.html", 2624, 656, 128, 128, "./src/gSKBQ02674987S0t6q5xtg0ZMvyRFlav.png");
+connect(2752, 520, 2624, 680);
 
 
     // drawNode("Node Title", 16, 16, 96, 32);
