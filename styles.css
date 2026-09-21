@@ -189,11 +189,11 @@ div.showcase-grid {
         }
 
         img.thumbnail.preview {
-            visibility: visible;
+            display: block;
         }
 
         img.thumbnail.full {
-            visibility: hidden;
+            display: none;
         }
 
         .description {
@@ -268,11 +268,11 @@ div.showcase-grid {
         }
 
         img.thumbnail.preview {
-            visibility: hidden;
+            display: none;
         }
 
         img.thumbnail.full {
-            visibility: visible;
+            display: block;
         }
         
         .project-download {
