@@ -188,7 +188,7 @@ div.showcase-grid {
                 right: 8px;
                 background-color: var(--accent);
                 color: var(--main_black);
-                
+
                 padding: 2px 4px;
                 border-radius: 2px;
                 font-size: 0.75rem;
@@ -283,12 +283,15 @@ div.showcase-grid {
         border-radius: 4px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
 
+        /* width: fit-content; */
+
         div.badge {
             opacity: .4;
         }
 
         img.thumbnail {
             border-radius: 4px;
+            width: 100%;
             
             &.preview {
                 display: none;
