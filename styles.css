@@ -188,6 +188,14 @@ div.showcase-grid {
             transition: border-radius 0.1s ease;
         }
 
+        img.thumbnail.preview {
+            visibility: visible;
+        }
+
+        img.thumbnail.full {
+            visibility: hidden;
+        }
+
         .description {
             position: absolute;
             bottom: 0px;
@@ -257,6 +265,14 @@ div.showcase-grid {
 
         img.thumbnail {
             border-radius: 4px;
+        }
+
+        img.thumbnail.preview {
+            visibility: hidden;
+        }
+
+        img.thumbnail.full {
+            visibility: visible;
         }
         
         .project-download {

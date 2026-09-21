@@ -55,12 +55,19 @@ def generate_showcases():
 
         fileSizeStr = f"{(fileSize/divider):.2f} {unit}"
 
+        thumbnailPath = f"{project}/thumbnail.png"
+        tryGif = os.path.join(fileDir, "thumbnail.gif")
+        if os.path.exists(tryGif):
+            thumbnailPath = f"{project}/thumbnail.gif"
+
         contentUrl  = os.path.join("./projects", project)
 
-        projectStr = listContent.replace("{{PROJECT_NAME}}", project)
-        projectStr = projectStr.replace("{{CONTENT_URL}}",   contentUrl)
-        projectStr = projectStr.replace("{{FILE_URL}}",      fileUrl_web)
-        projectStr = projectStr.replace("{{FILE_SIZE}}",     fileSizeStr)
+        projectStr = listContent
+        projectStr = projectStr.replace("{{THUMBNAIL_FULL}}", thumbnailPath)
+        projectStr = projectStr.replace("{{PROJECT_NAME}}",   project)
+        projectStr = projectStr.replace("{{CONTENT_URL}}",    contentUrl)
+        projectStr = projectStr.replace("{{FILE_URL}}",       fileUrl_web)
+        projectStr = projectStr.replace("{{FILE_SIZE}}",      fileSizeStr)
 
         projectsList += projectStr + "\n"
 
