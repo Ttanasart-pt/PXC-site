@@ -2,6 +2,7 @@ import os
 import shutil
 import time
 import subprocess
+import argparse
 
 scrDir = os.path.realpath(__file__)
 scrDir = os.path.dirname(scrDir)
@@ -73,18 +74,26 @@ def generate_showcases():
     subprocess.run(["git", "commit", "-m", "Auto push from gen.py"], cwd=scrDir)
     subprocess.run(["git", "push"], cwd=scrDir)
 
-editFile = os.path.join(scrDir, "lastEditTime.txt")
-editTime = 0
-if os.path.exists(editFile):
-    with open(editFile, "r") as f:
-        editTime = float(f.read())
+def main():
+    parser = argparse.ArgumentParser(description="Generate showcases for PixelComposer projects.")
+    parser.add_argument("--force", action="store_true", help="Force regeneration of showcases.")
+    args = parser.parse_args()
 
-lastEditTime = max(os.path.getmtime(r) if os.path.basename(r) != "lastEditTime.txt" else 0 for r,_,_ in os.walk(projectDir))
+    editFile = os.path.join(scrDir, "lastEditTime.txt")
+    editTime = 0
+    if os.path.exists(editFile):
+        with open(editFile, "r") as f:
+            editTime = float(f.read())
 
-if lastEditTime > editTime:
-    print(f" > Generating showcases... {lastEditTime} > {editTime}")
-    generate_showcases()
-    with open(editFile, "w") as f:
-        f.write(str(lastEditTime))
-else:
-    print(" x Skipping showcases, no changes detected.")
+    lastEditTime = max(os.path.getmtime(r) if os.path.basename(r) != "lastEditTime.txt" else 0 for r,_,_ in os.walk(projectDir))
+
+    if lastEditTime > editTime or args.force:
+        print(f" > Generating showcases... {lastEditTime} > {editTime}")
+        generate_showcases()
+        with open(editFile, "w") as f:
+            f.write(str(lastEditTime))
+    else:
+        print(" x Skipping showcases, no changes detected.")
+
+if __name__ == "__main__":
+    main()

@@ -51,6 +51,9 @@
         .thumbnail {
             height: 160px;
             width: auto;
+            max-width: 33%;
+            object-fit: cover;
+            
             border-radius: 4px;
             outline: 1px solid #d6d6e880;
             image-rendering: pixelated;
