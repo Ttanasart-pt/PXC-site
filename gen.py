@@ -23,7 +23,7 @@ def generate_showcases():
 
     content  = templateContent
     projects = os.listdir(projectDir)
-    projects.sort(key=lambda x: os.path.getmtime(os.path.join(projectDir, x)), reverse=True)
+    projects.sort(key=lambda x: os.path.getctime(os.path.join(projectDir, x)), reverse=True)
 
     projectsList = ""
     for project in projects:
