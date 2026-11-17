@@ -1,5 +1,6 @@
 {
     "title": "Example",
+    "type": "Game",
     "author": "makhamdev",
     "desc": "Template example",
     "link": "https://pixel-composer.com/showcase.html",

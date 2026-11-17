@@ -17,7 +17,7 @@
     --grid-size: calc((var(--content-width) - var(--grid-gap) * (var(--grid-columns) - 1)) / var(--grid-columns));
 
     --list-size: clamp(64px, 15vw, 128px);
-    --screenshot-height: calc(var(--list-size) * 0.75);
+    --screenshot-height: calc(var(--list-size) * .8);
 
     --transition-duration: 0.1s;
 }
@@ -432,6 +432,22 @@ div.showcase-list {
                 padding-bottom: .5rem;
             }
                 
+        }
+
+        div.badge {
+            position: absolute;
+            top: .5rem;
+            right: .5rem;
+            
+            p {
+                background: var(--main_dkblack);
+                border: 1px solid var(--main_grey);
+                color: var(--main_white);
+                padding: 0rem .4rem;
+                border-radius: 4px;
+
+                font-size: .8rem;
+            }
         }
 
         div.links {

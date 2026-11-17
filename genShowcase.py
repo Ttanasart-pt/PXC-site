@@ -43,6 +43,7 @@ def generate_showcases():
         thumbnailUrl = f"showcase/{project}/thumbnail.png"
 
         title  = info.get("title", "")
+        ptype  = info.get("type", "")
         author = info.get("author", "")
         desc   = info.get("desc", "")
         link   = info.get("link", "")
@@ -58,6 +59,7 @@ def generate_showcases():
         projectStr = listContent
         projectStr = projectStr.replace("{{THUMBNAIL}}", thumbnailUrl)
         projectStr = projectStr.replace("{{TITLE}}", title)
+        projectStr = projectStr.replace("{{TYPE}}", ptype)
         projectStr = projectStr.replace("{{AUTHOR}}", author)
         projectStr = projectStr.replace("{{DESC}}", desc)
         projectStr = projectStr.replace("{{LINK}}", link)
