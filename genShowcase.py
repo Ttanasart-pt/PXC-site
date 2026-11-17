@@ -50,7 +50,7 @@ def generate_showcases():
             scrs = os.listdir(screenShotDir)
             for s in scrs:
                 if s.endswith(".png") or s.endswith(".gif"):
-                    screenShots += f'<img class="preview" src="showcase/{project}/screenshots/{s}" alt="">'
+                    screenShots += f'<img class="preview" src="showcase/{project}/screenshots/{s}" alt="">\n'
 
         projectStr = listContent
         projectStr = projectStr.replace("{{THUMBNAIL}}", thumbnailUrl)
