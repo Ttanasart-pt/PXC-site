@@ -378,7 +378,7 @@ div.showcase-list {
 
     .project-detail {
         width: 100%;
-        height: var(--list-size);
+        min-height: var(--list-size);
         z-index: 0;
         position: relative;
         
@@ -397,7 +397,6 @@ div.showcase-list {
 
         .description {
             width: 100%;
-            display: relative;
             
             &:hover {
                 .project-title {
@@ -428,6 +427,9 @@ div.showcase-list {
             .project-desc {
                 color: var(--main_white);
                 font-size: .9rem;
+                line-height: 1.2;
+
+                padding-bottom: .5rem;
             }
                 
         }
