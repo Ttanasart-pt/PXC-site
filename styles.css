@@ -376,7 +376,7 @@ div.showcase-list {
         
     }
 
-    div.project-detail {
+    .project-detail {
         width: 100%;
         height: var(--list-size);
         z-index: 0;
@@ -411,10 +411,6 @@ div.showcase-list {
                 
                 color: var(--main_white);
                 margin: 0;
-
-                &:hover {
-                    color: var(--accent);
-                }
             }
 
             .project-auth {
@@ -440,6 +436,13 @@ div.showcase-list {
             flex-direction: row;
             justify-content: flex-end;
         }
+            
+        &:hover {
+            .project-title {
+                color: var(--accent);
+            }
+        }
+
     }
 
     div.screenshots {
