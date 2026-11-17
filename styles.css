@@ -16,7 +16,7 @@
     --grid-columns: 4;
     --grid-size: calc((var(--content-width) - var(--grid-gap) * (var(--grid-columns) - 1)) / var(--grid-columns));
 
-    --list-size: clamp(80px, 20vw, 160px);
+    --list-size: clamp(64px, 15vw, 128px);
     --screenshot-height: calc(var(--list-size) * 0.75);
 
     --transition-duration: 0.1s;
@@ -358,7 +358,7 @@ div.showcase-grid {
 div.showcase-list {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 1rem;
     width: 100%;
 
     div.showcase-item {
@@ -397,13 +397,11 @@ div.showcase-list {
 
         div.description {
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: relative;
         }
 
         div.info {
-            padding: 0.75rem 0rem;
+            padding-top: 0.72rem;
 
             .project-title {
                 font-family: 'Atkinson Hyperlegible Next', sans-serif;
@@ -433,6 +431,10 @@ div.showcase-list {
         div.links {
             width: calc(100% - 1rem);
             height: 32px;
+
+            position: absolute;
+            right: .5rem;
+            bottom: 0;
 
             display: flex;
             flex-direction: row;

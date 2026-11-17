@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Composer</title>
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class = "header">
+        <div class = "header-menu">
+            <a class="" href="./index.html">Home</a>
+            <a class="" href="https://docs.pixel-composer.com">Doc</a>
+            <a class="" href="./community.html">Community</a>
+            <a class="select" href="./showcase.html">Showcase</a>
+            <a class="" href="./gallery.html">Gallery</a>
+        </div>
+    </div>
+
+    <div class = "main">
+        <div style="height: 32px;"></div>
+
+        <h1>Showcase</h1>
+        <p class = "subtitle">Explore projects that use Pixel Composer.</p>
+        
+        <div class="showcase-list">
+            {{CONTENT}}
+        </div>
+
+        <div style="height: 64px;"></div>
+        <div class = "footer">
+            <p>2023 MakhamDev</p>
+        </div>
+    </div>
+
+    <div id="preview-modal" class="preview-modal">
+        <div class="container">
+            <img class="content" id="preview-img">
+            <div class="caption" id="caption"><p></p></div>
+        </div>
+        <div class="overlay">
+            <span class="close" id="close">&times;</span>
+            <span class="prev" id="prev">&#10094;</span>
+            <span class="next" id="next">&#10095;</span>
+            <p class="count" id="count">1/1</p>
+        </div>
+    </div>
+</body>
+
+<script>    
+    let screenGroup = [];
+    let screenIndex = 0;
+
+    var modal   = document.getElementById("preview-modal");
+    var img     = document.getElementById("preview-img");
+    var caption = document.getElementById("caption");
+    var count   = document.getElementById("count");
+
+    var close   = document.getElementById("close");
+    var prev    = document.getElementById("prev");
+    var next    = document.getElementById("next");
+
+    function showPreview(_img) {
+        var _dat = screenMap[_img.src];
+        screenGroup = _dat[0];
+        screenIndex = _dat[1];
+
+        img.src = screenGroup[screenIndex];
+        count.innerText = (screenIndex+1) + "/" + screenGroup.length;
+        modal.style.display = "block";
+    }
+
+    function prevPreview() {
+        screenIndex = (screenIndex - 1 + screenGroup.length) % screenGroup.length;
+        img.src = screenGroup[screenIndex];
+        count.innerText = (screenIndex+1) + "/" + screenGroup.length;
+    }
+
+    function nextPreview() {
+        screenIndex = (screenIndex + 1) % screenGroup.length;
+        img.src = screenGroup[screenIndex];
+        count.innerText = (screenIndex+1) + "/" + screenGroup.length;
+    }
+
+    img.onclick   = function() { modal.style.display = "block"; }
+    
+    close.onclick = function() { modal.style.display = "none"; }
+    prev.onclick  = function() { prevPreview(); }
+    next.onclick  = function() { nextPreview(); }
+
+    let  screenMap  = {};
+    let  screenList = [];
+    var _screenList = document.getElementsByClassName("screenshots-list");
+
+    for(var i = 0; i < _screenList.length; i++) {
+        var _screenShots = _screenList[i].getElementsByTagName("img");
+        var  screenShots = [];
+
+        for(var j = 0; j < _screenShots.length; j++) {
+            var _scr = _screenShots[j];
+            screenShots.push(_scr.src);
+            _scr.onclick = function() { showPreview(this); }
+
+            screenMap[_scr.src] = [screenShots,j];
+        }
+        screenList.push(screenShots);
+    }
+
+</script>
+</html>
