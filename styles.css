@@ -374,12 +374,6 @@ div.showcase-list {
         
         background-color: var(--main_dkblack);
         
-        &:hover {
-            .project-title {
-                color: var(--accent) !important;
-            }
-        }
-
     }
 
     .project-detail {
@@ -401,9 +395,16 @@ div.showcase-list {
             border-radius: 4px;
         }
 
-        div.description {
+        .description {
             width: 100%;
             display: relative;
+            
+            &:hover {
+                .project-title {
+                    color: var(--accent) !important;
+                }
+            }
+
         }
 
         div.info {
@@ -428,6 +429,7 @@ div.showcase-list {
                 color: var(--main_white);
                 font-size: .9rem;
             }
+                
         }
 
         div.links {
