@@ -26,6 +26,9 @@ def generate_showcases():
 
     projectsList = ""
     for project in projects:
+        if project.startswith("__"):
+            continue
+
         projectPath = os.path.join(showcaseDir, project)
         if not os.path.isdir(projectPath):
             continue
