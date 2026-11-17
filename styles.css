@@ -390,7 +390,7 @@ div.showcase-list {
             height: calc(var(--list-size) - 1rem);
             aspect-ratio: 16/9;
             object-fit: contain;
-            image-rendering: pixelated;
+            /* image-rendering: pixelated; */
             
             border-radius: 4px;
         }
