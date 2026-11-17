@@ -2,7 +2,7 @@ import os
 import shutil
 import time
 import subprocess
-import json
+import json5
 
 scrDir = os.path.realpath(__file__)
 scrDir = os.path.dirname(scrDir)
@@ -30,15 +30,12 @@ def generate_showcases():
         if not os.path.isdir(projectPath):
             continue
 
-        print(project)
-
-        thumbnailPath = f"{project}/thumbnail.png"
-        infoPath = f"{project}/info.json"
+        infoPath = f"{showcaseDir}/{project}/info.json"
         if not os.path.exists(infoPath):
             continue
-        
+
         with open(infoPath, "r") as f:
-            info = json.load(f)
+            info = json5.load(f)
 
         thumbnailUrl = f"showcase/{project}/thumbnail.png"
 
@@ -48,12 +45,12 @@ def generate_showcases():
         link   = info.get("link", "")
 
         screenShots = ""
-        screenShotDir = f"{project}/screenshots"
+        screenShotDir = f"{showcaseDir}/{project}/screenshots"
         if os.path.exists(screenShotDir):
             scrs = os.listdir(screenShotDir)
             for s in scrs:
                 if s.endswith(".png") or s.endswith(".gif"):
-                    screenShots += f'<img class="preview" src="{screenShotDir}/{s}" alt="">'
+                    screenShots += f'<img class="preview" src="showcase/{project}/screenshots/{s}" alt="">'
 
         projectStr = listContent
         projectStr = projectStr.replace("{{THUMBNAIL}}", thumbnailUrl)
@@ -68,8 +65,8 @@ def generate_showcases():
 
     content = content.replace("{{CONTENT}}", projectsList)
 
-    # with open(targetPath, "w") as f:
-    #     f.write(content)
+    with open(targetPath, "w") as f:
+        f.write(content)
 
     subprocess.run(["git", "add", "."], cwd=scrDir)
     subprocess.run(["git", "commit", "-m", "Auto push from gen.py"], cwd=scrDir)
