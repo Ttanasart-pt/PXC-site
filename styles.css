@@ -397,12 +397,6 @@ div.showcase-list {
 
         .description {
             width: 100%;
-            
-            &:hover {
-                .project-title {
-                    color: var(--accent) !important;
-                }
-            }
 
         }
 
@@ -417,6 +411,11 @@ div.showcase-list {
                 
                 color: var(--main_white);
                 margin: 0;
+                
+                &:hover {
+                    color: var(--accent) !important;
+                }
+            
             }
 
             .project-auth {
