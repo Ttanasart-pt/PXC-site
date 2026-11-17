@@ -361,7 +361,7 @@ div.showcase-list {
     gap: 1rem;
     width: 100%;
 
-    div.showcase-item {
+    .showcase-item {
         display: flex;
         gap: 0rem;
         flex-direction: column;
@@ -374,6 +374,12 @@ div.showcase-list {
         
         background-color: var(--main_dkblack);
         
+        &:hover {
+            .project-title {
+                color: var(--accent) !important;
+            }
+        }
+
     }
 
     .project-detail {
@@ -437,12 +443,6 @@ div.showcase-list {
             justify-content: flex-end;
         }
             
-        &:hover {
-            .project-title {
-                color: var(--accent);
-            }
-        }
-
     }
 
     div.screenshots {
