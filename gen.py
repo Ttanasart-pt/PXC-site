@@ -9,7 +9,7 @@ scrDir = os.path.dirname(scrDir)
 
 templatePath = os.path.join(scrDir, "__showcases_template.html")
 listPath     = os.path.join(scrDir, "list.html")
-targetPath   = os.path.join(scrDir, "showcases.html")
+targetPath   = os.path.join(scrDir, "gallery.html")
 
 projectDir   = os.path.join(scrDir, "projects")
 
