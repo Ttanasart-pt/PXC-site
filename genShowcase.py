@@ -13,6 +13,8 @@ targetPath   = os.path.join(scrDir, "showcase.html")
 
 showcaseDir  = os.path.join(scrDir, "showcase")
 
+imgFormat = [".png", ".jpg", ".gif"]
+
 def generate_showcases():
     with open(templatePath, "r") as f:
         templateContent = f.read()
@@ -53,7 +55,7 @@ def generate_showcases():
         if os.path.exists(screenShotDir):
             scrs = os.listdir(screenShotDir)
             for s in scrs:
-                if s.endswith(".png") or s.endswith(".gif"):
+                if any(s.endswith(ext) for ext in imgFormat):
                     screenShots += f'<img class="preview" src="showcase/{project}/screenshots/{s}" alt="">\n'
 
         projectStr = listContent

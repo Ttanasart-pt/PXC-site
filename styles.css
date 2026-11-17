@@ -491,6 +491,24 @@ div.showcase-list {
     }
 }
 
+.showcase-footer {
+    font-family: 'Atkinson Hyperlegible Next', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--main_ltgrey);
+    margin: 0;
+
+    line-height: 1;
+
+    a {
+        color: var(--main_ltgrey);
+
+        &:hover {
+            color: var(--accent);
+        }
+    }
+}
+
 a.image-link {
     opacity: 0.8;
 }
