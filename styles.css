@@ -609,7 +609,7 @@ div.showcase-list {
     line-height: 1;
 
     a {
-        color: var(--main_ltgrey);
+        color: var(--main_white);
 
         &:hover {
             color: var(--accent);
