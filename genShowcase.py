@@ -15,6 +15,19 @@ showcaseDir  = os.path.join(scrDir, "showcase")
 
 imgFormat = [".png", ".jpg", ".gif"]
 
+testiFormat = '''
+<div class="testimonial">
+    {{BLOCKS}}
+</div>
+'''
+
+testiBlock = '''
+<div class="block">
+    <div class="comment"><p>{{COMMENT}}</p></div>
+    <div class="author"><p>{{AUTHOR}}</p></div>
+</div>
+'''
+
 def generate_showcases():
     with open(templatePath, "r") as f:
         templateContent = f.read()
@@ -49,6 +62,7 @@ def generate_showcases():
         author = info.get("author", "")
         desc   = info.get("desc", "")
         link   = info.get("link", "")
+        tests  = info.get("testimonials", [])
 
         screenShots = ""
         screenShotDir = f"{showcaseDir}/{project}/screenshots"
@@ -57,6 +71,15 @@ def generate_showcases():
             for s in scrs:
                 if any(s.endswith(ext) for ext in imgFormat):
                     screenShots += f'<img class="preview" src="showcase/{project}/screenshots/{s}" alt="">\n'
+
+        desc = desc.replace("\n", "<br>")
+
+        if tests:
+            blocks = ""
+            for t in tests:
+                blocks += testiBlock.replace("{{COMMENT}}", t.get("comment", "")).replace("{{AUTHOR}}", t.get("author", ""))
+            desc += "<br>"
+            desc += testiFormat.replace("{{BLOCKS}}", blocks)
 
         projectStr = listContent
         projectStr = projectStr.replace("{{THUMBNAIL}}", thumbnailUrl)

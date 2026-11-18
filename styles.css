@@ -393,18 +393,41 @@ div.showcase-list {
         display: flex;
         gap: .5rem;
         
-        img.thumbnail {
-            padding: .5rem  ;
-            height: calc(var(--list-size) - 1rem);
-            aspect-ratio: 16/9;
-            object-fit: contain;
-            /* image-rendering: pixelated; */
-            
-            border-radius: 4px;
+        .thumbnail-container {
+            height: fit-content;
+
+            img.thumbnail {
+                padding: .5rem  ;
+                height: calc(var(--list-size) - 1rem);
+                aspect-ratio: 16/9;
+                object-fit: contain;
+                /* image-rendering: pixelated; */
+                
+                border-radius: 4px;
+            }
         }
 
         .description {
+            position: relative;
             width: 100%;
+            max-height: calc(var(--list-size) * 1.5);
+            overflow: hidden;
+            padding-bottom: 0rem;
+            
+            transition: max-height .2s ease;
+
+            &.expanded {
+                max-height: none;
+                padding-bottom: 1rem;
+                
+                a.expands {
+                    background-image: none;
+
+                    p {
+                        transform: rotate(-90deg);
+                    }
+                }
+            }
 
         }
 
@@ -437,6 +460,10 @@ div.showcase-list {
                 line-height: 1.2;
 
                 padding-bottom: .5rem;
+                padding-right: 1rem;
+
+                text-wrap-style: pretty;
+                overflow-wrap: break-word;
             }
                 
         }
@@ -454,6 +481,44 @@ div.showcase-list {
                 border-radius: 4px;
 
                 font-size: .8rem;
+            }
+        }
+
+        a.expands {
+            position: absolute;
+            padding: 1rem 0 .1rem 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            cursor: pointer;
+            transition: padding-top .2s;
+
+            /* background-color: var(--main_dkblack); */
+            background-image: linear-gradient(0deg,
+                rgba(25, 25, 37, 1) 0%, 
+                rgba(25, 25, 37, 0.8) 50%,
+                rgba(25, 25, 37, 0) 100%
+            );
+
+            text-align: center;
+
+            p {
+                font-size: 1rem;
+                color: var(--main_ltgrey);
+                transform: rotate(90deg);
+                display: inline-block;
+
+                transition: transform .2s;
+
+            }
+
+            &:hover {
+                padding-top: 2rem;
+
+                p {
+                    color: var(--accent);
+                }
             }
         }
 
@@ -499,7 +564,7 @@ div.showcase-list {
     }
 
     .testimonial {
-        padding: .5rem 1rem .25rem 1rem;
+        padding: .25rem 0rem 1rem 0rem;
 
         .block {
             width: fit-content;

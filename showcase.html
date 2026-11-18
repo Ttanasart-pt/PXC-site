@@ -27,16 +27,24 @@
         <div class="showcase-list">
             <div class="showcase-item">
     <div class="project-detail">
-        <a href="https://pixel-composer.com/showcase.html"><img class="thumbnail" src="showcase/example/thumbnail.png" alt=""></a>
+        <a class="thumbnail-container" href="https://pixel-composer.com/showcase.html"><img class="thumbnail" src="showcase/example/thumbnail.png" alt=""></a>
         <div class="description">
             <div class="info">
                 <a href="https://pixel-composer.com/showcase.html" class="project-title">Example</a>
                 <p class="project-auth">makhamdev</p>
-                <p class="project-desc">Template example.</p>
+                <p class="project-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.<br>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.<br>
+<div class="testimonial">
+    
+<div class="block">
+    <div class="comment"><p>I made this tool.</p></div>
+    <div class="author"><p>MakhamDev</p></div>
+</div>
+
+</div>
+</p>
             </div>
-            <div class="badge">
-                <p>Game</p>
-            </div>
+            <div class="expands"><p>&#10095;</p></div>
+            <div class="badge"><p>Game</p></div>
             <!-- <div class="links">
                 <a href="#">L</a>
             </div> -->
@@ -54,13 +62,6 @@
 
         </div>
     </div>
-    
-    <!-- <div class="testimonial">
-        <div class="block">
-            <div class="comment"><p>"I made this tool."</p></div>
-            <div class="author"><p>makhamdev</p></div>
-        </div>
-    </div> -->
 </div>
 
         </div>
@@ -149,5 +150,32 @@
         screenList.push(screenShots);
     }
 
+    function toggleExpands(el) {
+        el.parentElement.classList.toggle("expanded");
+    }
+    
+    function expandsDisplay() {
+        let r = document.querySelector(':root');
+        let list_size = getComputedStyle(r).getPropertyValue('--list-size');
+
+        let desc = document.getElementsByClassName("description");
+        let expd = document.getElementsByClassName("expands");
+
+        
+        for(let i = 0; i < desc.length; i++) {
+            var _desc = desc[i];
+            let max_height = _desc.offsetHeight * .75;
+            
+            var _desc_container = _desc.getElementsByClassName("project-desc");
+            var _desc_height    = _desc_container[0].offsetHeight;
+
+            console.log(max_height, _desc_height)
+
+            if(_desc_height > max_height) expd[i].style.display = "block";
+            else expd[i].style.display = "none";
+        }
+    }
+
+    expandsDisplay();
 </script>
 </html>

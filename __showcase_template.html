@@ -112,5 +112,32 @@
         screenList.push(screenShots);
     }
 
+    function toggleExpands(el) {
+        el.parentElement.classList.toggle("expanded");
+    }
+    
+    function expandsDisplay() {
+        let r = document.querySelector(':root');
+        let list_size = getComputedStyle(r).getPropertyValue('--list-size');
+
+        let desc = document.getElementsByClassName("description");
+        let expd = document.getElementsByClassName("expands");
+
+        
+        for(let i = 0; i < desc.length; i++) {
+            var _desc = desc[i];
+            let max_height = _desc.offsetHeight * .75;
+            
+            var _desc_container = _desc.getElementsByClassName("project-desc");
+            var _desc_height    = _desc_container[0].offsetHeight;
+
+            console.log(max_height, _desc_height)
+
+            if(_desc_height > max_height) expd[i].style.display = "block";
+            else expd[i].style.display = "none";
+        }
+    }
+
+    expandsDisplay();
 </script>
 </html>
