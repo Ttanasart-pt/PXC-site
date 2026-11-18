@@ -16,7 +16,7 @@
     --grid-columns: 4;
     --grid-size: calc((var(--content-width) - var(--grid-gap) * (var(--grid-columns) - 1)) / var(--grid-columns));
 
-    --list-size: clamp(64px, 15vw, 128px);
+    --list-size: clamp(64px, 20vw, 200px);
     --screenshot-height: calc(var(--list-size) * 1);
 
     --transition-duration: 0.1s;
