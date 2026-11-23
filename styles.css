@@ -85,6 +85,14 @@ p.subtitle {
 
     margin: 16px 0 32px 0;
 
+    &:has(+ p) {
+        margin-bottom: 4px;
+    }
+
+    + p {
+        margin-top: 4px;
+    }
+
     &.align-right {
         text-align: right;
         align-self: end;
