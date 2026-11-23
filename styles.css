@@ -84,6 +84,11 @@ p.subtitle {
     color: var(--main_ltgrey);
 
     margin: 16px 0 32px 0;
+
+    &.align-right {
+        text-align: right;
+        align-self: end;
+    }
 }
 
 a {

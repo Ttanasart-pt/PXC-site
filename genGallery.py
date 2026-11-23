@@ -26,6 +26,8 @@ def generate_showcases():
     projects.sort(key=lambda x: os.path.getctime(os.path.join(projectDir, x)), reverse=True)
 
     projectsList = ""
+    count = 0
+
     for project in projects:
         projectPath = os.path.join(projectDir, project)
         if not os.path.isdir(projectPath):
@@ -75,9 +77,11 @@ def generate_showcases():
         projectStr = projectStr.replace("{{BADGE}}", badgeStr)
         
         projectsList += projectStr + "\n"
+        count += 1
 
 
     content = content.replace("{{CONTENT}}", projectsList)
+    content = content.replace("{{COUNT}}", str(count))
 
     with open(targetPath, "w") as f:
         f.write(content)
@@ -95,7 +99,10 @@ def main():
     editTime = 0
     if os.path.exists(editFile):
         with open(editFile, "r") as f:
-            editTime = float(f.read())
+            try:
+                editTime = float(f.read())
+            except:
+                editTime = 0
 
     lastEditTime = max(os.path.getmtime(r) if os.path.basename(r) != "lastEditTime.txt" else 0 for r,_,_ in os.walk(projectDir))
 
