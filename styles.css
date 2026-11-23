@@ -89,13 +89,12 @@ p.subtitle {
         margin-bottom: 4px;
     }
 
-    + p {
-        margin-top: 4px;
-    }
-
     &.align-right {
         text-align: right;
         align-self: end;
+        font-size: 0.875rem;
+
+        margin: 4px 0 4px 0;
     }
 }
 
